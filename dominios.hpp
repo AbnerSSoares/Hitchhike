@@ -15,6 +15,7 @@ public:
     string getValor() const {
             return valor;
         }
+    virtual void validar(string) throw(invalid_argument);
 
 
 };
