@@ -13,13 +13,9 @@ public:
     void setValor(string) throw(invalid_argument);
 
     string getValor() const {
-            return valor;
-        }
-
-
+        return valor;
+    }
 };
-
-
 
 class Assento : public Dominio {
 /**private:
@@ -31,53 +27,52 @@ public:
 **/
 };
 
-class Bagagem : public Dominio{
-
-
-
-};
-
-class Codigo_de_banco : public Dominio{
+class Bagagem : public Dominio {
 
 
 };
 
-class Codigo_de_carona : public Dominio{
+class Codigo_de_banco : public Dominio {
 
 
 };
 
-class Codigo_de_reserva : public Dominio{
+class Codigo_de_carona : public Dominio {
 
 
 };
 
-class Cidade : public Dominio{
+class Codigo_de_reserva : public Dominio {
 
 
 };
 
-class CPF : public Dominio{
+class Cidade : public Dominio {
 
 
 };
 
-class Data : public Dominio{
+class CPF : public Dominio {
 
 
 };
 
-class Duração : public Dominio{
+class Data : public Dominio {
 
 
 };
 
-class Estado : public Dominio{
+class Duracao : public Dominio {
 
 
 };
 
-class Email : public Dominio{
+class Estado : public Dominio {
+
+
+};
+
+class Email : public Dominio {
 
 
 };
@@ -94,39 +89,34 @@ public:
 **/
 };
 
-class Numero_de_agencia : public Dominio{
+class Numero_de_agencia : public Dominio {
 
 
 };
 
-class Numero_de_conta : public Dominio{
+class Numero_de_conta : public Dominio {
 
 
 };
 
-class Preco : public Dominio{
+class Preco : public Dominio {
 
 
 };
 
-class Telefone : public Dominio{
+class Telefone : public Dominio {
 
 
 };
 
-class Senha : public Dominio{
+class Senha : public Dominio {
 
 
 };
 
-class Vagas : public Dominio{
+class Vagas : public Dominio {
 
 
 };
-
-
-
-
-
 
 #endif
