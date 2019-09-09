@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1567691197 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios.cpp
+	"dominios.hpp"
+
+1568072492 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios.hpp
+	<string>
+	<stdexcept>
+
+1567641672 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades.cpp
+	"entidades.hpp"
+
+1568072050 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades.hpp
+	"dominios.hpp"
+
+1568072192 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
+	"entidades.hpp"
+	<iostream>
+

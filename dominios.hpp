@@ -1,7 +1,8 @@
 #ifndef DOMINIOS_H
 #define DOMINIOS_H
 
-#include <string.h>
+#include <string>
+#include <stdexcept>
 
 using std::string;
 
@@ -10,22 +11,14 @@ private:
     string valor;
 
 public:
-    void setValor(string) throw(invalid_argument);
+    void setValor(string) throw(std::invalid_argument);
 
-    string getValor() const {
-        return valor;
-    }
-    virtual void validar(string) throw(invalid_argument);
+    string getValor() const { return valor; }
+    virtual void validar(string) throw(std::invalid_argument) { return; }
 };
 
 class Assento : public Dominio {
-/**private:
-    char tipo;
 
-public:
-    void setAssento(char tipo) { this->tipo = tipo; }
-    char getAssento() { return tipo; }
-**/
 };
 
 class Bagagem : public Dominio {
@@ -53,7 +46,7 @@ class Cidade : public Dominio {
 
 };
 
-class CPF : public Dominio {
+class Cpf : public Dominio {
 
 
 };
@@ -79,15 +72,7 @@ class Email : public Dominio {
 };
 
 class Nome : public Dominio {
-/**private:
-    string nome;
 
-    void validar(string nome);
-
-public:
-    void setNome(string nome);
-    string getNome() { return nome; }
-**/
 };
 
 class Numero_de_agencia : public Dominio {

@@ -1,16 +1,15 @@
-#include "dominios.hpp"
+#include "entidades.hpp"
 #include <iostream>
 
 using std::cout;
 
 int main() {
     // Código Teste
-    Nome nome;
-    Assento assento;
+    Usuario user;
 
-    assento.setAssento('D');
-    nome.setNome("Hermenegildo");
+    user.nome.setValor("Jurandismar");
+    user.cpf.setValor("123.456.789-10");
 
-    cout << "Nome inserido: " << nome.getNome() << "\nAssento: " << assento.getAssento();
+    cout << "Usuario " << user.nome.getValor() << " com CPF " << user.cpf.getValor();
     // Fim código teste
 }

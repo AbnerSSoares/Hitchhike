@@ -7,7 +7,7 @@ void Nome::validar(string nome) {
     }
 }**/
 
-void Dominio::setNome(string valor) {
+void Dominio::setValor(string valor) throw(std::invalid_argument) {
     // Implementar tratamento de exce��o com try catch
     //validar(nome);
     this->valor = valor;
