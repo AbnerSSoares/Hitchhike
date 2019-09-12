@@ -36,6 +36,8 @@
 		<Unit filename="entidades.cpp" />
 		<Unit filename="entidades.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="tu_dominios.cpp" />
+		<Unit filename="tu_dominios.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

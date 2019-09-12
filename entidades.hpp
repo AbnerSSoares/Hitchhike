@@ -3,7 +3,7 @@
 
 #include "dominios.hpp"
 
-class Usuario {
+class Usuario { // Add métodos get e set
 public:
     Nome nome;
     Telefone telefone;
@@ -39,4 +39,4 @@ public:
     Numero_de_conta numero;
 };
 
-#endif
+#endif // ENTIDADES_H

@@ -1,18 +1,27 @@
 # depslib dependency file v1.0
-1567691197 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios.cpp
+1568294593 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios.cpp
+	<stdexcept>
 	"dominios.hpp"
 
-1568072492 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios.hpp
+1568294652 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios.hpp
 	<string>
 	<stdexcept>
 
 1567641672 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades.cpp
 	"entidades.hpp"
 
-1568072050 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades.hpp
+1568295190 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades.hpp
 	"dominios.hpp"
 
-1568072192 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
+1568294541 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
 	"entidades.hpp"
+	"tu_dominios.hpp"
 	<iostream>
+
+1568293279 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_dominios.cpp
+	"tu_dominios.hpp"
+
+1568294233 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_dominios.hpp
+	"dominios.hpp"
+	<string>
 
