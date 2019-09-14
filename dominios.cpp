@@ -1,4 +1,4 @@
-cd d#include <stdexcept>
+#include <stdexcept>
 #include "dominios.hpp"
 
 void Dominio::setValor(string valor) throw(std::invalid_argument) {
@@ -6,6 +6,16 @@ void Dominio::setValor(string valor) throw(std::invalid_argument) {
     this->validar(valor);
     this->valor = valor;
 }
+
+//Valida o valor passado em assento.
+void Assento::validar(string valor){
+    if (valor.length() == 1 && (valor == "D" || valor == "T")){
+        return;
+    }else
+        throw std::invalid_argument("Assento inválido");
+
+}
+
 
 void Bagagem::validar(string valor) {
     if (valor.length() != 1 || valor > "4" || valor < "0") {
@@ -15,10 +25,6 @@ void Bagagem::validar(string valor) {
     }
 }
 
-<<<<<<< HEAD
-
-
-=======
 void Codigo_de_banco::validar(string valor) {
     if (valor.length() != 3 || !areDigits(valor)) {
         throw std::invalid_argument("Valor de código de banco inválido!");
@@ -34,4 +40,3 @@ bool Dominio::areDigits(string valor) {
     }
     return true;
 }
->>>>>>> 1403d4c8f2097a2851d28a8d0dcfaf48f08a6633
