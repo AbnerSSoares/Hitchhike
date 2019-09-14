@@ -15,6 +15,7 @@ public:
 
     string getValor() const { return valor; }
     virtual void validar(string) = 0;
+    bool areDigits(string);
 };
 
 class Assento : public Dominio {
