@@ -14,3 +14,19 @@ void Bagagem::validar(string valor) {
         return;
     }
 }
+
+void Codigo_de_banco::validar(string valor) {
+    if (valor.length() != 3 || !areDigits(valor)) {
+        throw std::invalid_argument("Valor de código de banco inválido!");
+    } else {
+        return;
+    }
+}
+
+bool Dominio::areDigits(string valor) {
+    for (int i = 0; i < valor.length(); i++) {
+        if (!isdigit(valor[i]))
+            return false;
+    }
+    return true;
+}
