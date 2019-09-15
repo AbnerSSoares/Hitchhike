@@ -22,14 +22,19 @@ protected:
     void tearDown();
 
 public:
-    /*TU_Dominio(string vi, string vv) {
-        this->VALOR_INVALIDO = vi;
-        this->VALOR_VALIDO = vv;
-    }*/
     const static int SUCESSO    = 1;
     const static int FALHA      = 0;
 
     int run();  // Podemos mudar para lancar uma excecao
+};
+
+class TU_Assento : public TU_Dominio {
+    void setUp();
+public:
+    TU_Assento(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
 };
 
 class TU_Bagagem : public TU_Dominio {
@@ -45,6 +50,33 @@ class TU_Codigo_de_banco : public TU_Dominio {
     void setUp();
 public:
     TU_Codigo_de_banco(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+
+class TU_Codigo_de_carona : public TU_Dominio {
+    void setUp();
+public:
+    TU_Codigo_de_carona(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+
+class TU_Codigo_de_reserva : public TU_Dominio {
+    void setUp();
+public:
+    TU_Codigo_de_reserva(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+
+class TU_Cpf : public TU_Dominio {
+    void setUp();
+public:
+    TU_Cpf(string vi, string vv) {
         this->VALOR_INVALIDO = vi;
         this->VALOR_VALIDO = vv;
     }

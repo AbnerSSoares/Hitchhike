@@ -15,6 +15,8 @@ public:
 
     string getValor() const { return valor; }
     virtual void validar(string) = 0;
+
+protected:
     bool areDigits(string);
 };
 

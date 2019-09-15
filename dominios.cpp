@@ -2,7 +2,6 @@
 #include "dominios.hpp"
 
 void Dominio::setValor(string valor) throw(std::invalid_argument) {
-    // Implementar tratamento de exce��o com try catch
     this->validar(valor);
     this->valor = valor;
 }
@@ -33,7 +32,7 @@ void Codigo_de_banco::validar(string valor) {
 }
 
 void Codigo_de_carona::validar(string valor) {
-    if (valor.length() != 4 && !areDigits(valor)) {
+    if (valor.length() != 4 || !areDigits(valor)) {
         throw std::invalid_argument("Valor de código de carona inválido!");
     } else {
         return;
@@ -41,7 +40,7 @@ void Codigo_de_carona::validar(string valor) {
 }
 
 void Codigo_de_reserva::validar(string valor) {
-    if (valor.length() != 5 && !areDigits(valor)) {
+    if (valor.length() != 5 || !areDigits(valor)) {
         throw std::invalid_argument("Valor de código de reserva inválido!");
     } else {
         return;

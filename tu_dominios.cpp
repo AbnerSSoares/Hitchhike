@@ -1,5 +1,10 @@
 #include "tu_dominios.hpp"
 
+void TU_Assento::setUp() {
+    this->dominio = new Assento();
+    estado = SUCESSO;
+}
+
 void TU_Bagagem::setUp() {
     this->dominio = new Bagagem();
     estado = SUCESSO;
@@ -7,6 +12,21 @@ void TU_Bagagem::setUp() {
 
 void TU_Codigo_de_banco::setUp() {
     this->dominio = new Codigo_de_banco();
+    estado = SUCESSO;
+}
+
+void TU_Codigo_de_carona::setUp() {
+    this->dominio = new Codigo_de_carona();
+    estado = SUCESSO;
+}
+
+void TU_Codigo_de_reserva::setUp() {
+    this->dominio = new Codigo_de_reserva();
+    estado = SUCESSO;
+}
+
+void TU_Cpf::setUp() {
+    this->dominio = new Cpf();
     estado = SUCESSO;
 }
 
