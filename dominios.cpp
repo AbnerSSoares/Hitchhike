@@ -1,10 +1,14 @@
 /* Copyright 2019 Abner Soares e Kallebe Sousa */
-#include <stdexcept>
-#include <vector>
 #include <sstream>
+#include <stdexcept>
+#include <string>
+#include <vector>
 #include "dominios.hpp"
 
-void Dominio::setValor(string valor) throw(std::invalid_argument) {
+using std::vector;
+using std::invalid_argument;
+
+void Dominio::setValor(string valor) throw(invalid_argument) {
     this->validar(valor);
     this->valor = valor;
 }
@@ -17,17 +21,29 @@ bool Dominio::areDigits(string valor) {
     return true;
 }
 
+vector<string> Dominio::splitString(string str, char delimitador) {
+    vector<string> split;
+    string temp;
+
+    std::stringstream ss(str);
+    while(getline(ss, temp, delimitador)) {
+        split.push_back(temp);
+    }
+
+    return split;
+}
+
 void Assento::validar(string valor) {
     if (valor.length() == 1 && (valor == "D" || valor == "T")) {
         return;
     } else {
-        throw std::invalid_argument("Assento inválido!");
+        throw invalid_argument("Assento inválido!");
     }
 }
 
 void Bagagem::validar(string valor) {
     if (valor.length() != 1 || valor > "4" || valor < "0") {
-        throw std::invalid_argument("Valor de bagagem inválido!");
+        throw invalid_argument("Valor de bagagem inválido!");
     } else {
         return;
     }
@@ -35,7 +51,7 @@ void Bagagem::validar(string valor) {
 
 void Codigo_de_banco::validar(string valor) {
     if (valor.length() != 3 || !areDigits(valor)) {
-        throw std::invalid_argument("Código de banco inválido!");
+        throw invalid_argument("Código de banco inválido!");
     } else {
         return;
     }
@@ -43,7 +59,7 @@ void Codigo_de_banco::validar(string valor) {
 
 void Codigo_de_carona::validar(string valor) {
     if (valor.length() != 4 || !areDigits(valor)) {
-        throw std::invalid_argument("Código de carona inválido!");
+        throw invalid_argument("Código de carona inválido!");
     } else {
         return;
     }
@@ -51,7 +67,7 @@ void Codigo_de_carona::validar(string valor) {
 
 void Codigo_de_reserva::validar(string valor) {
     if (valor.length() != 5 || !areDigits(valor)) {
-        throw std::invalid_argument("Código de reserva inválido!");
+        throw invalid_argument("Código de reserva inválido!");
     } else {
         return;
     }
@@ -68,7 +84,7 @@ void Cpf::validar(string valor) {
 
         // Validando a entrada de dados
         if (vcpf[i] < 0 || vcpf[i] > 9) {
-            throw std::invalid_argument("Cpf inválido!");
+            throw invalid_argument("Cpf inválido!");
         }
     }
 
@@ -100,17 +116,11 @@ void Cpf::validar(string valor) {
     if (digito1 == vcpf[9] && digito2 == vcpf[10])
         return;
     else
-        throw std::invalid_argument("Cpf inválido!");
+        throw invalid_argument("Cpf inválido!");
 }
 
 void Data::validar(string valor) {
-    std::vector<string> data;
-    string temp;
-
-    std::stringstream ss(valor);
-    while(getline(ss, temp, '/')) {
-        data.push_back(temp);
-    }
+    vector<string> data = splitString(valor, '/');
 
     if (data.size() == 3
         && data[0].length() == 2 && std::stoi(data[0]) >= 1 && std::stoi(data[0]) <= 31
@@ -118,7 +128,7 @@ void Data::validar(string valor) {
         && data[2].length() == 4 && std::stoi(data[2]) >= 2000 && std::stoi(data[2]) <= 2099) {
         return;
     } else {
-        throw std::invalid_argument("Formato de data inválido!");
+        throw invalid_argument("Formato de data inválido!");
     }
 }
 
@@ -126,7 +136,7 @@ void Duracao::validar(string valor) {
     if (areDigits(valor) && std::stoi(valor) >= 0 && std::stoi(valor) <= 48)
         return;
     else
-        throw std::invalid_argument("Duração inválida!");
+        throw invalid_argument("Duração inválida!");
 }
 
 void Estado::validar(string valor) {
@@ -139,5 +149,36 @@ void Estado::validar(string valor) {
         || valor == "SP" || valor == "SE" || valor == "TO")
             return;
     else
-        throw std::invalid_argument("Estado inválido!");
+        throw invalid_argument("Estado inválido!");
+}
+
+void Email::validar(string valor) {
+    vector<string> email = splitString(valor, '@');
+
+    if (email.size() == 2
+        && email[0].length() <= 20 && email[1].length() <= 20
+        && email[0][0] != '.'
+        && email[0][email[0].length()-1] != '.'
+        && email[1][0] != '.') {
+
+            int contPonto = 0;
+            for (int i = 0; i < email[0].length(); i++) {
+                if (email[0][i] == '.')
+                    contPonto++;
+                else
+                    contPonto = 0;
+                if (!(email[0][i] >= 'a' && !email[0][i] <= 'z' || email[1][i] == '.') || contPonto > 1)
+                    throw invalid_argument("Email inválido!");
+            }
+            for (int i = 0; i < email[1].length(); i++) {
+                if (email[1][i] == '.')
+                    contPonto++;
+                else
+                    contPonto = 0;
+                if (!(email[1][i] >= 'a' && !email[1][i] <= 'z' || email[1][i] == '.') || contPonto > 1)
+                    throw invalid_argument("Email inválido!");
+            }
+    } else {
+        throw invalid_argument("Email inválido!");
+    }
 }

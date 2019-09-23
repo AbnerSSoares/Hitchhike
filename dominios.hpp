@@ -2,8 +2,9 @@
 #ifndef DOMINIOS_HPP_
 #define DOMINIOS_HPP_
 
-#include <string>
 #include <stdexcept>
+#include <string>
+#include <vector>
 
 using std::string;
 
@@ -19,6 +20,7 @@ class Dominio {
 
  protected:
     bool areDigits(string);
+    std::vector<string> splitString(string, char);
 };
 
 class Assento : public Dominio {
