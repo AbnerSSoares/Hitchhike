@@ -101,4 +101,13 @@ class TU_Duracao : public TU_Dominio {
     }
 };
 
+class TU_Estado : public TU_Dominio {
+    void setUp();
+ public:
+    TU_Estado(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+
 #endif  // TU_DOMINIOS_HPP_

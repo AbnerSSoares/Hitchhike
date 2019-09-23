@@ -35,16 +35,16 @@
 	<string>
 	<stdexcept>
 
-1569251854 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/main.cpp
+1569276511 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/main.cpp
 	<iostream>
 	"entidades.hpp"
 	"tu_dominios.hpp"
 
-1569252751 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.hpp
+1569276114 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.hpp
 	<string>
 	"dominios.hpp"
 
-1569252770 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.cpp
+1569276158 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.cpp
 	"tu_dominios.hpp"
 
 1569252688 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/dominios.cpp

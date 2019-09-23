@@ -15,6 +15,7 @@ int main() {
     TU_Cpf teste_cpf                    = TU_Cpf("12345678910", "70624833119");
     TU_Data teste_data                  = TU_Data("1/12/2000", "10/12/2000");
     TU_Duracao teste_duracao            = TU_Duracao("5h", "22");
+    TU_Estado teste_estado              = TU_Estado("Acre", "AC");
 
     if (teste_bag.run()) {
         cout << "SUCESSO NO TESTE BAGAGEM!\n";
@@ -55,6 +56,11 @@ int main() {
         cout << "SUCESSO NO TESTE DURACAO!\n";
     } else {
         cout << "FALHA NO TESTE DURACAO!\n";
+    }
+    if (teste_estado.run()) {
+        cout << "SUCESSO NO TESTE ESTADO!\n";
+    } else {
+        cout << "FALHA NO TESTE ESTADO!\n";
     }
     // Fim codigo teste
 }

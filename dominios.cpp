@@ -128,3 +128,16 @@ void Duracao::validar(string valor) {
     else
         throw std::invalid_argument("Duração inválida!");
 }
+
+void Estado::validar(string valor) {
+    if (valor == "AC" || valor == "AL" || valor == "AP" || valor == "AM"
+        || valor == "BA" || valor == "CE" || valor == "DF" || valor == "ES"
+        || valor == "GO" || valor == "MA" || valor == "MT" || valor == "MS"
+        || valor == "MG" || valor == "PA" || valor == "PB" || valor == "PR"
+        || valor == "PE" || valor == "PI" || valor == "RJ" || valor == "RN"
+        || valor == "RS" || valor == "RO" || valor == "RR" || valor == "SC"
+        || valor == "SP" || valor == "SE" || valor == "TO")
+            return;
+    else
+        throw std::invalid_argument("Estado inválido!");
+}
