@@ -1,13 +1,14 @@
-#ifndef TU_DOMINIOS_H
-#define TU_DOMINIOS_H
+/* Copyright 2019 Abner Soares e Kallebe Sousa */
+#ifndef TU_DOMINIOS_HPP_
+#define TU_DOMINIOS_HPP_
 
-#include "dominios.hpp"
 #include <string>
+#include "dominios.hpp"
 
 using std::string;
 
 class TU_Dominio {
-protected:
+ protected:
     string VALOR_INVALIDO;
     string VALOR_VALIDO;
 
@@ -21,16 +22,16 @@ protected:
     void testarCenarioFalha();
     void tearDown();
 
-public:
-    const static int SUCESSO    = 1;
-    const static int FALHA      = 0;
+ public:
+    static const int SUCESSO    = 1;
+    static const int FALHA      = 0;
 
     int run();  // Podemos mudar para lancar uma excecao
 };
 
 class TU_Assento : public TU_Dominio {
     void setUp();
-public:
+ public:
     TU_Assento(string vi, string vv) {
         this->VALOR_INVALIDO = vi;
         this->VALOR_VALIDO = vv;
@@ -39,7 +40,7 @@ public:
 
 class TU_Bagagem : public TU_Dominio {
     void setUp();
-public:
+ public:
     TU_Bagagem(string vi, string vv) {
         this->VALOR_INVALIDO = vi;
         this->VALOR_VALIDO = vv;
@@ -48,7 +49,7 @@ public:
 
 class TU_Codigo_de_banco : public TU_Dominio {
     void setUp();
-public:
+ public:
     TU_Codigo_de_banco(string vi, string vv) {
         this->VALOR_INVALIDO = vi;
         this->VALOR_VALIDO = vv;
@@ -57,7 +58,7 @@ public:
 
 class TU_Codigo_de_carona : public TU_Dominio {
     void setUp();
-public:
+ public:
     TU_Codigo_de_carona(string vi, string vv) {
         this->VALOR_INVALIDO = vi;
         this->VALOR_VALIDO = vv;
@@ -66,7 +67,7 @@ public:
 
 class TU_Codigo_de_reserva : public TU_Dominio {
     void setUp();
-public:
+ public:
     TU_Codigo_de_reserva(string vi, string vv) {
         this->VALOR_INVALIDO = vi;
         this->VALOR_VALIDO = vv;
@@ -75,11 +76,11 @@ public:
 
 class TU_Cpf : public TU_Dominio {
     void setUp();
-public:
+ public:
     TU_Cpf(string vi, string vv) {
         this->VALOR_INVALIDO = vi;
         this->VALOR_VALIDO = vv;
     }
 };
 
-#endif // TU_DOMINIOS_H
+#endif  // TU_DOMINIOS_HPP_

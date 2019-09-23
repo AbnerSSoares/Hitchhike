@@ -1,11 +1,12 @@
+/* Copyright 2019 Abner Soares e Kallebe Sousa */
+#include <iostream>
 #include "entidades.hpp"
 #include "tu_dominios.hpp"
-#include <iostream>
 
 using std::cout;
 
 int main() {
-    // Código Teste
+    // Codigo Teste
     TU_Assento teste_assento            = TU_Assento("A", "T");
     TU_Bagagem teste_bag                = TU_Bagagem("D", "0");
     TU_Codigo_de_banco teste_banco      = TU_Codigo_de_banco("5sd", "123");
@@ -45,5 +46,5 @@ int main() {
     } else {
         cout << "FALHA NO TESTE CPF!\n";
     }
-    // Fim código teste
+    // Fim codigo teste
 }

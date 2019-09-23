@@ -1,5 +1,6 @@
-#ifndef DOMINIOS_H
-#define DOMINIOS_H
+/* Copyright 2019 Abner Soares e Kallebe Sousa */
+#ifndef DOMINIOS_HPP_
+#define DOMINIOS_HPP_
 
 #include <string>
 #include <stdexcept>
@@ -7,16 +8,16 @@
 using std::string;
 
 class Dominio {
-private:
+ private:
     string valor;
 
-public:
+ public:
     void setValor(string) throw(std::invalid_argument);
 
     string getValor() const { return valor; }
     virtual void validar(string) = 0;
 
-protected:
+ protected:
     bool areDigits(string);
 };
 
@@ -92,4 +93,4 @@ class Vagas : public Dominio {
     void validar(string);
 };
 
-#endif // DOMINIOS_H
+#endif  // DOMINIOS_HPP_

@@ -1,10 +1,11 @@
-#ifndef ENTIDADES_H
-#define ENTIDADES_H
+/* Copyright 2019 Abner Soares e Kallebe Sousa */
+#ifndef ENTIDADES_HPP_
+#define ENTIDADES_HPP_
 
 #include "dominios.hpp"
 
-class Usuario { // Add métodos get e set
-public:
+class Usuario {  // Add metodos get e set
+ public:
     Nome nome;
     Telefone telefone;
     Email email;
@@ -13,14 +14,14 @@ public:
 };
 
 class Reserva {
-public:
+ public:
     Codigo_de_reserva codigo;
     Assento assento;
     Bagagem bagagem;
 };
 
 class Carona {
-public:
+ public:
     Codigo_de_carona codigo;
     Cidade cidade_origem;
     Estado estado_origem;
@@ -33,10 +34,10 @@ public:
 };
 
 class Conta {
-public:
+ public:
     Codigo_de_banco banco;
     Numero_de_agencia agencia;
     Numero_de_conta numero;
 };
 
-#endif // ENTIDADES_H
+#endif  // ENTIDADES_HPP_
