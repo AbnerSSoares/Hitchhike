@@ -13,8 +13,7 @@ int main() {
     TU_Codigo_de_carona teste_carona    = TU_Codigo_de_carona("123A", "0123");
     TU_Codigo_de_reserva teste_reserva  = TU_Codigo_de_reserva("9414", "46175");
     TU_Cpf teste_cpf                    = TU_Cpf("12345678910", "70624833119");
-
-
+    TU_Data teste_data                  = TU_Data("1/12/2000", "10/12/2000");
 
     if (teste_bag.run()) {
         cout << "SUCESSO NO TESTE BAGAGEM!\n";
@@ -45,6 +44,11 @@ int main() {
         cout << "SUCESSO NO TESTE CPF!\n";
     } else {
         cout << "FALHA NO TESTE CPF!\n";
+    }
+    if (teste_data.run()) {
+        cout << "SUCESSO NO TESTE DATA!\n";
+    } else {
+        cout << "FALHA NO TESTE DATA!\n";
     }
     // Fim codigo teste
 }

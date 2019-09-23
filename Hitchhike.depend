@@ -25,3 +25,31 @@
 	"dominios.hpp"
 	<string>
 
+1569247082 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/entidades.cpp
+	"entidades.hpp"
+
+1569246992 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/entidades.hpp
+	"dominios.hpp"
+
+1569247025 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/dominios.hpp
+	<string>
+	<stdexcept>
+
+1569251854 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/main.cpp
+	<iostream>
+	"entidades.hpp"
+	"tu_dominios.hpp"
+
+1569249146 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.hpp
+	<string>
+	"dominios.hpp"
+
+1569251684 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.cpp
+	"tu_dominios.hpp"
+
+1569252079 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/dominios.cpp
+	<stdexcept>
+	<vector>
+	<sstream>
+	"dominios.hpp"
+

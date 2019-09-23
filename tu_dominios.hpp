@@ -83,4 +83,13 @@ class TU_Cpf : public TU_Dominio {
     }
 };
 
+class TU_Data : public TU_Dominio {
+    void setUp();
+ public:
+    TU_Data(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+
 #endif  // TU_DOMINIOS_HPP_

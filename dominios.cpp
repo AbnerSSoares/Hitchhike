@@ -1,5 +1,7 @@
 /* Copyright 2019 Abner Soares e Kallebe Sousa */
 #include <stdexcept>
+#include <vector>
+#include <sstream>
 #include "dominios.hpp"
 
 void Dominio::setValor(string valor) throw(std::invalid_argument) {
@@ -7,12 +9,19 @@ void Dominio::setValor(string valor) throw(std::invalid_argument) {
     this->valor = valor;
 }
 
-// Valida o valor passado em assento.
+bool Dominio::areDigits(string valor) {
+    for (int i = 0; i < valor.length(); i++) {
+        if (!isdigit(valor[i]))
+            return false;
+    }
+    return true;
+}
+
 void Assento::validar(string valor) {
     if (valor.length() == 1 && (valor == "D" || valor == "T")) {
         return;
     } else {
-        throw std::invalid_argument("Assento inválido");
+        throw std::invalid_argument("Assento inválido!");
     }
 }
 
@@ -26,7 +35,7 @@ void Bagagem::validar(string valor) {
 
 void Codigo_de_banco::validar(string valor) {
     if (valor.length() != 3 || !areDigits(valor)) {
-        throw std::invalid_argument("Valor de código de banco inválido!");
+        throw std::invalid_argument("Código de banco inválido!");
     } else {
         return;
     }
@@ -34,7 +43,7 @@ void Codigo_de_banco::validar(string valor) {
 
 void Codigo_de_carona::validar(string valor) {
     if (valor.length() != 4 || !areDigits(valor)) {
-        throw std::invalid_argument("Valor de código de carona inválido!");
+        throw std::invalid_argument("Código de carona inválido!");
     } else {
         return;
     }
@@ -42,18 +51,10 @@ void Codigo_de_carona::validar(string valor) {
 
 void Codigo_de_reserva::validar(string valor) {
     if (valor.length() != 5 || !areDigits(valor)) {
-        throw std::invalid_argument("Valor de código de reserva inválido!");
+        throw std::invalid_argument("Código de reserva inválido!");
     } else {
         return;
     }
-}
-
-bool Dominio::areDigits(string valor) {
-    for (int i = 0; i < valor.length(); i++) {
-        if (!isdigit(valor[i]))
-            return false;
-    }
-    return true;
 }
 
 void Cpf::validar(string valor) {
@@ -61,12 +62,13 @@ void Cpf::validar(string valor) {
     int digito1, digito2, temp = 0;
 
     for (int i = 0; i < 11; i++) {
-        // Convertendo string para valor absoluto segundo tabela ASCII e passando para array de inteiros
+        /* Convertendo string para valor absoluto segundo tabela ASCII e
+           passando para array de inteiros */
         vcpf[i] = static_cast<int>(valor[i] - 48);
 
         // Validando a entrada de dados
         if (vcpf[i] < 0 || vcpf[i] > 9) {
-            throw std::invalid_argument("Cpf Inválido");
+            throw std::invalid_argument("Cpf inválido!");
         }
     }
 
@@ -98,5 +100,24 @@ void Cpf::validar(string valor) {
     if (digito1 == vcpf[9] && digito2 == vcpf[10])
         return;
     else
-        throw std::invalid_argument("Cpf Inválido");
+        throw std::invalid_argument("Cpf inválido!");
+}
+
+void Data::validar(string valor) {
+    std::vector<string> data;
+    string temp;
+
+    std::stringstream ss(valor);
+    while(getline(ss, temp, '/')) {
+        data.push_back(temp);
+    }
+
+    if (data.size() == 3
+        && data[0].length() == 2 && std::stoi(data[0]) >=1 && std::stoi(data[0]) <= 31
+        && data[1].length() == 2 && std::stoi(data[1]) >=1 && std::stoi(data[1]) <= 12
+        && data[2].length() == 4 && std::stoi(data[2]) >=2000 && std::stoi(data[2]) <= 2099) {
+        return;
+    } else {
+        throw std::invalid_argument("Formato de data inválido!");
+    }
 }

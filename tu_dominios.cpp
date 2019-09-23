@@ -31,6 +31,11 @@ void TU_Cpf::setUp() {
     estado = SUCESSO;
 }
 
+void TU_Data::setUp() {
+    this->dominio = new Data();
+    estado = SUCESSO;
+}
+
 void TU_Dominio::tearDown() {
     delete this->dominio;
 }
