@@ -113,11 +113,18 @@ void Data::validar(string valor) {
     }
 
     if (data.size() == 3
-        && data[0].length() == 2 && std::stoi(data[0]) >=1 && std::stoi(data[0]) <= 31
-        && data[1].length() == 2 && std::stoi(data[1]) >=1 && std::stoi(data[1]) <= 12
-        && data[2].length() == 4 && std::stoi(data[2]) >=2000 && std::stoi(data[2]) <= 2099) {
+        && data[0].length() == 2 && std::stoi(data[0]) >= 1 && std::stoi(data[0]) <= 31
+        && data[1].length() == 2 && std::stoi(data[1]) >= 1 && std::stoi(data[1]) <= 12
+        && data[2].length() == 4 && std::stoi(data[2]) >= 2000 && std::stoi(data[2]) <= 2099) {
         return;
     } else {
         throw std::invalid_argument("Formato de data inválido!");
     }
+}
+
+void Duracao::validar(string valor) {
+    if (areDigits(valor) && std::stoi(valor) >= 0 && std::stoi(valor) <= 48)
+        return;
+    else
+        throw std::invalid_argument("Duração inválida!");
 }

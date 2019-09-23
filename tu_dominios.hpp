@@ -92,4 +92,13 @@ class TU_Data : public TU_Dominio {
     }
 };
 
+class TU_Duracao : public TU_Dominio {
+    void setUp();
+ public:
+    TU_Duracao(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+
 #endif  // TU_DOMINIOS_HPP_

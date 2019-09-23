@@ -36,6 +36,11 @@ void TU_Data::setUp() {
     estado = SUCESSO;
 }
 
+void TU_Duracao::setUp() {
+    this->dominio = new Duracao();
+    estado = SUCESSO;
+}
+
 void TU_Dominio::tearDown() {
     delete this->dominio;
 }
