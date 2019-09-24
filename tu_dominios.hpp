@@ -119,4 +119,13 @@ class TU_Email : public TU_Dominio {
     }
 };
 
+class TU_Nome : public TU_Dominio {
+    void setUp();
+ public:
+    TU_Nome(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+
 #endif  // TU_DOMINIOS_HPP_

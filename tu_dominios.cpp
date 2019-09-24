@@ -51,6 +51,11 @@ void TU_Email::setUp() {
     estado = SUCESSO;
 }
 
+void TU_Nome::setUp() {
+    this->dominio = new Nome();
+    estado = SUCESSO;
+}
+
 void TU_Dominio::tearDown() {
     delete this->dominio;
 }

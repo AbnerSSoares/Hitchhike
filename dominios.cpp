@@ -141,13 +141,15 @@ void Duracao::validar(string valor) {
 
 void Estado::validar(string valor) {
     if (valor == "AC" || valor == "AL" || valor == "AP" || valor == "AM"
-        || valor == "BA" || valor == "CE" || valor == "DF" || valor == "ES"
-        || valor == "GO" || valor == "MA" || valor == "MT" || valor == "MS"
-        || valor == "MG" || valor == "PA" || valor == "PB" || valor == "PR"
-        || valor == "PE" || valor == "PI" || valor == "RJ" || valor == "RN"
-        || valor == "RS" || valor == "RO" || valor == "RR" || valor == "SC"
-        || valor == "SP" || valor == "SE" || valor == "TO")
-            return;
+                        || valor == "BA" || valor == "CE" || valor == "DF"
+                        || valor == "ES" || valor == "GO" || valor == "MA"
+                        || valor == "MT" || valor == "MS" || valor == "MG"
+                        || valor == "PA" || valor == "PB" || valor == "PR"
+                        || valor == "PE" || valor == "PI" || valor == "RJ"
+                        || valor == "RN" || valor == "RS" || valor == "RO"
+                        || valor == "RR" || valor == "SC" || valor == "SP"
+                        || valor == "SE" || valor == "TO")
+        return;
     else
         throw invalid_argument("Estado inválido!");
 }
@@ -155,30 +157,52 @@ void Estado::validar(string valor) {
 void Email::validar(string valor) {
     vector<string> email = splitString(valor, '@');
 
-    if (email.size() == 2
-        && email[0].length() <= 20 && email[1].length() <= 20
-        && email[0][0] != '.'
-        && email[0][email[0].length()-1] != '.'
-        && email[1][0] != '.') {
+    if (email.size() == 2 && email[0].length() <= 20
+                            && email[1].length() <= 20
+                            && email[0][0] != '.'
+                            && email[0][email[0].length()-1] != '.'
+                            && email[1][0] != '.') {
+        int contPonto = 0;
 
-            int contPonto = 0;
-            for (int i = 0; i < email[0].length(); i++) {
-                if (email[0][i] == '.')
-                    contPonto++;
-                else
-                    contPonto = 0;
-                if (!(email[0][i] >= 'a' && !email[0][i] <= 'z' || email[1][i] == '.') || contPonto > 1)
-                    throw invalid_argument("Email inválido!");
-            }
-            for (int i = 0; i < email[1].length(); i++) {
-                if (email[1][i] == '.')
-                    contPonto++;
-                else
-                    contPonto = 0;
-                if (!(email[1][i] >= 'a' && !email[1][i] <= 'z' || email[1][i] == '.') || contPonto > 1)
-                    throw invalid_argument("Email inválido!");
-            }
+        for (int i = 0; i < email[0].length(); i++) {
+            if (email[0][i] == '.')
+                contPonto++;
+            else
+                contPonto = 0;
+            if (!(email[0][i] >= 'a' && !email[0][i] <= 'z' || email[1][i] == '.') || contPonto > 1)
+                throw invalid_argument("Email inválido!");
+        }
+        for (int i = 0; i < email[1].length(); i++) {
+            if (email[1][i] == '.')
+                contPonto++;
+            else
+                contPonto = 0;
+            if (!(email[1][i] >= 'a' && !email[1][i] <= 'z' || email[1][i] == '.') || contPonto > 1)
+                throw invalid_argument("Email inválido!");
+        }
     } else {
         throw invalid_argument("Email inválido!");
+    }
+}
+
+void Nome::validar(string valor) {
+    if (valor.length() > 0 && valor.length() <= 20 && valor[0] != '.') {
+        int contLetra = 0, contEspaco = 0;
+        for (int i = 0; i < valor.length(); i++) {
+            if (isspace(valor[i]))
+                contEspaco++;
+            else
+                contEspaco = 0;
+            if (isalpha(valor[i]))
+                contLetra++;
+            if ((!isalpha(valor[i]) && !isspace(valor[i]) && valor[i] != '.')
+                            || contEspaco > 1
+                            || (valor[i] == '.' && !isalpha(valor[i-1])))
+                throw invalid_argument("Nome inválido!");
+        }
+        if (contLetra == 0)
+            throw invalid_argument("Nome inválido!");
+    } else {
+        throw invalid_argument("Nome inválido!");
     }
 }

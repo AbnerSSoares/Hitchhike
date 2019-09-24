@@ -16,7 +16,8 @@ int main() {
     TU_Data teste_data                  = TU_Data("1/12/2000", "10/12/2000");
     TU_Duracao teste_duracao            = TU_Duracao("5h", "22");
     TU_Estado teste_estado              = TU_Estado("Acre", "AC");
-    TU_Email teste_email                = TU_Email("local.@dominio.com", "local@dominio.com.br");
+    TU_Email teste_email                = TU_Email("hermenegildo.@ocmd.com", "juris@uvt.com.br");
+    TU_Nome teste_nome                  = TU_Nome("Karen112780", "Hermenegildo.");
 
     if (teste_bag.run()) {
         cout << "SUCESSO NO TESTE BAGAGEM!\n";
@@ -67,6 +68,11 @@ int main() {
         cout << "SUCESSO NO TESTE EMAIL!\n";
     } else {
         cout << "FALHA NO TESTE EMAIL!\n";
+    }
+    if (teste_nome.run()) {
+        cout << "SUCESSO NO TESTE NOME!\n";
+    } else {
+        cout << "FALHA NO TESTE NOME!\n";
     }
     // Fim codigo teste
 }

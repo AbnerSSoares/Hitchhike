@@ -41,14 +41,14 @@
 	"entidades.hpp"
 	"tu_dominios.hpp"
 
-1569280041 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.hpp
+1569286860 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.hpp
 	<string>
 	"dominios.hpp"
 
-1569280059 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.cpp
+1569286879 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.cpp
 	"tu_dominios.hpp"
 
-1569281231 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/dominios.cpp
+1569286588 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/dominios.cpp
 	<sstream>
 	<stdexcept>
 	<string>
