@@ -32,6 +32,28 @@ vector<string> Dominio::splitString(string str, char delimitador) {
 
     return split;
 }
+bool Dominio::isSpecial(string valor) {
+    for (int i = 0; i < valor.length(); i++) {
+        if (!isalpha(valor[i])){
+            if(valor[i] != '.' && valor[i] != ' ' && valor[i] != 'ã' && valor[i] != 'á'
+                               && valor[i] != 'à' && valor[i] != 'â' && valor[i] != 'é'
+                               && valor[i] != 'ê' && valor[i] != 'í' && valor[i] != 'õ'
+                               && valor[i] != 'ó' && valor[i] != 'ô' && valor[i] != 'ú'){
+            return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool Dominio::haveAlpha (string valor){
+    for (int i = 0; i < valor.length(); i++){
+        if(isalpha(valor[i])){
+            return true;
+        }
+    }
+    return false;
+}
 
 void Assento::validar(string valor) {
     if (valor.length() == 1 && (valor == "D" || valor == "T")) {
@@ -117,6 +139,27 @@ void Cpf::validar(string valor) {
         return;
     else
         throw invalid_argument("Cpf inválido!");
+}
+
+void Cidade::validar(string valor){
+    if (valor.length() < 1 || valor.length() > 10){
+        throw invalid_argument("Tamanho inválido!");
+    }
+    else if(!haveAlpha(valor)){
+        throw invalid_argument("Não possui letra!");
+    }
+    else if (isSpecial(valor)){
+        throw invalid_argument("Caracter inválido!");
+    }
+
+    for (int i = 0; i < valor.length(); i++) {
+        if(valor[i] == ' ' && valor[i-1] == ' '){
+            throw invalid_argument("Espaços consecutivos!");
+        }else if(valor[i] == '.' && valor[i-1] == ' '){
+            throw invalid_argument("Ponto depois de espaço!");
+        }
+    }
+    return;
 }
 
 void Data::validar(string valor) {
@@ -206,3 +249,5 @@ void Nome::validar(string valor) {
         throw invalid_argument("Nome inválido!");
     }
 }
+
+
