@@ -5,13 +5,10 @@
 #include <vector>
 #include "dominios.hpp"
 
-#include <iostream>
-
-
 using std::vector;
 using std::invalid_argument;
 
-void Dominio::setValor(string valor) throw(invalid_argument) {
+void Dominio::setValor(string valor) {
     this->validar(valor);
     this->valor = valor;
 }
@@ -40,11 +37,11 @@ bool Dominio::isSpecial(string valor) {
     int tamanho = valor.length();
 
     for (int i = 0; i < tamanho; i++) {
-        if (!isalpha(valor[i])){
-            if(valor[i] != '.' && valor[i] != ' ' && valor[i] != 'ã' && valor[i] != 'á'
-                               && valor[i] != 'à' && valor[i] != 'â' && valor[i] != 'é'
-                               && valor[i] != 'ê' && valor[i] != 'í' && valor[i] != 'õ'
-                               && valor[i] != 'ó' && valor[i] != 'ô' && valor[i] != 'ú') {
+        if (!isalpha(valor[i])) {
+            if (valor[i] != '.' && valor[i] != ' ' && valor[i] != 'ã' && valor[i] != 'á'
+                        && valor[i] != 'à' && valor[i] != 'â' && valor[i] != 'é'
+                        && valor[i] != 'ê' && valor[i] != 'í' && valor[i] != 'õ'
+                        && valor[i] != 'ó' && valor[i] != 'ô' && valor[i] != 'ú') {
                 return true;
             }
         }
@@ -63,43 +60,38 @@ bool Dominio::hasAlpha(string valor) {
 }
 
 void Assento::validar(string valor) {
-    if (valor.length() == 1 && (valor == "D" || valor == "T")) {
+    if (valor == "D" || valor == "T")
         return;
-    } else {
+    else
         throw invalid_argument("Assento inválido!");
-    }
 }
 
 void Bagagem::validar(string valor) {
-    if (valor.length() != 1 || valor > "4" || valor < "0") {
+    if (valor.length() != 1 || valor > "4" || valor < "0")
         throw invalid_argument("Valor de bagagem inválido!");
-    } else {
+    else
         return;
-    }
 }
 
 void Codigo_de_banco::validar(string valor) {
-    if (valor.length() != 3 || !areDigits(valor)) {
+    if (valor.length() != 3 || !areDigits(valor))
         throw invalid_argument("Código de banco inválido!");
-    } else {
+    else
         return;
-    }
 }
 
 void Codigo_de_carona::validar(string valor) {
-    if (valor.length() != 4 || !areDigits(valor)) {
+    if (valor.length() != 4 || !areDigits(valor))
         throw invalid_argument("Código de carona inválido!");
-    } else {
+    else
         return;
-    }
 }
 
-void Codigo_de_reserva::validar(string valor) {
-    if (valor.length() != 5 || !areDigits(valor)) {
+void Codigo_de_reserva::validar(string valor)
+    if (valor.length() != 5 || !areDigits(valor))
         throw invalid_argument("Código de reserva inválido!");
-    } else {
+    else
         return;
-    }
 }
 
 void Cpf::validar(string valor) {
@@ -149,24 +141,15 @@ void Cpf::validar(string valor) {
 }
 
 void Cidade::validar(string valor) {
-    if (valor.length() < 1 || valor.length() > 10) {
+    if (valor.length() < 1 || valor.length() > 10
+                || !hasAlpha(valor) || isSpecial(valor))
         throw invalid_argument("Cidade inválida!");
-    }
-    else if (!hasAlpha(valor)) {
-        throw invalid_argument("Cidade inválida!");
-    }
-    else if (isSpecial(valor)){
-        std::cout<<"teste3";
-        throw invalid_argument("Cidade inválida!");
+
+    for (int i = 1; i < valor.length(); i++) {
+        if ((valor[i] == ' ' || valor[i] == '.') && valor[i-1] == ' ')
+            throw invalid_argument("Cidade inválida!");
     }
 
-    for (int i = 0; i < valor.length(); i++) {
-        if (valor[i] == ' ' && valor[i-1] == ' ') {
-            throw invalid_argument("Cidade inválida!");
-        } else if (valor[i] == '.' && valor[i-1] == ' ') {
-            throw invalid_argument("Cidade inválida!");
-        }
-    }
     return;
 }
 
@@ -174,9 +157,9 @@ void Data::validar(string valor) {
     vector<string> data = splitString(valor, '/');
 
     if (data.size() == 3
-        && data[0].length() == 2 && std::stoi(data[0]) >= 1 && std::stoi(data[0]) <= 31
-        && data[1].length() == 2 && std::stoi(data[1]) >= 1 && std::stoi(data[1]) <= 12
-        && data[2].length() == 4 && std::stoi(data[2]) >= 2000 && std::stoi(data[2]) <= 2099) {
+                && data[0].length() == 2 && std::stoi(data[0]) >= 1 && std::stoi(data[0]) <= 31
+                && data[1].length() == 2 && std::stoi(data[1]) >= 1 && std::stoi(data[1]) <= 12
+                && data[2].length() == 4 && std::stoi(data[2]) >= 2000 && std::stoi(data[2]) <= 2099) {
         return;
     } else {
         throw invalid_argument("Formato de data inválido!");
@@ -192,14 +175,14 @@ void Duracao::validar(string valor) {
 
 void Estado::validar(string valor) {
     if (valor == "AC" || valor == "AL" || valor == "AP" || valor == "AM"
-                        || valor == "BA" || valor == "CE" || valor == "DF"
-                        || valor == "ES" || valor == "GO" || valor == "MA"
-                        || valor == "MT" || valor == "MS" || valor == "MG"
-                        || valor == "PA" || valor == "PB" || valor == "PR"
-                        || valor == "PE" || valor == "PI" || valor == "RJ"
-                        || valor == "RN" || valor == "RS" || valor == "RO"
-                        || valor == "RR" || valor == "SC" || valor == "SP"
-                        || valor == "SE" || valor == "TO")
+                || valor == "BA" || valor == "CE" || valor == "DF"
+                || valor == "ES" || valor == "GO" || valor == "MA"
+                || valor == "MT" || valor == "MS" || valor == "MG"
+                || valor == "PA" || valor == "PB" || valor == "PR"
+                || valor == "PE" || valor == "PI" || valor == "RJ"
+                || valor == "RN" || valor == "RS" || valor == "RO"
+                || valor == "RR" || valor == "SC" || valor == "SP"
+                || valor == "SE" || valor == "TO")
         return;
     else
         throw invalid_argument("Estado inválido!");
@@ -209,10 +192,10 @@ void Email::validar(string valor) {
     vector<string> email = splitString(valor, '@');
 
     if (email.size() == 2 && email[0].length() <= 20
-                            && email[1].length() <= 20
-                            && email[0][0] != '.'
-                            && email[0][email[0].length()-1] != '.'
-                            && email[1][0] != '.') {
+                && email[1].length() <= 20
+                && email[0][0] != '.'
+                && email[0][email[0].length()-1] != '.'
+                && email[1][0] != '.') {
         int contPonto = 0;
 
         for (int i = 0; i < email[0].length(); i++) {
@@ -263,13 +246,11 @@ void Numero_de_agencia::validar(string valor) {
     int valoraux[tamanho];
     int soma = 0;
 
-    if (!areDigits(valor)) {
+    if (!areDigits(valor))
         throw invalid_argument("Agencia inválida!");
-    }
 
-    if (valor.length() < 1 || valor.length() > 5){
+    if (valor.length() < 1 || valor.length() > 5)
         throw invalid_argument("Agencia inválida!");
-    }
 
     for (int i = 0; i < tamanho; i++) {
         valoraux[i] = valor[i] - '0';
@@ -303,25 +284,22 @@ void Numero_de_agencia::validar(string valor) {
     }
 }
 
-void Numero_de_conta::validar(string valor){
-
+void Numero_de_conta::validar(string valor) {
     int tamanho = valor.length();
     int valoraux[tamanho];
     int soma = 0;
 
-    if(!areDigits(valor)){
-        throw invalid_argument("Conta inválida");
-    }
+    if (!areDigits(valor))
+        throw invalid_argument("Conta inválida!");
 
-    if (valor.length() < 1 || valor.length() > 7){
-        throw invalid_argument("Conta inválida");
-    }
+    if (valor.length() < 1 || valor.length() > 7)
+        throw invalid_argument("Conta inválida!");
 
-    for (int i = 0; i < tamanho; i ++ ) {
+    for (int i = 0; i < tamanho; i++) {
         valoraux[i] = valor[i] - '0';
     }
 
-    for (int i = 1 ; i < tamanho; i ++) {
+    for (int i = 1 ; i < tamanho; i++) {
         if (i % 2 == 0) {
             valoraux[i-1] =  2 * valoraux[i-1];
         } else {
@@ -329,7 +307,7 @@ void Numero_de_conta::validar(string valor){
         }
     }
 
-    for (int i = 1; i <= tamanho; i ++ ) {
+    for (int i = 1; i <= tamanho; i++) {
         if (valoraux[i-1] > 9 && i % 2 == 0) {
             int mod = valoraux[i-1] % 10;
             valoraux[i-1]  =  1 + mod;
@@ -338,25 +316,23 @@ void Numero_de_conta::validar(string valor){
         }
     }
 
-    for (int i = 0; i < tamanho; i ++ ) {
+    for (int i = 0; i < tamanho; i++) {
         soma += valoraux[i];
     }
 
-    if (soma % 10 == 0){
+    if (soma % 10 == 0)
         return;
-    } else {
+    else
         throw invalid_argument("Conta inválida");
-    }
-
 }
 
 void Preco::validar(string valor) {
     vector<string> preco;
     int int_preco[2];
 
-    if (valor.find(',') != string::npos)
+    if (valor.find(',') != string::npos) {
         preco = splitString(valor, ',');
-    else {
+    } else {
         preco.push_back(valor);
         preco.push_back("00");
     }

@@ -2,7 +2,6 @@
 #ifndef DOMINIOS_HPP_
 #define DOMINIOS_HPP_
 
-#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -13,7 +12,7 @@ class Dominio {
     string valor;
 
  public:
-    void setValor(string) throw(std::invalid_argument);
+    void setValor(string);
 
     string getValor() const { return valor; }
     virtual void validar(string) = 0;
@@ -21,9 +20,7 @@ class Dominio {
  protected:
     bool areDigits(string);
     std::vector<string> splitString(string, char);
-
     bool isSpecial(string);
-
     bool hasAlpha(string);
 };
 
