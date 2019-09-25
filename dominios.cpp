@@ -145,7 +145,7 @@ void Cidade::validar(string valor){
     if (valor.length() < 1 || valor.length() > 10){
         throw invalid_argument("Cidade inválida!");
     }
-    else if(!haveAlpha(valor)){
+    else if(!hasAlpha(valor)){
         throw invalid_argument("Cidade inválida!");
     }
     else if (isSpecial(valor)){
@@ -247,6 +247,52 @@ void Nome::validar(string valor) {
             throw invalid_argument("Nome inválido!");
     } else {
         throw invalid_argument("Nome inválido!");
+    }
+}
+
+void Numero_de_agencia::validar(string valor){
+
+    int tamanho = valor.length();
+    int valoraux[tamanho];
+    int soma = 0;
+
+    if(!areDigits(valor)){
+        throw invalid_argument("Agencia inválida");
+    }
+
+    if (valor.length() < 1 || valor.length() > 15){
+        throw invalid_argument("Agencia inválida");
+    }
+
+    for (int i = 0; i < tamanho; i ++ ) {
+        valoraux[i] = valor[i] - '0';
+    }
+
+    for (int i = 1 ; i < tamanho; i ++) {
+        if (i % 2 == 0) {
+            valoraux[i-1] =  2 * valoraux[i-1];
+        } else {
+            valoraux[i-1] = valoraux[i-1];
+        }
+    }
+
+    for (int i = 1; i <= tamanho; i ++ ) {
+        if (valoraux[i-1] > 9 && i % 2 == 0) {
+            int mod = valoraux[i-1] % 10;
+            valoraux[i-1]  =  1 + mod;
+        } else {
+        valoraux[i-1] = valoraux[i-1];
+        }
+    }
+
+    for (int i = 0; i < tamanho; i ++ ) {
+        soma += valoraux[i];
+    }
+
+    if (soma % 10 == 0){
+        return;
+    } else {
+        throw invalid_argument("Agencia inválida");
     }
 }
 
