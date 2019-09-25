@@ -13,6 +13,7 @@ int main() {
     TU_Codigo_de_carona teste_carona    = TU_Codigo_de_carona("123A", "0123");
     TU_Codigo_de_reserva teste_reserva  = TU_Codigo_de_reserva("9414", "46175");
     TU_Cpf teste_cpf                    = TU_Cpf("12345678910", "70624833119");
+    TU_Cidade teste_cidade              = TU_Cidade("Cida345de", "Brasília");
     TU_Data teste_data                  = TU_Data("1/12/2000", "10/12/2000");
     TU_Duracao teste_duracao            = TU_Duracao("5h", "22");
     TU_Estado teste_estado              = TU_Estado("Acre", "AC");
@@ -48,6 +49,11 @@ int main() {
         cout << "SUCESSO NO TESTE CPF!\n";
     } else {
         cout << "FALHA NO TESTE CPF!\n";
+    }
+    if (teste_cidade.run()) {
+        cout << "SUCESSO NO TESTE CIDADE!\n";
+    } else {
+        cout << "FALHA NO TESTE CIDADE!\n";
     }
     if (teste_data.run()) {
         cout << "SUCESSO NO TESTE DATA!\n";
