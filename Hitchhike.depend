@@ -55,3 +55,34 @@
 	<vector>
 	"dominios.hpp"
 
+1569332006 source:c:\users\abner\documents\dev\hitchhike\entidades.cpp
+	"entidades.hpp"
+
+1569332006 c:\users\abner\documents\dev\hitchhike\entidades.hpp
+	"dominios.hpp"
+
+1569372800 c:\users\abner\documents\dev\hitchhike\dominios.hpp
+	<stdexcept>
+	<string>
+	<vector>
+
+1569441265 source:c:\users\abner\documents\dev\hitchhike\main.cpp
+	<iostream>
+	"entidades.hpp"
+	"tu_dominios.hpp"
+
+1569442051 c:\users\abner\documents\dev\hitchhike\tu_dominios.hpp
+	<string>
+	"dominios.hpp"
+
+1569442135 source:c:\users\abner\documents\dev\hitchhike\tu_dominios.cpp
+	"tu_dominios.hpp"
+
+1569442005 source:c:\users\abner\documents\dev\hitchhike\dominios.cpp
+	<sstream>
+	<stdexcept>
+	<string>
+	<vector>
+	"dominios.hpp"
+	<iostream>
+

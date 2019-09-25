@@ -136,5 +136,22 @@ class TU_Nome : public TU_Dominio {
         this->VALOR_VALIDO = vv;
     }
 };
+class TU_Numero_de_agencia : public TU_Dominio {
+    void setUp();
+ public:
+    TU_Numero_de_agencia(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+class TU_Numero_de_conta : public TU_Dominio {
+    void setUp();
+ public:
+    TU_Numero_de_conta(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+
 
 #endif  // TU_DOMINIOS_HPP_
