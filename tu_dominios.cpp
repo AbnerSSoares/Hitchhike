@@ -60,6 +60,21 @@ void TU_Nome::setUp() {
     estado = SUCESSO;
 }
 
+void TU_Preco::setUp() {
+    this->dominio = new Preco();
+    estado = SUCESSO;
+}
+
+void TU_Telefone::setUp() {
+    this->dominio = new Telefone();
+    estado = SUCESSO;
+}
+
+void TU_Vagas::setUp() {
+    this->dominio = new Vagas();
+    estado = SUCESSO;
+}
+
 void TU_Dominio::tearDown() {
     delete this->dominio;
 }

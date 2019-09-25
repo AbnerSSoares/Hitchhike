@@ -137,4 +137,31 @@ class TU_Nome : public TU_Dominio {
     }
 };
 
+class TU_Preco : public TU_Dominio {
+    void setUp();
+ public:
+    TU_Preco(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+
+class TU_Telefone : public TU_Dominio {
+    void setUp();
+ public:
+    TU_Telefone(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+
+class TU_Vagas : public TU_Dominio {
+    void setUp();
+ public:
+    TU_Vagas(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
+
 #endif  // TU_DOMINIOS_HPP_

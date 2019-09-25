@@ -19,6 +19,9 @@ int main() {
     TU_Estado teste_estado              = TU_Estado("Acre", "AC");
     TU_Email teste_email                = TU_Email("hermenegildo.@ocmd.com", "juris@uvt.com.br");
     TU_Nome teste_nome                  = TU_Nome("Karen112780", "Hermenegildo.");
+    TU_Preco teste_preco                = TU_Preco("5000,01", "3500,45");
+    TU_Telefone teste_telefone          = TU_Telefone("55-61-000000000", "55-55-555555555");
+    TU_Vagas teste_vagas                = TU_Vagas("7", "3");
 
     if (teste_bag.run()) {
         cout << "SUCESSO NO TESTE BAGAGEM!\n";
@@ -79,6 +82,21 @@ int main() {
         cout << "SUCESSO NO TESTE NOME!\n";
     } else {
         cout << "FALHA NO TESTE NOME!\n";
+    }
+    if (teste_preco.run()) {
+        cout << "SUCESSO NO TESTE PRECO!\n";
+    } else {
+        cout << "FALHA NO TESTE PRECO!\n";
+    }
+    if (teste_telefone.run()) {
+        cout << "SUCESSO NO TESTE TELEFONE!\n";
+    } else {
+        cout << "FALHA NO TESTE TELEFONE!\n";
+    }
+    if (teste_vagas.run()) {
+        cout << "SUCESSO NO TESTE VAGAS!\n";
+    } else {
+        cout << "FALHA NO TESTE VAGAS!\n";
     }
     // Fim codigo teste
 }
