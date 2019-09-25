@@ -46,7 +46,7 @@ bool Dominio::isSpecial(string valor) {
     return false;
 }
 
-bool Dominio::haveAlpha (string valor){
+bool Dominio::hasAlpha (string valor){
     for (int i = 0; i < valor.length(); i++){
         if(isalpha(valor[i])){
             return true;
@@ -143,20 +143,20 @@ void Cpf::validar(string valor) {
 
 void Cidade::validar(string valor){
     if (valor.length() < 1 || valor.length() > 10){
-        throw invalid_argument("Tamanho inválido!");
+        throw invalid_argument("Cidade inválida!");
     }
     else if(!haveAlpha(valor)){
-        throw invalid_argument("Não possui letra!");
+        throw invalid_argument("Cidade inválida!");
     }
     else if (isSpecial(valor)){
-        throw invalid_argument("Caracter inválido!");
+        throw invalid_argument("Cidade inválida!");
     }
 
     for (int i = 0; i < valor.length(); i++) {
         if(valor[i] == ' ' && valor[i-1] == ' '){
-            throw invalid_argument("Espaços consecutivos!");
+            throw invalid_argument("Cidade inválida!");
         }else if(valor[i] == '.' && valor[i-1] == ' '){
-            throw invalid_argument("Ponto depois de espaço!");
+            throw invalid_argument("Cidade inválida!");
         }
     }
     return;

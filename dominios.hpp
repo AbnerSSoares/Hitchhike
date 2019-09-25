@@ -24,7 +24,7 @@ class Dominio {
 
     bool isSpecial(string);
 
-    bool haveAlpha(string);
+    bool hasAlpha(string);
 };
 
 class Assento : public Dominio {
