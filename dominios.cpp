@@ -5,6 +5,9 @@
 #include <vector>
 #include "dominios.hpp"
 
+#include <iostream>
+
+
 using std::vector;
 using std::invalid_argument;
 
@@ -34,9 +37,11 @@ vector<string> Dominio::splitString(string str, char delimitador) {
 }
 
 bool Dominio::isSpecial(string valor) {
-    for (int i = 0; i < valor.length(); i++) {
-        if (!isalpha(valor[i])) {
-            if (valor[i] != '.' && valor[i] != ' ' && valor[i] != 'ã' && valor[i] != 'á'
+    int tamanho = valor.length();
+
+    for (int i = 0; i < tamanho; i++) {
+        if (!isalpha(valor[i])){
+            if(valor[i] != '.' && valor[i] != ' ' && valor[i] != 'ã' && valor[i] != 'á'
                                && valor[i] != 'à' && valor[i] != 'â' && valor[i] != 'é'
                                && valor[i] != 'ê' && valor[i] != 'í' && valor[i] != 'õ'
                                && valor[i] != 'ó' && valor[i] != 'ô' && valor[i] != 'ú') {
@@ -53,6 +58,7 @@ bool Dominio::hasAlpha(string valor) {
             return true;
         }
     }
+
     return false;
 }
 
@@ -149,7 +155,8 @@ void Cidade::validar(string valor) {
     else if (!hasAlpha(valor)) {
         throw invalid_argument("Cidade inválida!");
     }
-    else if (isSpecial(valor)) {
+    else if (isSpecial(valor)){
+        std::cout<<"teste3";
         throw invalid_argument("Cidade inválida!");
     }
 
@@ -260,7 +267,7 @@ void Numero_de_agencia::validar(string valor) {
         throw invalid_argument("Agencia inválida!");
     }
 
-    if (valor.length() < 1 || valor.length() > 15) {
+    if (valor.length() < 1 || valor.length() > 5){
         throw invalid_argument("Agencia inválida!");
     }
 
@@ -294,6 +301,53 @@ void Numero_de_agencia::validar(string valor) {
     } else {
         throw invalid_argument("Agencia inválida!");
     }
+}
+
+void Numero_de_conta::validar(string valor){
+
+    int tamanho = valor.length();
+    int valoraux[tamanho];
+    int soma = 0;
+
+    if(!areDigits(valor)){
+        throw invalid_argument("Conta inválida");
+    }
+
+    if (valor.length() < 1 || valor.length() > 7){
+        throw invalid_argument("Conta inválida");
+    }
+
+    for (int i = 0; i < tamanho; i ++ ) {
+        valoraux[i] = valor[i] - '0';
+    }
+
+    for (int i = 1 ; i < tamanho; i ++) {
+        if (i % 2 == 0) {
+            valoraux[i-1] =  2 * valoraux[i-1];
+        } else {
+            valoraux[i-1] = valoraux[i-1];
+        }
+    }
+
+    for (int i = 1; i <= tamanho; i ++ ) {
+        if (valoraux[i-1] > 9 && i % 2 == 0) {
+            int mod = valoraux[i-1] % 10;
+            valoraux[i-1]  =  1 + mod;
+        } else {
+        valoraux[i-1] = valoraux[i-1];
+        }
+    }
+
+    for (int i = 0; i < tamanho; i ++ ) {
+        soma += valoraux[i];
+    }
+
+    if (soma % 10 == 0){
+        return;
+    } else {
+        throw invalid_argument("Conta inválida");
+    }
+
 }
 
 void Preco::validar(string valor) {

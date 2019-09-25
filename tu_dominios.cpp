@@ -60,6 +60,16 @@ void TU_Nome::setUp() {
     estado = SUCESSO;
 }
 
+void TU_Numero_de_agencia::setUp() {
+    this->dominio = new Numero_de_agencia();
+    estado = SUCESSO;
+}
+
+void TU_Numero_de_conta::setUp() {
+    this->dominio = new Numero_de_conta();
+    estado = SUCESSO;
+}
+
 void TU_Preco::setUp() {
     this->dominio = new Preco();
     estado = SUCESSO;
