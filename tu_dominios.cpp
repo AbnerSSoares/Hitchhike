@@ -1,5 +1,6 @@
 /* Copyright 2019 Abner Soares e Kallebe Sousa */
 #include "tu_dominios.hpp"
+#include <stdexcept>
 
 void TU_Assento::setUp() {
     this->dominio = new Assento();
