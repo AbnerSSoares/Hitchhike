@@ -58,6 +58,15 @@ bool Dominio::hasAlpha(string valor) {
 
     return false;
 }
+bool Dominio::hasDigit(string valor){
+    int tamanho = valor.length();
+    for (int i = 0; i < tamanho; i++){
+            if(isdigit(valor[i])){
+                return true;
+            }
+        }
+    return false;
+}
 
 void Assento::validar(string valor) {
     if (valor == "D" || valor == "T")
@@ -87,11 +96,12 @@ void Codigo_de_carona::validar(string valor) {
         return;
 }
 
-void Codigo_de_reserva::validar(string valor)
-    if (valor.length() != 5 || !areDigits(valor))
+void Codigo_de_reserva::validar(string valor){
+    if (valor.length() != 5 || !areDigits(valor)){
         throw invalid_argument("Código de reserva inválido!");
-    else
+    }else{
         return;
+    }
 }
 
 void Cpf::validar(string valor) {
@@ -360,6 +370,51 @@ void Telefone::validar(string valor) {
             || telefone[2].length() != 9
             || telefone[2] == "000000000")
         throw invalid_argument("Telefone inválido");
+}
+
+void Senha::validar(string valor){
+
+    int tamanho = valor.length();
+    int cont = 0;
+
+    if(tamanho < 1 || tamanho > 5){
+        throw invalid_argument("Senha inválida!");
+    }
+
+    if(!hasAlpha(valor)){
+        throw invalid_argument("Senha inválida!");
+    }else if(!hasDigit(valor)){
+        throw invalid_argument("Senha inválida!");
+    }
+
+    for(int i=0; i<tamanho; i++){
+        if(!isdigit(valor[i])){
+            if(!isalpha(valor[i])){
+                if(valor[i]!= '#' && valor[i] != '$' && valor[i] != '%' && valor[i] != '&'){
+                    throw invalid_argument("Senha inválida!");
+                }
+            }
+        }
+
+    }
+    for(int i=0; i<tamanho; i++){
+        if(isupper(valor[i])){
+            valor[i] = tolower(valor[i]);
+        }
+    }
+
+    for(int i=0; i<tamanho; i++){
+        for (int z=0; z<tamanho; z++){
+			if (valor[i] == valor[z]){
+                    cont++;
+        }
+            if(cont > 1){
+            throw invalid_argument("Senha inválida!");
+            }
+        }
+        cont = 0;
+    }
+    return;
 }
 
 void Vagas::validar(string valor) {

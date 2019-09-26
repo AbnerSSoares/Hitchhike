@@ -171,6 +171,14 @@ class TU_Telefone : public TU_Dominio {
         this->VALOR_VALIDO = vv;
     }
 };
+class TU_Senha : public TU_Dominio {
+    void setUp();
+ public:
+    TU_Senha(string vi, string vv) {
+        this->VALOR_INVALIDO = vi;
+        this->VALOR_VALIDO = vv;
+    }
+};
 
 class TU_Vagas : public TU_Dominio {
     void setUp();

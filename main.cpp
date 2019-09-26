@@ -24,6 +24,7 @@ int main() {
     TU_Preco teste_preco                = TU_Preco("5000,01", "3500,45");
     TU_Telefone teste_telefone          = TU_Telefone("55-61-000000000", "55-55-555555555");
     TU_Vagas teste_vagas                = TU_Vagas("7", "3");
+    TU_Senha teste_senha                = TU_Senha("11ert", "Zj9$2");
 
     if (teste_bag.run()) {
         cout << "SUCESSO NO TESTE BAGAGEM!\n";
@@ -104,6 +105,11 @@ int main() {
         cout << "SUCESSO NO TESTE TELEFONE!\n";
     } else {
         cout << "FALHA NO TESTE TELEFONE!\n";
+    }
+    if (teste_senha.run()) {
+        cout << "SUCESSO NO TESTE SENHA!\n";
+    } else {
+        cout << "FALHA NO TESTE SENHA!\n";
     }
     if (teste_vagas.run()) {
         cout << "SUCESSO NO TESTE VAGAS!\n";

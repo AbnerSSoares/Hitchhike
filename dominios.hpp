@@ -22,6 +22,7 @@ class Dominio {
     std::vector<string> splitString(string, char);
     bool isSpecial(string);
     bool hasAlpha(string);
+    bool hasDigit(string);
 };
 
 class Assento : public Dominio {

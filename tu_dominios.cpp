@@ -80,6 +80,11 @@ void TU_Telefone::setUp() {
     estado = SUCESSO;
 }
 
+void TU_Senha::setUp() {
+    this->dominio = new Senha();
+    estado = SUCESSO;
+}
+
 void TU_Vagas::setUp() {
     this->dominio = new Vagas();
     estado = SUCESSO;
