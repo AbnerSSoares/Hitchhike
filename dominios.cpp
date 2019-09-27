@@ -3,6 +3,8 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <algorithm>
 #include "dominios.hpp"
 
 using std::vector;
@@ -108,15 +110,18 @@ void Cpf::validar(string valor) {
     int vcpf[11];
     int digito1, digito2, temp = 0;
 
+    valor.erase(std::remove(valor.begin(), valor.end(), '-'), valor.end());
+    valor.erase(std::remove(valor.begin(), valor.end(), '.'), valor.end());
+
+    if(valor.length() != 11)
+        throw invalid_argument("Cpf inválido!");
+
+
     for (int i = 0; i < 11; i++) {
-        /* Convertendo string para valor absoluto segundo tabela ASCII e
-           passando para array de inteiros */
         vcpf[i] = static_cast<int>(valor[i] - 48);
 
-        // Validando a entrada de dados
-        if (vcpf[i] < 0 || vcpf[i] > 9) {
+        if (isdigit(vcpf[i]))
             throw invalid_argument("Cpf inválido!");
-        }
     }
 
     // Obtendo o primeiro dígito verificador
@@ -142,8 +147,6 @@ void Cpf::validar(string valor) {
     else
         digito2 = 11 - temp;
 
-    /* Se os digitos verificadores obtidos forem iguais aos informados pelo usuário,
-       então o CPF é válido */
     if (digito1 == vcpf[9] && digito2 == vcpf[10])
         return;
     else
@@ -253,9 +256,12 @@ void Nome::validar(string valor) {
 }
 
 void Numero_de_agencia::validar(string valor) {
+    int soma = 0;
+
+    valor.erase(std::remove(valor.begin(), valor.end(), '-'), valor.end());
+
     int tamanho = valor.length();
     int valoraux[tamanho];
-    int soma = 0;
 
     if (!areDigits(valor))
         throw invalid_argument("Agencia inválida!");
@@ -296,14 +302,17 @@ void Numero_de_agencia::validar(string valor) {
 }
 
 void Numero_de_conta::validar(string valor) {
+    int soma = 0;
+
+    valor.erase(std::remove(valor.begin(), valor.end(), '-'), valor.end());
+
     int tamanho = valor.length();
     int valoraux[tamanho];
-    int soma = 0;
 
     if (!areDigits(valor))
         throw invalid_argument("Conta inválida!");
 
-    if (valor.length() < 1 || valor.length() > 7)
+    if (valor.length() != 7)
         throw invalid_argument("Conta inválida!");
 
     for (int i = 0; i < tamanho; i++) {
