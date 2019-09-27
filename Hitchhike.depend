@@ -62,11 +62,11 @@
 1569332006 c:\users\abner\documents\dev\hitchhike\entidades.hpp
 	"dominios.hpp"
 
-1569616754 c:\users\abner\documents\dev\hitchhike\dominios.hpp
+1569619796 c:\users\abner\documents\dev\hitchhike\dominios.hpp
 	<string>
 	<vector>
 
-1569618387 source:c:\users\abner\documents\dev\hitchhike\main.cpp
+1569621011 source:c:\users\abner\documents\dev\hitchhike\main.cpp
 	<iostream>
 	"entidades.hpp"
 	"tu_dominios.hpp"
@@ -80,7 +80,7 @@
 	"tu_dominios.hpp"
 	<stdexcept>
 
-1569618071 source:c:\users\abner\documents\dev\hitchhike\dominios.cpp
+1569624860 source:c:\users\abner\documents\dev\hitchhike\dominios.cpp
 	<sstream>
 	<stdexcept>
 	<string>

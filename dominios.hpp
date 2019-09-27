@@ -23,6 +23,7 @@ class Dominio {
     bool isSpecial(string);
     bool hasAlpha(string);
     bool hasDigit(string);
+    string semAcento(string);
 };
 
 class Assento : public Dominio {

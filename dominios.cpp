@@ -35,12 +35,13 @@ vector<string> Dominio::splitString(string str, char delimitador) {
     return split;
 }
 
+
 bool Dominio::isSpecial(string valor) {
     int tamanho = valor.length();
 
     for (int i = 0; i < tamanho; i++) {
         if (!isalpha(valor[i])) {
-            if (valor[i] != '.' && valor[i] != ' ' && valor[i] != 'ã' && valor[i] != 'á'
+            if (valor[i] != '.' && valor[i] != ' ' && valor[i] != 'ã' && valor[i] != 'á' && valor[i] != 'ç'
                         && valor[i] != 'à' && valor[i] != 'â' && valor[i] != 'é'
                         && valor[i] != 'ê' && valor[i] != 'í' && valor[i] != 'õ'
                         && valor[i] != 'ó' && valor[i] != 'ô' && valor[i] != 'ú') {
