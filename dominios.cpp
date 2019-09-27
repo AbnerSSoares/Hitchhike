@@ -232,6 +232,7 @@ void Email::validar(string valor) {
 void Nome::validar(string valor) {
     if (valor.length() > 0 && valor.length() <= 20 && valor[0] != '.') {
         int contLetra = 0, contEspaco = 0;
+
         for (int i = 0; i < valor.length(); i++) {
             if (isspace(valor[i]))
                 contEspaco++;
@@ -372,44 +373,43 @@ void Telefone::validar(string valor) {
         throw invalid_argument("Telefone inválido");
 }
 
-void Senha::validar(string valor){
-
+void Senha::validar(string valor) {
     int tamanho = valor.length();
     int cont = 0;
 
-    if(tamanho < 1 || tamanho > 5){
+    if (tamanho < 1 || tamanho > 5) {
         throw invalid_argument("Senha inválida!");
     }
 
-    if(!hasAlpha(valor)){
+    if (!hasAlpha(valor)) {
         throw invalid_argument("Senha inválida!");
-    }else if(!hasDigit(valor)){
+    } else if (!hasDigit(valor)) {
         throw invalid_argument("Senha inválida!");
     }
 
-    for(int i=0; i<tamanho; i++){
-        if(!isdigit(valor[i])){
-            if(!isalpha(valor[i])){
-                if(valor[i]!= '#' && valor[i] != '$' && valor[i] != '%' && valor[i] != '&'){
+    for (int i = 0; i < tamanho; i++) {
+        if (!isdigit(valor[i])) {
+            if (!isalpha(valor[i])) {
+                if (valor[i]!= '#' && valor[i] != '$' && valor[i] != '%' && valor[i] != '&') {
                     throw invalid_argument("Senha inválida!");
                 }
             }
         }
 
     }
-    for(int i=0; i<tamanho; i++){
-        if(isupper(valor[i])){
+    for (int i = 0; i < tamanho; i++) {
+        if (isupper(valor[i])) {
             valor[i] = tolower(valor[i]);
         }
     }
 
-    for(int i=0; i<tamanho; i++){
-        for (int z=0; z<tamanho; z++){
-			if (valor[i] == valor[z]){
+    for (int i = 0; i < tamanho; i++) {
+        for (int z = 0; z < tamanho; z++) {
+			if (valor[i] == valor[z]) {
                     cont++;
         }
-            if(cont > 1){
-            throw invalid_argument("Senha inválida!");
+            if (cont > 1) {
+                throw invalid_argument("Senha inválida!");
             }
         }
         cont = 0;

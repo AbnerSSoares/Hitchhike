@@ -2,6 +2,7 @@
 #ifndef TU_DOMINIOS_HPP_
 #define TU_DOMINIOS_HPP_
 
+#include <stdexcept>
 #include <string>
 #include "dominios.hpp"
 
