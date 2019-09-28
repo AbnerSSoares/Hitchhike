@@ -58,17 +58,17 @@
 	<algorithm>
 	"dominios.hpp"
 
-1569332006 source:c:\users\abner\documents\dev\hitchhike\entidades.cpp
+1569677755 source:c:\users\abner\documents\dev\hitchhike\entidades.cpp
 	"entidades.hpp"
 
-1569332006 c:\users\abner\documents\dev\hitchhike\entidades.hpp
+1569677755 c:\users\abner\documents\dev\hitchhike\entidades.hpp
 	"dominios.hpp"
 
 1569625886 c:\users\abner\documents\dev\hitchhike\dominios.hpp
 	<string>
 	<vector>
 
-1569628333 source:c:\users\abner\documents\dev\hitchhike\main.cpp
+1569691399 source:c:\users\abner\documents\dev\hitchhike\main.cpp
 	<iostream>
 	"entidades.hpp"
 	"tu_dominios.hpp"
@@ -78,16 +78,15 @@
 	<string>
 	"dominios.hpp"
 
-1569462791 source:c:\users\abner\documents\dev\hitchhike\tu_dominios.cpp
+1569677755 source:c:\users\abner\documents\dev\hitchhike\tu_dominios.cpp
 	"tu_dominios.hpp"
 	<stdexcept>
 
-1569625664 source:c:\users\abner\documents\dev\hitchhike\dominios.cpp
+1569677755 source:c:\users\abner\documents\dev\hitchhike\dominios.cpp
 	<sstream>
 	<stdexcept>
 	<string>
 	<vector>
-	<iostream>
 	<algorithm>
 	"dominios.hpp"
 
