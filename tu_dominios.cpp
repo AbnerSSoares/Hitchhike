@@ -31,6 +31,7 @@ void TU_Cpf::setUp() {
     this->dominio = new Cpf();
     estado = SUCESSO;
 }
+
 void TU_Cidade::setUp() {
     this->dominio = new Cidade();
     estado = SUCESSO;

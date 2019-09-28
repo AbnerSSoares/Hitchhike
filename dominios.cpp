@@ -61,10 +61,10 @@ bool Dominio::hasAlpha(string valor) {
 
     return false;
 }
-bool Dominio::hasDigit(string valor){
+bool Dominio::hasDigit(string valor) {
     int tamanho = valor.length();
-    for (int i = 0; i < tamanho; i++){
-            if(isdigit(valor[i])){
+    for (int i = 0; i < tamanho; i++) {
+            if (isdigit(valor[i])) {
                 return true;
             }
         }
@@ -99,10 +99,10 @@ void Codigo_de_carona::validar(string valor) {
         return;
 }
 
-void Codigo_de_reserva::validar(string valor){
-    if (valor.length() != 5 || !areDigits(valor)){
+void Codigo_de_reserva::validar(string valor) {
+    if (valor.length() != 5 || !areDigits(valor)) {
         throw invalid_argument("Código de reserva inválido!");
-    }else{
+    } else {
         return;
     }
 }
@@ -114,7 +114,7 @@ void Cpf::validar(string valor) {
     valor.erase(std::remove(valor.begin(), valor.end(), '-'), valor.end());
     valor.erase(std::remove(valor.begin(), valor.end(), '.'), valor.end());
 
-    if(valor.length() != 11)
+    if (valor.length() != 11)
         throw invalid_argument("Cpf inválido!");
 
 
@@ -405,7 +405,6 @@ void Senha::validar(string valor) {
                 }
             }
         }
-
     }
     for (int i = 0; i < tamanho; i++) {
         if (isupper(valor[i])) {
