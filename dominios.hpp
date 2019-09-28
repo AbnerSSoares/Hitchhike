@@ -18,12 +18,11 @@ class Dominio {
     virtual void validar(string) = 0;
 
  protected:
-    bool areDigits(string);
     std::vector<string> splitString(string, char);
+    bool areDigits(string);
     bool isSpecial(string);
     bool hasAlpha(string);
     bool hasDigit(string);
-    string semAcento(string);
 };
 
 class Assento : public Dominio {

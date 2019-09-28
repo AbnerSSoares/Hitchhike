@@ -3,7 +3,6 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
-#include <iostream>
 #include <algorithm>
 #include "dominios.hpp"
 
@@ -117,14 +116,12 @@ void Cpf::validar(string valor) {
     if (valor.length() != 11)
         throw invalid_argument("Cpf inválido!");
 
-
     for (int i = 0; i < 11; i++) {
         vcpf[i] = static_cast<int>(valor[i] - 48);
 
         if (isdigit(vcpf[i]))
             throw invalid_argument("Cpf inválido!");
     }
-
     // Obtendo o primeiro dígito verificador
     for (int i = 0; i < 9; i++)
         temp += (vcpf[i] * (10 - i));
