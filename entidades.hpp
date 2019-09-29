@@ -1,7 +1,9 @@
 /* Copyright 2019 Abner Soares e Kallebe Sousa */
+
 #ifndef ENTIDADES_HPP_
 #define ENTIDADES_HPP_
 
+#include <string>
 #include "dominios.hpp"
 
 class Usuario {

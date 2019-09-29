@@ -1,4 +1,5 @@
 /* Copyright 2019 Abner Soares e Kallebe Sousa */
+
 #include <stdexcept>
 #include "tu_entidades.hpp"
 
@@ -349,7 +350,6 @@ void TU_Conta::testarCenario() {
     } catch(std::invalid_argument) {
         estado = FALHA;
     }
-
 }
 
 

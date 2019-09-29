@@ -1,4 +1,5 @@
 /* Copyright 2019 Abner Soares e Kallebe Sousa */
+
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -411,7 +412,7 @@ void Senha::validar(string valor) {
 
     for (int i = 0; i < tamanho; i++) {
         for (int z = 0; z < tamanho; z++) {
-			if (valor[i] == valor[z]) {
+            if (valor[i] == valor[z]) {
                     cont++;
         }
             if (cont > 1) {

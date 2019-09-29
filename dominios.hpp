@@ -1,4 +1,5 @@
 /* Copyright 2019 Abner Soares e Kallebe Sousa */
+
 #ifndef DOMINIOS_HPP_
 #define DOMINIOS_HPP_
 
