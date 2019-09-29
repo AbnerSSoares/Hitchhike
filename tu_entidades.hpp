@@ -4,11 +4,18 @@
 
 #include "entidades.hpp"
 
-
 class TU_Usuario{
     protected:
-        string VALOR_INVALIDO;
-        string VALOR_VALIDO;
+        string NOME_INVALIDO;
+        string NOME_VALIDO;
+        string TELEFONE_INVALIDO;
+        string TELEFONE_VALIDO;
+        string EMAIL_INVALIDO;
+        string EMAIL_VALIDO;
+        string SENHA_INVALIDO;
+        string SENHA_VALIDO;
+        string CPF_INVALIDO;
+        string CPF_VALIDO;
         Usuario *usuario;
         int estado;
 
@@ -18,26 +25,23 @@ class TU_Usuario{
         void tearDown();
 
      public:
-        TU_Enome(string vi, string vv) {
-            this->VALOR_INVALIDO = vi;
-            this->VALOR_VALIDO = vv;
+        TU_Usuario(string nomei, string nomev,
+                    string telefonei, string telefonev,
+                    string emaili, string emailv,
+                    string senhai, string senhav,
+                    string cpfi, string cpfv) {
+            this->NOME_INVALIDO = nomei;
+            this->NOME_VALIDO = nomev;
+            this->TELEFONE_INVALIDO = telefonei;
+            this->TELEFONE_VALIDO = telefonev;
+            this->EMAIL_INVALIDO = emaili;
+            this->EMAIL_VALIDO = emailv;
+            this->SENHA_INVALIDO = senhai;
+            this->SENHA_VALIDO = senhav;
+            this->CPF_INVALIDO = cpfi;
+            this->CPF_VALIDO = cpfv;
         }
-        TU_Etelefone(string vi, string vv) {
-            this->VALOR_INVALIDO = vi;
-            this->VALOR_VALIDO = vv;
-        }
-        TU_Eemail(string vi, string vv) {
-            this->VALOR_INVALIDO = vi;
-            this->VALOR_VALIDO = vv;
-        }
-        TU_Esenha(string vi, string vv) {
-            this->VALOR_INVALIDO = vi;
-            this->VALOR_VALIDO = vv;
-        }
-        TU_Ecpf(string vi, string vv) {
-            this->VALOR_INVALIDO = vi;
-            this->VALOR_VALIDO = vv;
-        }
+
     static const int SUCESSO    = 1;
     static const int FALHA      = 0;
 
@@ -162,4 +166,4 @@ class TU_Conta{
 
 };
 
-#endif //
+#endif  // TU_ENTIDADES_HPP_

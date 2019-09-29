@@ -2,6 +2,7 @@
 #include <iostream>
 #include "entidades.hpp"
 #include "tu_dominios.hpp"
+#include "tu_entidades.hpp"
 
 using std::cout;
 
@@ -118,13 +119,16 @@ int main() {
         cout << "FALHA NO TESTE VAGAS!\n";
     }
 
-    Usuario user = Usuario();
-    user.setCpf("591.581.540-51");
-    user.setEmail("juris@uvt.com");
-    user.setNome("Jurandismar");
-    user.setSenha("123ab");
-    user.setTelefone("55-55-555555555");
+    // Teste de Entidade
 
-    cout << "Nome: " << user.getNome().getValor() << "\nCPF: " << user.getCpf().getValor() << "\nEmail: " << user.getEmail().getValor();
+    TU_Usuario teste_usuario = TU_Usuario("Jurandismar12780", "Jurandismar",
+                                            "00-00-0000", "55-61-999999999",
+                                            ".juris@uvt.com", "juris@uvt.com",
+                                            "senhaa", "S3nh4",
+                                            "12345678910", "591.581.540-51");
+    if (teste_usuario.run())
+        cout << "SUCESSO NO TESTE DE USUARIO!\n";
+    else
+        cout << "FALHA NO TESTE DE USUARIO!\n";
     // Fim codigo teste
 }

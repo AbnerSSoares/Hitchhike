@@ -31,11 +31,11 @@
 1569629708 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/entidades.hpp
 	"dominios.hpp"
 
-1569626317 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/dominios.hpp
+1569636708 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/dominios.hpp
 	<string>
 	<vector>
 
-1569628444 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/main.cpp
+1569747473 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/main.cpp
 	<iostream>
 	"entidades.hpp"
 	"tu_dominios.hpp"
@@ -45,16 +45,15 @@
 	<string>
 	"dominios.hpp"
 
-1569463067 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.cpp
+1569636104 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_dominios.cpp
 	"tu_dominios.hpp"
 	<stdexcept>
 
-1569629839 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/dominios.cpp
+1569636708 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/dominios.cpp
 	<sstream>
 	<stdexcept>
 	<string>
 	<vector>
-	<iostream>
 	<algorithm>
 	"dominios.hpp"
 
@@ -89,4 +88,11 @@
 	<vector>
 	<algorithm>
 	"dominios.hpp"
+
+1569749989 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_entidades.cpp
+	<stdexcept>
+	"tu_entidades.hpp"
+
+1569749620 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_entidades.hpp
+	"entidades.hpp"
 
