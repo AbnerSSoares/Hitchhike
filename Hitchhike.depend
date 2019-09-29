@@ -67,10 +67,11 @@
 	<string>
 	<vector>
 
-1569691399 source:c:\users\abner\documents\dev\hitchhike\main.cpp
+1569787951 source:c:\users\abner\documents\dev\hitchhike\main.cpp
 	<iostream>
 	"entidades.hpp"
 	"tu_dominios.hpp"
+	"tu_entidades.hpp"
 
 1569612089 c:\users\abner\documents\dev\hitchhike\tu_dominios.hpp
 	<stdexcept>
@@ -95,4 +96,11 @@
 
 1569749620 /home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/tu_entidades.hpp
 	"entidades.hpp"
+
+1569784863 c:\users\abner\documents\dev\hitchhike\tu_entidades.hpp
+	"entidades.hpp"
+
+1569786924 source:c:\users\abner\documents\dev\hitchhike\tu_entidades.cpp
+	<stdexcept>
+	"tu_entidades.hpp"
 

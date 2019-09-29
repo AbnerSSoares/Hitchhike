@@ -12,8 +12,8 @@ int main() {
     TU_Assento teste_assento            = TU_Assento("A", "T");
     TU_Bagagem teste_bag                = TU_Bagagem("D", "0");
     TU_Codigo_de_banco teste_banco      = TU_Codigo_de_banco("5sd", "123");
-    TU_Codigo_de_carona teste_carona    = TU_Codigo_de_carona("123A", "0123");
-    TU_Codigo_de_reserva teste_reserva  = TU_Codigo_de_reserva("9414", "46175");
+    TU_Codigo_de_carona teste_ccarona    = TU_Codigo_de_carona("123A", "0123");
+    TU_Codigo_de_reserva teste_creserva  = TU_Codigo_de_reserva("9414", "46175");
     TU_Cpf teste_cpf                    = TU_Cpf("123.456.789-10", "591.581.540-51");
     TU_Cidade teste_cidade              = TU_Cidade("Cida345de", "Brasília");
     TU_Data teste_data                  = TU_Data("1/12/2000", "10/12/2000");
@@ -22,7 +22,7 @@ int main() {
     TU_Email teste_email                = TU_Email("hermenegildo.@ocmd.com", "juris@uvt.com.br");
     TU_Nome teste_nome                  = TU_Nome("Karen112780", "Hermenegildo.");
     TU_Numero_de_agencia teste_agencia  = TU_Numero_de_agencia("1234-5", "7992-1");
-    TU_Numero_de_conta teste_conta      = TU_Numero_de_conta("123456-7", "799273-8");
+    TU_Numero_de_conta teste_nconta      = TU_Numero_de_conta("123456-7", "799273-8");
     TU_Preco teste_preco                = TU_Preco("5000,01", "3500,45");
     TU_Telefone teste_telefone          = TU_Telefone("55-61-000000000", "55-55-555555555");
     TU_Vagas teste_vagas                = TU_Vagas("7", "3");
@@ -43,12 +43,12 @@ int main() {
     } else {
         cout << "FALHA NO TESTE ASSENTO!\n";
     }
-    if (teste_carona.run()) {
+    if (teste_ccarona.run()) {
         cout << "SUCESSO NO TESTE CARONA!\n";
     } else {
         cout << "FALHA NO TESTE CARONA!\n";
     }
-    if (teste_reserva.run()) {
+    if (teste_creserva.run()) {
         cout << "SUCESSO NO TESTE RESERVA!\n";
     } else {
         cout << "FALHA NO TESTE RESERVA!\n";
@@ -93,7 +93,7 @@ int main() {
     } else {
         cout << "FALHA NO TESTE AGENCIA!\n";
     }
-    if (teste_conta.run()) {
+    if (teste_nconta.run()) {
         cout << "SUCESSO NO TESTE CONTA!\n";
     } else {
         cout << "FALHA NO TESTE CONTA!\n";
@@ -119,6 +119,8 @@ int main() {
         cout << "FALHA NO TESTE VAGAS!\n";
     }
 
+    cout<<std::endl;
+
     // Teste de Entidade
 
     TU_Usuario teste_usuario = TU_Usuario("Jurandismar12780", "Jurandismar",
@@ -126,9 +128,44 @@ int main() {
                                             ".juris@uvt.com", "juris@uvt.com",
                                             "senhaa", "S3nh4",
                                             "12345678910", "591.581.540-51");
+
+    TU_Reserva teste_reserva = TU_Reserva("9414", "46175",
+                                           "A", "T",
+                                           "D", "0" );
+
+    TU_Carona teste_carona   = TU_Carona("123A", "0123",
+                                        "Cida345de", "Brasília",
+                                        "Acre", "AC",
+                                        "Cida345de", "Brasília",
+                                        "Acre", "AC",
+                                        "1/12/2000", "10/12/2000",
+                                        "5h", "22",
+                                        "7", "3",
+                                        "5000,01", "3500,45");
+
+    TU_Conta teste_conta    = TU_Conta("5sd", "123",
+                                       "1234-5", "7992-1",
+                                       "123456-7", "799273-8");
+
+
     if (teste_usuario.run())
         cout << "SUCESSO NO TESTE DE USUARIO!\n";
     else
         cout << "FALHA NO TESTE DE USUARIO!\n";
+
+    if (teste_reserva.run())
+        cout << "SUCESSO NO TESTE DE RESERVA!\n";
+    else
+        cout << "FALHA NO TESTE DE RESERVA!\n";
+
+    if (teste_carona.run())
+        cout << "SUCESSO NO TESTE DE CARONA!\n";
+    else
+        cout << "FALHA NO TESTE DE CARONA!\n";
+
+    if (teste_conta.run())
+        cout << "SUCESSO NO TESTE DE CONTA!\n";
+    else
+        cout << "FALHA NO TESTE DE CONTA!\n";
     // Fim codigo teste
 }
