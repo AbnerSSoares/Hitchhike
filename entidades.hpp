@@ -29,7 +29,7 @@ class Usuario {
      * @param valor Valor do nome a ser adicionado ao usuário
      * @see Dominio
      */
-    void setNome(string);à entidade
+    void setNome(string);
     /**
      * @brief Método para retornar o nome da entidade Usuário
      * @return Valor do tipo Nome com o nome do usuário
