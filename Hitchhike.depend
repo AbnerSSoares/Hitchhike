@@ -1,29 +1,36 @@
 # depslib dependency file v1.0
-1568482183 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios.cpp
+1569804810 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios.cpp
+	<sstream>
 	<stdexcept>
+	<string>
+	<vector>
+	<algorithm>
 	"dominios.hpp"
 
-1568475267 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios.hpp
+1569807504 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios.hpp
 	<string>
-	<stdexcept>
+	<vector>
 
-1567641672 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades.cpp
+1569805906 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades.cpp
 	"entidades.hpp"
 
-1568295190 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades.hpp
+1569805906 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades.hpp
+	<string>
 	"dominios.hpp"
 
-1568547228 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
+1569805906 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
+	<iostream>
 	"entidades.hpp"
 	"tu_dominios.hpp"
-	<iostream>
+	"tu_entidades.hpp"
 
 1568547086 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_dominios.cpp
 	"tu_dominios.hpp"
 
-1568546585 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_dominios.hpp
-	"dominios.hpp"
+1569805906 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_dominios.hpp
+	<stdexcept>
 	<string>
+	"dominios.hpp"
 
 1569633992 source:/home/kalllebe/Documentos/UnB/TP/trabalho/Hitchhike/entidades.cpp
 	"entidades.hpp"
@@ -104,4 +111,8 @@
 1569786924 source:c:\users\abner\documents\dev\hitchhike\tu_entidades.cpp
 	<stdexcept>
 	"tu_entidades.hpp"
+
+1569805906 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_entidades.hpp
+	<string>
+	"entidades.hpp"
 

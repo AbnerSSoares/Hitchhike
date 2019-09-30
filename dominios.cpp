@@ -15,9 +15,9 @@ void Dominio::setValor(string valor) {
     this->valor = valor;
 }
 
-bool Dominio::areDigits(string valor) {
-    for (int i = 0; i < valor.length(); i++) {
-        if (!isdigit(valor[i]))
+bool Dominio::areDigits(string str) {
+    for (int i = 0; i < str.length(); i++) {
+        if (!isdigit(str[i]))
             return false;
     }
     return true;
@@ -35,16 +35,15 @@ vector<string> Dominio::splitString(string str, char delimitador) {
     return split;
 }
 
-
-bool Dominio::isSpecial(string valor) {
-    int tamanho = valor.length();
+bool Dominio::isSpecial(string str) {
+    int tamanho = str.length();
 
     for (int i = 0; i < tamanho; i++) {
-        if (!isalpha(valor[i])) {
-            if (valor[i] != '.' && valor[i] != ' ' && valor[i] != 'ã' && valor[i] != 'á' && valor[i] != 'ç'
-                        && valor[i] != 'à' && valor[i] != 'â' && valor[i] != 'é'
-                        && valor[i] != 'ê' && valor[i] != 'í' && valor[i] != 'õ'
-                        && valor[i] != 'ó' && valor[i] != 'ô' && valor[i] != 'ú') {
+        if (!isalpha(str[i])) {
+            if (str[i] != '.' && str[i] != ' ' && str[i] != 'ã' && str[i] != 'á' && str[i] != 'ç'
+                        && str[i] != 'à' && str[i] != 'â' && str[i] != 'é'
+                        && str[i] != 'ê' && str[i] != 'í' && str[i] != 'õ'
+                        && str[i] != 'ó' && str[i] != 'ô' && str[i] != 'ú') {
                 return true;
             }
         }
