@@ -29,7 +29,7 @@ class Dominio {
      */
     void setValor(string);
     /**
-     * @brief   Método para receber valor do domínio
+     * @brief   Método para retornar o valor do domínio
      * @return  Valor armazenado no domínio
      * @see Dominio
      */

@@ -6,28 +6,83 @@
 #include <string>
 #include "dominios.hpp"
 
+/**
+ * @brief Entidade Usuário
+ * @details
+ *    A classe Usuário representa uma entidade dos usuários que utilizam o sistema
+ *    de carona, tanto passageiros quanto motoristas. A entidade possui atributos
+ *    privados cujos tipos são Domínios e métodos públicos de get e set para acesso
+ *    a esses atributos.
+ * @see Dominio
+ */
 class Usuario {
  private:
-    Nome nome;
-    Telefone telefone;
-    Email email;
-    Senha senha;
-    Cpf cpf;
+    Nome nome;          /**< @param nome     Nome do usuário */
+    Telefone telefone;  /**< @param telefone Telefone do usuário */
+    Email email;        /**< @param email    E-mail do usuário */
+    Senha senha;        /**< @param senha    Senha de acesso do usuário */
+    Cpf cpf;            /**< @param cpf      CPF do usuário */
 
  public:
-    void setNome(string);
+    /**
+     * @brief Método para adicionar nome à entidade Usuário
+     * @param valor Valor do nome a ser adicionado ao usuário
+     * @see Dominio
+     */
+    void setNome(string);à entidade
+    /**
+     * @brief Método para retornar o nome da entidade Usuário
+     * @return Valor do tipo Nome com o nome do usuário
+     * @see Dominio
+     */
     Nome getNome() { return this->nome; }
-
+    /**
+     * @brief Método para adicionar telefone à entidade Usuário
+     * @param valor Valor do telefone a ser adicionado ao usuário
+     * @see Dominio
+     */
     void setTelefone(string);
+    /**
+     * @brief Método para retornar o telefone da entidade Usuário
+     * @return Valor do tipo Telefone com o telefone do usuário
+     * @see Dominio
+     */
     Telefone getTelefone() { return this->telefone; }
-
+    /**
+     * @brief Método para adicionar e-mail à entidade Usuário
+     * @param valor Valor do e-mail a ser adicionado ao usuário
+     * @see Dominio
+     */
     void setEmail(string);
+    /**
+     * @brief Método para retornar o e-mail da entidade Usuário
+     * @return Valor do tipo Email com o e-mail do usuário
+     * @see Dominio
+     */
     Email getEmail() { return this->email; }
-
+    /**
+     * @brief Método para adicionar senha à entidade Usuário
+     * @param valor Valor da senha a ser adicionado ao usuário
+     * @see Dominio
+     */
     void setSenha(string);
+    /**
+     * @brief Método para retornar a senha da entidade Usuário
+     * @return Valor do tipo Senha com a senha do usuário
+     * @see Dominio
+     */
     Senha getSenha() { return this->senha; }
-
+    /**
+     * @brief Método para adicionar CPF à entidade Usuário
+     * @param valor Valor da CPF a ser adicionado ao usuário
+     * @see Dominio
+     */
     void setCpf(string);
+    /**
+     * @brief Método para retornar o CPF da entidade Usuário
+     * @return Valor do tipo Cpf com o CPF do usuário
+     * @see Dominio
+     */
     Cpf getCpf() { return this->cpf; }
 };
 
