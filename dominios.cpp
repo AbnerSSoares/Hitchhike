@@ -51,19 +51,19 @@ bool Dominio::isSpecial(string str) {
     return false;
 }
 
-bool Dominio::hasAlpha(string valor) {
-    for (int i = 0; i < valor.length(); i++) {
-        if (isalpha(valor[i])) {
+bool Dominio::hasAlpha(string str) {
+    for (int i = 0; i < str.length(); i++) {
+        if (isalpha(str[i])) {
             return true;
         }
     }
 
     return false;
 }
-bool Dominio::hasDigit(string valor) {
-    int tamanho = valor.length();
+bool Dominio::hasDigit(string str) {
+    int tamanho = str.length();
     for (int i = 0; i < tamanho; i++) {
-            if (isdigit(valor[i])) {
+            if (isdigit(str[i])) {
                 return true;
             }
         }

@@ -57,9 +57,9 @@ class Dominio {
      */
     bool areDigits(string);
     /**
-     * @brief       Verifica se string possui ponto, espaço ou vogal acentuada
+     * @brief       Verifica se string possui caracter especial, exceto ponto, espaço ou vogal acentuada
      * @param str   String que será verificada
-     * @return      true se string possui ponto, espaço ou vogal acentuada, false, caso contrário
+     * @return      true se string possui caracter especial, exceto ponto, espaço ou vogal acentuada, false, caso contrário
      */
     bool isSpecial(string);
     /**
@@ -150,50 +150,166 @@ class Cidade : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Cpf
+ * @details
+ *  A classe Cpf é uma classe filha de Domínio e serve
+ *  para identificar o um número de cpf de um usuário.
+ * @param valor string no formato XXX.XXX.XXX-XX onde X é dígito (0 - 9).
+ *  O número de CPF inclui dígitos verificadores calculados por meio de
+ *  um algorítmo específico.
+ * @see Dominio
+ */
 class Cpf : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Data
+ * @details
+ *  A classe Data é uma classe filha de Domínio e serve
+ *  para representar a data de uma carona.
+ * @param valor string no formato DD/MM/AAAA. DD é número de 1 e 31.
+ *  MM é número de 1 e 12. AAAA é número de 2000 a 2099.
+ * @see Dominio
+ */
 class Data : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Duracao
+ * @details
+ *  A classe Duração é uma classe filha de Domínio e serve
+ *  para representar a duração de uma carona.
+ * @param valor string de 1 a 48, onde representa horas.
+ * @see Dominio
+ */
 class Duracao : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Estado
+ * @details
+ *  A classe Estado é uma classe filha de Domínio e serve
+ *  para representar um estado brasileiro.
+ * @param valor string da sigla do estado, podendo ser: AC,
+ *  AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB,
+ *  PR, PE, PI, RJ, RN, RS, RO, RR, SC, SP, SE ou TO.
+ * @see Dominio
+ */
 class Estado : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Email
+ * @details
+ *  A classe Email é uma classe filha de Domínio e serve
+ *  para identificar o email de um usuário.
+ * @param valor string no formato local@domínio onde: a parte
+ *  local pode ter até 20 caracteres; o domíno pode ter até 20
+ *  caracteres; cada caracter pode ser letra (a - z) ou ponto(.);
+ *  a parte local não pode ser iniciada e nem ser terminada por ponto;
+ *  o domínio não pode ser iniciado por ponto; não podem existir dois
+ *  pontos em sequência.
+ * @see Dominio
+ */
 class Email : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Nome
+ * @details
+ *  A classe Nome é uma classe filha de Domínio e serve
+ *  para identificar o nome de um usuário.
+ * @param valor string que possui de 1 a 20 caracteres, onde cada caracter
+ *  pode ser letra, ponto ou espaço. Pelo menos um caracter é letra, antes
+ *  de ponto deve haver letra e não há espaços em sequência.
+ * @see Dominio
+ */
 class Nome : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Numero_de_agencia
+ * @details
+ *  A classe Numero_de_agencia é uma classe filha de Domínio e serve
+ *  para representar o número de agencia bancária de um usuário.
+ * @param valor string no formato XXXX-Y onde X é dígito (0 - 9) e Y
+ *  é dígito verificador calculado por meio do algorítimo de Luhn.
+ * @see Dominio
+ */
 class Numero_de_agencia : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Numero_de_conta
+ * @details
+ *  A classe Numero_de_conta é uma classe filha de Domínio e serve
+ *  para representar o número de conta bancária de um usuário.
+ * @param valor string no formato XXXXXX-Y onde X é dígito (0 - 9)
+ *  e Y é dígito verificador calculado por meio do algorítimo de Luhn.
+ * @see Dominio
+ */
 class Numero_de_conta : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Preco
+ * @details
+ *  A classe Preco é uma classe filha de Domínio e serve
+ *  para representar o preço de uma carona.
+ * @param valor string de 1,00 a 5.000,00, Onde representa
+ *  o preço em reais (R$).
+ * @see Dominio
+ */
 class Preco : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Telefone
+ * @details
+ *  A classe Telefone é uma classe filha de Domínio e serve
+ *  para representar o telefone de um usuário.
+ * @param valor string no formato XX-YY-ZZZZZZZZZ, onde cada X, Y ou Z
+ *  é dígito (0 - 9); o valor de XX não pode ser 00, o valor de YY não
+ *  pode ser 00 e o valor de ZZZZZZZZZ não pode ser 000000000.
+ * @see Dominio
+ */
 class Telefone : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Senha
+ * @details
+ *  A classe Senha é uma classe filha de Domínio e serve
+ *  para representar a senha de acesso de um usuário.
+ * @param valor string no formato XXXXX onde X pode ser letra
+ *  (a - z ou A - Z), dígito (0 - 9), # , $ , % ou &. A senha
+ *  tem que ter pelo menos uma letra e um dígito. Não podem haver
+ *  caracteres repetidos.
+ * @see Dominio
+ */
 class Senha : public Dominio {
     void validar(string);
 };
 
+/**
+ * @brief Domínio Vagas
+ * @details
+ *  A classe Vagas é uma classe filha de Domínio e serve
+ *  para representar o número de vagas disponível em uma carona.
+ * @param valor string de 0 a 4.
+ * @see Dominio
+ */
 class Vagas : public Dominio {
     void validar(string);
 };
