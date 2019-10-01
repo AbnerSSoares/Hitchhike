@@ -101,7 +101,7 @@ class Bagagem : public Dominio {
 };
 
 /**
- * @brief Domínio Código de Banco
+ * @brief Domínio Codigo_de_banco
  * @details
  *  A classe Código de Banco é uma classe filha de Domínio e serve
  *  para identificar o banco do usuário.
@@ -113,7 +113,7 @@ class Codigo_de_banco : public Dominio {
 };
 
 /**
- * @brief Domínio Código de Carona
+ * @brief Domínio Codigo_de_carona
  * @details
  *  A classe Código de Carona é uma classe filha de Domínio e serve
  *  para identificar cada carona no sistema.
@@ -125,7 +125,7 @@ class Codigo_de_carona : public Dominio {
 };
 
 /**
- * @brief Domínio Código de Reserva
+ * @brief Domínio Codigo_de_reserva
  * @details
  *  A classe Código de Reserva é uma classe filha de Domínio e serve
  *  para identificar reservas feitas a cada carona por usuários passageiros.

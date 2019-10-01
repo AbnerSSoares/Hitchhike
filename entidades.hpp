@@ -7,7 +7,7 @@
 #include "dominios.hpp"
 
 /**
- * @brief Entidade Usuário
+ * @brief Entidade Usuario
  * @details
  *    A classe Usuário representa uma entidade dos usuários que utilizam o sistema
  *    de carona, tanto passageiros quanto motoristas. A entidade possui atributos
