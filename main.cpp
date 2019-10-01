@@ -16,7 +16,7 @@ int main() {
     TU_Codigo_de_carona teste_ccarona    = TU_Codigo_de_carona("123A", "0123");
     TU_Codigo_de_reserva teste_creserva  = TU_Codigo_de_reserva("9414", "46175");
     TU_Cpf teste_cpf                    = TU_Cpf("123.456.789-10", "591.581.540-51");
-    TU_Cidade teste_cidade              = TU_Cidade("Cida345de", "Salvador");
+    TU_Cidade teste_cidade              = TU_Cidade("Cida345de", "Brasília");
     TU_Data teste_data                  = TU_Data("1/12/2000", "10/12/2000");
     TU_Duracao teste_duracao            = TU_Duracao("5h", "22");
     TU_Estado teste_estado              = TU_Estado("Acre", "AC");
@@ -132,7 +132,7 @@ int main() {
 
     TU_Reserva teste_reserva = TU_Reserva("9414", "46175",
                                            "A", "T",
-                                           "D", "0" );
+                                           "D", "0");
 
     TU_Carona teste_carona   = TU_Carona("123A", "0123",
                                         "Cida345de", "Salvador",

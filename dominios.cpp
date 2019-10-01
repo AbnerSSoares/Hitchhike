@@ -258,8 +258,8 @@ void Numero_de_agencia::validar(string valor) {
 
     valor.erase(std::remove(valor.begin(), valor.end(), '-'), valor.end());
 
-    int tamanho = valor.length();
-    int valoraux[tamanho];
+    const int kTamanho = valor.length();
+    int valoraux[kTamanho];
 
     if (!areDigits(valor))
         throw invalid_argument("Agencia inválida!");
@@ -267,11 +267,11 @@ void Numero_de_agencia::validar(string valor) {
     if (valor.length() < 1 || valor.length() > 5)
         throw invalid_argument("Agencia inválida!");
 
-    for (int i = 0; i < tamanho; i++) {
+    for (int i = 0; i < kTamanho; i++) {
         valoraux[i] = valor[i] - '0';
     }
 
-    for (int i = 1 ; i < tamanho; i++) {
+    for (int i = 1 ; i < kTamanho; i++) {
         if (i % 2 == 0) {
             valoraux[i-1] =  2 * valoraux[i-1];
         } else {
@@ -279,7 +279,7 @@ void Numero_de_agencia::validar(string valor) {
         }
     }
 
-    for (int i = 1; i <= tamanho; i++) {
+    for (int i = 1; i <= kTamanho; i++) {
         if (valoraux[i-1] > 9 && i % 2 == 0) {
             int mod = valoraux[i-1] % 10;
             valoraux[i-1]  =  1 + mod;
@@ -288,7 +288,7 @@ void Numero_de_agencia::validar(string valor) {
         }
     }
 
-    for (int i = 0; i < tamanho; i++) {
+    for (int i = 0; i < kTamanho; i++) {
         soma += valoraux[i];
     }
 
@@ -304,8 +304,8 @@ void Numero_de_conta::validar(string valor) {
 
     valor.erase(std::remove(valor.begin(), valor.end(), '-'), valor.end());
 
-    int tamanho = valor.length();
-    int valoraux[tamanho];
+    int kTamanho = valor.length();
+    int valoraux[kTamanho];
 
     if (!areDigits(valor))
         throw invalid_argument("Conta inválida!");
@@ -313,11 +313,11 @@ void Numero_de_conta::validar(string valor) {
     if (valor.length() != 7)
         throw invalid_argument("Conta inválida!");
 
-    for (int i = 0; i < tamanho; i++) {
+    for (int i = 0; i < kTamanho; i++) {
         valoraux[i] = valor[i] - '0';
     }
 
-    for (int i = 1 ; i < tamanho; i++) {
+    for (int i = 1 ; i < kTamanho; i++) {
         if (i % 2 == 0) {
             valoraux[i-1] =  2 * valoraux[i-1];
         } else {
@@ -325,7 +325,7 @@ void Numero_de_conta::validar(string valor) {
         }
     }
 
-    for (int i = 1; i <= tamanho; i++) {
+    for (int i = 1; i <= kTamanho; i++) {
         if (valoraux[i-1] > 9 && i % 2 == 0) {
             int mod = valoraux[i-1] % 10;
             valoraux[i-1]  =  1 + mod;
@@ -334,7 +334,7 @@ void Numero_de_conta::validar(string valor) {
         }
     }
 
-    for (int i = 0; i < tamanho; i++) {
+    for (int i = 0; i < kTamanho; i++) {
         soma += valoraux[i];
     }
 

@@ -68,15 +68,15 @@
 1569806137 source:c:\users\abner\documents\dev\hitchhike\entidades.cpp
 	"entidades.hpp"
 
-1569951983 c:\users\abner\documents\dev\hitchhike\entidades.hpp
+1569956613 c:\users\abner\documents\dev\hitchhike\entidades.hpp
 	<string>
 	"dominios.hpp"
 
-1569899463 c:\users\abner\documents\dev\hitchhike\dominios.hpp
+1569956925 c:\users\abner\documents\dev\hitchhike\dominios.hpp
 	<string>
 	<vector>
 
-1569806137 source:c:\users\abner\documents\dev\hitchhike\main.cpp
+1569969644 source:c:\users\abner\documents\dev\hitchhike\main.cpp
 	<iostream>
 	"entidades.hpp"
 	"tu_dominios.hpp"
@@ -87,11 +87,11 @@
 	<string>
 	"dominios.hpp"
 
-1569677755 source:c:\users\abner\documents\dev\hitchhike\tu_dominios.cpp
+1569806137 source:c:\users\abner\documents\dev\hitchhike\tu_dominios.cpp
 	"tu_dominios.hpp"
 	<stdexcept>
 
-1569677755 source:c:\users\abner\documents\dev\hitchhike\dominios.cpp
+1569853609 source:c:\users\abner\documents\dev\hitchhike\dominios.cpp
 	<sstream>
 	<stdexcept>
 	<string>
@@ -110,7 +110,7 @@
 	<string>
 	"entidades.hpp"
 
-1569786924 source:c:\users\abner\documents\dev\hitchhike\tu_entidades.cpp
+1569806137 source:c:\users\abner\documents\dev\hitchhike\tu_entidades.cpp
 	<stdexcept>
 	"tu_entidades.hpp"
 
