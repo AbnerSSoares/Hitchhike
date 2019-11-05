@@ -4,7 +4,7 @@
 #define ENTIDADES_HPP_
 
 #include <string>
-#include "dominios.hpp"
+#include "../dominios/dominios.hpp"
 
 /**
  * @brief Entidade Usuario

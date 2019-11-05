@@ -31,15 +31,15 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="dominios.cpp" />
-		<Unit filename="dominios.hpp" />
-		<Unit filename="entidades.cpp" />
-		<Unit filename="entidades.hpp" />
+		<Unit filename="dominios/dominios.cpp" />
+		<Unit filename="dominios/dominios.hpp" />
+		<Unit filename="entidades/entidades.cpp" />
+		<Unit filename="entidades/entidades.hpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="tu_dominios.cpp" />
-		<Unit filename="tu_dominios.hpp" />
-		<Unit filename="tu_entidades.cpp" />
-		<Unit filename="tu_entidades.hpp" />
+		<Unit filename="tu_dominios/tu_dominios.cpp" />
+		<Unit filename="tu_dominios/tu_dominios.hpp" />
+		<Unit filename="tu_entidades/tu_entidades.cpp" />
+		<Unit filename="tu_entidades/tu_entidades.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

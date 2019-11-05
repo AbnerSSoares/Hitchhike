@@ -1,6 +1,6 @@
 /* Copyright 2019 Abner Soares e Kallebe Sousa */
 
-#include "entidades.hpp"
+#include "../entidades/entidades.hpp"
 
 void Usuario::setNome(string valor) {
     Nome nome;

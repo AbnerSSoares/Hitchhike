@@ -1,9 +1,9 @@
 /* Copyright 2019 Abner Soares e Kallebe Sousa */
 
 #include <iostream>
-#include "entidades.hpp"
-#include "tu_dominios.hpp"
-#include "tu_entidades.hpp"
+#include "entidades/entidades.hpp"
+#include "tu_dominios/tu_dominios.hpp"
+#include "tu_entidades/tu_entidades.hpp"
 
 using std::cout;
 

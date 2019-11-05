@@ -4,7 +4,7 @@
 #define TU_ENTIDADES_HPP_
 
 #include <string>
-#include "entidades.hpp"
+#include "../entidades/entidades.hpp"
 
 class TU_Usuario {
  protected:

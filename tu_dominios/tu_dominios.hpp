@@ -5,7 +5,7 @@
 
 #include <stdexcept>
 #include <string>
-#include "dominios.hpp"
+#include "../dominios/dominios.hpp"
 
 using std::string;
 

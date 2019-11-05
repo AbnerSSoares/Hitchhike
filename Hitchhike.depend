@@ -18,7 +18,7 @@
 	<string>
 	"dominios.hpp"
 
-1569805906 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
+1572959837 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
 	<iostream>
 	"entidades.hpp"
 	"tu_dominios.hpp"
@@ -117,4 +117,32 @@
 1569805906 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_entidades.hpp
 	<string>
 	"entidades.hpp"
+
+1569805906 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_dominios\tu_dominios.cpp
+	"tu_dominios.hpp"
+	<stdexcept>
+
+1572960681 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_dominios\tu_dominios.hpp
+	<stdexcept>
+	<string>
+	"../dominios/dominios.hpp"
+
+1572959837 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios\dominios.hpp
+	<string>
+	<vector>
+
+1572960807 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades\entidades.cpp
+	"../entidades/entidades.hpp"
+
+1572960681 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades\entidades.hpp
+	<string>
+	"../dominios/dominios.hpp"
+
+1569805906 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_entidades\tu_entidades.cpp
+	<stdexcept>
+	"tu_entidades.hpp"
+
+1572960807 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_entidades\tu_entidades.hpp
+	<string>
+	"../entidades/entidades.hpp"
 
