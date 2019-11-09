@@ -10,6 +10,8 @@ using namespace std;
 // Declarações adiantadas.
 
 class ISAutenticacao;
+class ISUsuario;
+class ISCarona;
 
 class IAAutenticacao {
 public:
@@ -41,10 +43,21 @@ public:
     virtual ~ISAutenticacao(){}
 };
 
+class IAUsuario {
 
+};
 
+class ISUsuario{
 
+};
 
+class IACarona{
+
+};
+
+class ISCarona{
+
+};
 
 
 
