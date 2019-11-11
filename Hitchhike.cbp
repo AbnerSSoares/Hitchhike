@@ -15,8 +15,8 @@
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/lib/pdcurses.lib" />
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/lib" />
+					<Add library="C:/Users/kalle/Documents/UnB/4_Semestre/TP1/trabalho/Hitchhike/pdcurses.lib" />
+					<Add directory="C:/Users/kalle/Documents/UnB/4_Semestre/TP1/trabalho/Hitchhike" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -29,8 +29,8 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/lib/pdcurses.lib" />
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/lib" />
+					<Add library="C:/Users/kalle/Documents/UnB/4_Semestre/TP1/trabalho/Hitchhike/pdcurses.lib" />
+					<Add directory="C:/Users/kalle/Documents/UnB/4_Semestre/TP1/trabalho/Hitchhike" />
 				</Linker>
 			</Target>
 		</Build>
@@ -38,8 +38,8 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Linker>
-			<Add library="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/lib/pdcurses.lib" />
-			<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/lib" />
+			<Add library="C:/Users/kalle/Documents/UnB/4_Semestre/TP1/trabalho/Hitchhike/pdcurses.lib" />
+			<Add directory="C:/Users/kalle/Documents/UnB/4_Semestre/TP1/trabalho/Hitchhike" />
 		</Linker>
 		<Unit filename="Interfaces/Interfaces.h" />
 		<Unit filename="dominios/dominios.cpp" />
