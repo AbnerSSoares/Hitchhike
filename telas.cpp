@@ -1,7 +1,7 @@
 #include "telas.hpp"
 #include <string.h>
 #include <iostream>
-#include <curses.h>
+#include "curses.h"
 
 using namespace std;
 
