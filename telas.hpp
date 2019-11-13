@@ -31,7 +31,7 @@ public:
 
 class TelaUsuario {
 public:
-    bool cadastrar(Usuario*, Conta*);
+    bool cadastrar(Usuario*, Conta *);
     bool excluir(Email);                //
 };
 
@@ -39,8 +39,9 @@ class TelaCarona {
 public:
     bool cadastrar(Carona*);
     bool pesquisar(Carona *);
-    bool reservar(Reserva*, Codigo_de_carona*);
-    void cancelarReserva(Carona, Usuario);
+    bool descadastrarCarona(Codigo_de_carona *);
+    bool reservar(Reserva *, Codigo_de_carona *);
+    bool cancelarReserva(Codigo_de_carona *);
 };
 
 #endif // TELAS_HPP

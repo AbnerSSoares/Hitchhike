@@ -1,6 +1,5 @@
 #include "stubs.hpp"
 
-
 // Definições de método da classe stub do controlador da lógica de negócio de autenticação.
 
 bool StubSAutenticacao::autenticar(const Email &email, const Senha &senha) throw(runtime_error) {

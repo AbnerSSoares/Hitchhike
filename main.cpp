@@ -41,9 +41,14 @@ int main() {
                     case 2:
                         tc.cadastrar(&carona) ? tm.show("Cadastramento realizado com sucesso!") : tm.show("Falha no cadastro de carona!");
                         break;
+                    case 4:
+                        tc.descadastrarCarona(&codCarona) ? tm.show("Descadastramento realizado com sucesso!") : tm.show("Falhaao remover carona!");
+                        break;
                     case 5:
                         tc.reservar(&reserva, &codCarona) ? tm.show("Reserva realizada com sucesso!") : tm.show("Falha na reserva de carona!");
                         break;
+                    case 6:
+                        tc.cancelarReserva(&codCarona) ? tm.show("Reserva cancelada com sucesso!") : tm.show("Falha no cancelamento da reserva!");
                     default:
                         break;
                 }

@@ -487,6 +487,44 @@ bool TelaCarona::pesquisar(Carona *carona) {
     return sucesso;
 }
 
+bool TelaCarona::descadastrarCarona(Codigo_de_carona *codCarona) {
+    char *titulo        = "Descadastrar Carona";
+    char *lblCodCarona  = "Codigo da Carona: ";
+    char txtCodCaronac[5];
+    int linha, coluna;
+    bool sucesso = false;
+
+    initscr();
+    getmaxyx(stdscr, linha, coluna);
+
+    // Titulo
+    mvprintw(2, (coluna - strlen(titulo))/2, "%s", titulo);
+
+    // Campos de pesquisa de carona
+    mvprintw(linha/8, coluna/8, "%s", lblCodCarona);
+    getstr(txtCodCaronac);
+
+    string txtCodCarona = txtCodCaronac;
+
+    int i = 2;
+    try {
+        codCarona->setValor(txtCodCarona);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Codigo de carona Invalido!");
+        i++;
+    }
+
+    (i > 2) ? sucesso = false : sucesso = true;
+
+    noecho();
+    getch();
+    echo();
+    clear();
+    endwin();
+
+    return sucesso;
+}
+
 bool TelaCarona::reservar(Reserva *reserva, Codigo_de_carona *carona) {
     char *titulo        = "Reservar Carona";
     char *lblCodCarona  = "Codigo da Carona: ";
@@ -537,6 +575,44 @@ bool TelaCarona::reservar(Reserva *reserva, Codigo_de_carona *carona) {
     }
 
     (i > 6) ? sucesso = false : sucesso = true;
+
+    noecho();
+    getch();
+    echo();
+    clear();
+    endwin();
+
+    return sucesso;
+}
+
+bool TelaCarona::cancelarReserva(Codigo_de_carona *codCarona) {
+    char *titulo        = "Cancelar Reserva Carona";
+    char *lblCodCarona  = "Codigo da Carona: ";
+    char txtCodCaronac[5];
+    int linha, coluna;
+    bool sucesso = false;
+
+    initscr();
+    getmaxyx(stdscr, linha, coluna);
+
+    // Titulo
+    mvprintw(2, (coluna - strlen(titulo))/2, "%s", titulo);
+
+    // Campos de pesquisa de carona
+    mvprintw(linha/8, coluna/8, "%s", lblCodCarona);
+    getstr(txtCodCaronac);
+
+    string txtCodCarona = txtCodCaronac;
+
+    int i = 2;
+    try {
+        codCarona->setValor(txtCodCarona);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Codigo de carona Invalido!");
+        i++;
+    }
+
+    (i > 2) ? sucesso = false : sucesso = true;
 
     noecho();
     getch();
