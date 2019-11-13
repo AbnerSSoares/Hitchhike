@@ -60,8 +60,6 @@ private:
     //Verificar os retornos - Pode ser necessário retornar bool para o módulo de inicialização
 
     virtual void aprCadastrar() throw(runtime_error) = 0;
-    virtual void aprPesquisar() throw(runtime_error) = 0;
-    virtual void aprEditar() throw(runtime_error) = 0;
     virtual void aprExcluir() throw(runtime_error) = 0;
 
 
@@ -77,7 +75,6 @@ public:
 
     virtual bool cadastrar(Usuario&) throw(runtime_error)= 0;       //Cadastra um usuário
     virtual void pesquisar(Usuario&) throw(runtime_error)= 0;       //Pesquisa um usuário
-    virtual bool editar(Usuario&) throw(runtime_error)= 0;          //Edita um usuário
     virtual bool excluir(Usuario&) throw(runtime_error)= 0;         //Exclui um usuário
 
     // Método destrutor virtual.
