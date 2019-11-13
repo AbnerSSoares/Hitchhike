@@ -41,15 +41,40 @@ public:
     bool excluir(Usuario&) throw(runtime_error);
 };
 
+class StubSCarona : public ISCarona{
+public:
 
+    // Definições de valores a serem usados como gatilhos para notificações de erros.
+    //Gatilho para cadastramento será o código de carona
 
+    const string TRIGGER_FALHA_CAD        = "9999";
+    const string TRIGGER_ERRO_SISTEMA_CAD = "0000";
 
+    //Gatilho para Pesquisa será Cidade de partida
 
+    const string TRIGGER_FALHA_PES        = "Formosa";
+    const string TRIGGER_ERRO_SISTEMA_PES = "Sobradinho";
 
+    //Gatilho para Reserva de carona será código de carona
 
+    const string TRIGGER_FALHA_RES          = "1111";
+    const string TRIGGER_ERRO_SISTEMA_RES   = "2222";
 
+    //Gatilho para cancelar reserva de carona será código da reserva
 
+    const string TRIGGER_FALHA_CAN          = "00000";
+    const string TRIGGER_ERRO_SISTEMA_CAN   = "99999";
 
+    //Gatilho para excluir carona será código da carona
 
+    const string TRIGGER_FALHA_DEL          = "5555";
+    const string TRIGGER_ERRO_SISTEMA_DEL   = "4444";
+
+    bool cadastrar(Carona&, Usuario&) throw(runtime_error);
+    Carona pesquisar(Carona&) throw(runtime_error);
+    bool reservar(Carona&, Usuario&) throw(runtime_error);
+    bool cancelar(Carona&, Usuario&) throw(runtime_error);
+    bool excluir(Codigo_de_carona&) throw(runtime_error);
+
+};
 #endif // STUBS_H_INCLUDED
-
