@@ -6,53 +6,92 @@
 using namespace std;
 
 int TelaInicializacao::incializacao() {
-    WINDOW *menu_win;
-    MEVENT event;
-    char *opcoes[] = {  "Cadastrar Usuario",
-                        "Autenticar Usuario",
-                        "Listar Caronas"};
-    int n_opcoes = sizeof(opcoes)/sizeof(char *);
-    int linha, coluna, x = 2, y = 2, c, escolha = -1;
+    char* choices[] = {"Cadastrar Usuario", "Autenticar Usuario", "Pesquisar caronas", "Exit"};
+    int n_choices = sizeof(choices) / sizeof(char *);
+    int acao = -1;
 
-    initscr();
-    clear();
-    noecho();
-    getmaxyx(stdscr, linha, coluna);
+    int c, choice = 0;
+    int HEIGHT = 10, WIDTH = 30;
+	WINDOW *menu_win;
+	MEVENT event;
 
-    // Mostra caixa de menu
-    menu_win = newwin(10, 40, linha/6, coluna/2);
-    box(menu_win, 0, 0);
-    for (int i = 0; i < n_opcoes; ++i) {
-        mvwprintw(menu_win, y, x, "%s", opcoes[i]);
-        y += 2;
-    }
-    wrefresh(menu_win);
+	/* Initialize curses */
+	initscr();
+	clear();
+	noecho();
+	cbreak();	//Line buffering disabled. pass on everything
 
-    // Mouse events
-    mousemask(ALL_MOUSE_EVENTS, NULL);
+	/* Try to put the window in the middle of screen */
+	startx = (80 - WIDTH) / 2;
+	starty = (24 - HEIGHT) / 2;
 
-    while(1) {
+	attron(A_REVERSE);
+	mvprintw(23, 1, "Click on Exit to quit (Works best in a virtual console)");
+	refresh();
+	attroff(A_REVERSE);
+
+	/* Print the menu for the first time */
+	menu_win = newwin(HEIGHT, WIDTH, starty, startx);
+	this->print_menu(menu_win, 1, choices, n_choices);
+	/* Get all the mouse events */
+	mousemask(ALL_MOUSE_EVENTS, NULL);
+	keypad(menu_win, TRUE);
+
+	while(acao == -1) {
         c = wgetch(menu_win);
-        switch(c) {
-        case KEY_MOUSE:
-            if (nc_getmouse(&event) == OK) {
-                // Quando o usuario clicar com o btn esquerdo do mouse
-                if (event.bstate & BUTTON1_PRESSED) {
-                    int i = linha/6;
-                    int j = coluna/2;
+		switch(c){
+		    case KEY_MOUSE:
+			if(nc_getmouse(&event) == OK) {	/* When the user clicks left mouse button */
+				if(event.bstate & BUTTON1_PRESSED) {
+				    this->report_choice(event.x + 1, event.y + 1, &choice, choices, n_choices);
+					acao = choice;
+					mvprintw(22, 1, "Choice made is : %d String Chosen is \"%10s\"", choice, choices[choice - 1]);
+					goto end;
+					refresh();
+				}
+			}
+			this->print_menu(menu_win, choice, choices, n_choices);
+			break;
+		}
+	}
+end:
+	endwin();
+	return acao;
+}
 
-                    for (int choice = 0; choice < n_opcoes; ++choice) {
-                        if (event.y == j + choice && event.x >= i && event.x <= i + strlen(opcoes[choice])) {
-                            return choice + 1;
-                        }
-                    }
-                }
-            }
-        }
-    }
+void TelaInicializacao::print_menu(WINDOW* menu_win, int highlight, char *choices[], int n_choices) {
+    int x, y, i;
 
-    endwin();
-    return escolha;
+	x = 2;
+	y = 2;
+	box(menu_win, 0, 0);
+	for(i = 0; i < n_choices; ++i)
+	{	if(highlight == i + 1)
+		{	wattron(menu_win, A_REVERSE);
+			mvwprintw(menu_win, y, x, "%s", choices[i]);
+			wattroff(menu_win, A_REVERSE);
+		}
+		else
+			mvwprintw(menu_win, y, x, "%s", choices[i]);
+		++y;
+	}
+	wrefresh(menu_win);
+}
+
+void TelaInicializacao::report_choice(int mouse_x, int mouse_y, int *p_choice, char *choices[], int n_choices) {
+    int i,j, choice;
+
+	i = startx + 2;
+	j = starty + 3;
+
+	for(choice = 0; choice < n_choices; ++choice)
+		if(mouse_y == j + choice && mouse_x >= i && mouse_x <= i + strlen(choices[choice]))
+		{	if(choice == n_choices - 1)
+				*p_choice = -1;
+			else
+				*p_choice = choice + 1;
+			break;
+		}
 }
 
 void TelaMensagem::show(char *mensagem) {

@@ -3,10 +3,18 @@
 
 #include "dominios/dominios.hpp"
 #include "entidades/entidades.hpp"
+#include "curses.h"
 
 class TelaInicializacao {
 public:
     int incializacao();
+
+private:
+    int startx = 0;
+    int starty = 0;
+
+    void print_menu(WINDOW*, int, char *choices[], int n_choices);
+    void report_choice(int mouse_x, int mouse_y, int *p_choice, char *choices[], int n_choices);
 };
 
 class TelaAutenticacao {

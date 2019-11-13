@@ -19,7 +19,7 @@ int main() {
     Conta conta;
 
     TelaInicializacao ti;
-    cout << "" + ti.incializacao();
+    cout << "Opcao escolhida: " << to_string(ti.incializacao());
 
     TelaMensagem tm;
 
