@@ -32,14 +32,14 @@ public:
 class TelaUsuario {
 public:
     bool cadastrar(Usuario*, Conta*);
-    bool excluir(Email);
+    bool excluir(Email);                //
 };
 
 class TelaCarona {
 public:
     bool cadastrar(Carona*);
-    void pesquisar(Carona *);
-    void reservar(Carona, Usuario);
+    bool pesquisar(Carona *);
+    bool reservar(Reserva*, Codigo_de_carona*);
     void cancelarReserva(Carona, Usuario);
 };
 

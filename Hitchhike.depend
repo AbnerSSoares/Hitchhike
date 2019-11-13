@@ -83,3 +83,87 @@
 	"entidades/entidades.hpp"
 	<stdexcept>
 
+1573523482 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios\dominios.cpp
+	<sstream>
+	<stdexcept>
+	<string>
+	<vector>
+	<algorithm>
+	"../dominios/dominios.hpp"
+
+1572959837 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\dominios\dominios.hpp
+	<string>
+	<vector>
+
+1572960807 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades\entidades.cpp
+	"../entidades/entidades.hpp"
+
+1572960681 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\entidades\entidades.hpp
+	<string>
+	"../dominios/dominios.hpp"
+
+1573423054 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\testes.cpp
+	"testes.hpp"
+
+1573422087 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\testes.hpp
+	<iostream>
+	"entidades/entidades.hpp"
+	"tu_dominios/tu_dominios.hpp"
+	"tu_entidades/tu_entidades.hpp"
+
+1572960681 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_dominios\tu_dominios.hpp
+	<stdexcept>
+	<string>
+	"../dominios/dominios.hpp"
+
+1572960807 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_entidades\tu_entidades.hpp
+	<string>
+	"../entidades/entidades.hpp"
+
+1569805906 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_dominios\tu_dominios.cpp
+	"tu_dominios.hpp"
+	<stdexcept>
+
+1569805906 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\tu_entidades\tu_entidades.cpp
+	<stdexcept>
+	"tu_entidades.hpp"
+
+1573666224 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.cpp
+	"stubs.h"
+
+1573666224 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.h
+	"interfaces.hpp"
+	<stdexcept>
+	<iostream>
+
+1573664220 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\interfaces.hpp
+	"dominios/dominios.hpp"
+	"entidades/entidades.hpp"
+	<stdexcept>
+
+1573666001 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
+	<iostream>
+	"entidades/entidades.hpp"
+	"dominios/dominios.hpp"
+	"testes.hpp"
+	"telas.hpp"
+	"tu_dominios/tu_dominios.hpp"
+	"tu_entidades/tu_entidades.hpp"
+
+1573668444 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.hpp
+	"dominios/dominios.hpp"
+	"entidades/entidades.hpp"
+	"curses.h"
+
+1556320568 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\curses.h
+	<stdarg.h>
+	<stddef.h>
+	<stdio.h>
+	<wchar.h>
+
+1573668457 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.cpp
+	"telas.hpp"
+	<string.h>
+	<iostream>
+	"curses.h"
+

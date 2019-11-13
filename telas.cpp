@@ -7,7 +7,7 @@ using namespace std;
 
 int TelaInicializacao::usuario() {
     int option = -1;
-    char* choices[] = {"Cadastrar Carona", "Listar reservas de carona", "Descadastrar Carona", "Reservar Carona", "Cancelar Reserva de carona", "Descadastrar do sistema"};
+    char* choices[] = {"Pesquisar Caronas", "Cadastrar Carona", "Listar reservas de carona", "Descadastrar Carona", "Reservar Carona", "Cancelar Reserva de carona", "Descadastrar do sistema"};
     int n_choices = sizeof(choices) / sizeof(char *);
     option = this->montarTela(choices, n_choices);
     return option;
@@ -194,7 +194,7 @@ bool TelaUsuario::cadastrar(Usuario *user, Conta *conta) {
     mvprintw(linha/8+8, coluna/8, "%s", lblSenha);
     getstr(txtSenhac);
 
-    //Campos cadastro conta
+    // Campos cadastro conta
     mvprintw(linha/8+10, coluna/8, "%s", lblCodBanco);
     getstr(txtCodBancoc);
 
@@ -403,4 +403,146 @@ bool TelaCarona::cadastrar(Carona *carona) {
     endwin();
 
     return sucess;
+}
+
+bool TelaCarona::pesquisar(Carona *carona) {
+    char *titulo            = "Pesquisar Caronas";
+    char *lblCidadeOrigem   = "Cidade Origem: ";
+    char *lblEstadoOrigem   = "Estado Origem: ";
+    char *lblCidadeDestino  = "Cidade Destino: ";
+    char *lblEstadoDestino  = "Estado Destino: ";
+    char *lblData           = "Data partida: ";
+    char txtCidadeOrigemc[11], txtEstadoOrigemc[3], txtCidadeDestinoc[11], txtEstadoDestinoc[3], txtDatac[11];
+    int linha, coluna;
+    bool sucesso = false;
+
+    initscr();
+    getmaxyx(stdscr, linha, coluna);
+
+    // Titulo
+    mvprintw(2, (coluna - strlen(titulo))/2, "%s", titulo);
+
+    // Campos de pesquisa de carona
+    mvprintw(linha/8, coluna/8, "%s", lblCidadeOrigem);
+    getstr(txtCidadeOrigemc);
+
+    mvprintw(linha/8+2, coluna/8, "%s", lblEstadoOrigem);
+    getstr(txtEstadoOrigemc);
+
+    mvprintw(linha/8+4, coluna/8, "%s", lblCidadeDestino);
+    getstr(txtCidadeDestinoc);
+
+    mvprintw(linha/8+6, coluna/8, "%s", lblEstadoDestino);
+    getstr(txtEstadoDestinoc);
+
+    mvprintw(linha/8+8, coluna/8, "%s", lblData);
+    getstr(txtDatac);
+
+    string txtEstadoOrigem = txtEstadoOrigemc;
+    string txtCidadeDestino = txtCidadeDestinoc;
+    string txtCidOrigem = txtCidadeOrigemc;
+    string txtEstadoDestino = txtEstadoDestinoc;
+    string txtData = txtDatac;
+
+    int i = 10;
+    try {
+        carona->setCidade_origem(txtCidOrigem);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Cidade Origem invalida!");
+        i++;
+    }
+    try {
+        carona->setEstado_origem(txtEstadoOrigem);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Estado Origem invalido!");
+        i++;
+    }
+    try {
+        carona->setCidade_destino(txtCidadeDestino);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Cidade Destino invalido!");
+        i++;
+    }
+    try {
+        carona->setEstado_destino(txtEstadoDestino);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Estado Destino invalido!");
+        i++;
+    }
+    try {
+        carona->setData(txtData);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Data invalida!");
+        i++;
+    }
+
+    (i > 10) ? sucesso = false : sucesso = true;
+
+    noecho();
+    getch();
+    echo();
+    clear();
+    endwin();
+
+    return sucesso;
+}
+
+bool TelaCarona::reservar(Reserva *reserva, Codigo_de_carona *carona) {
+    char *titulo        = "Reservar Carona";
+    char *lblCodCarona  = "Codigo da Carona: ";
+    char *lblAssento    = "Preferencia de Assento: ";
+    char *lblBagagem    = "Numero de volumes de bagagem: ";
+    char txtCodCaronac[5], txtAssentoc[2], txtBagagemc[3];
+    int linha, coluna;
+    bool sucesso = false;
+
+    initscr();
+    getmaxyx(stdscr, linha, coluna);
+
+    // Titulo
+    mvprintw(2, (coluna - strlen(titulo))/2, "%s", titulo);
+
+    // Campos de pesquisa de carona
+    mvprintw(linha/8, coluna/8, "%s", lblCodCarona);
+    getstr(txtCodCaronac);
+
+    mvprintw(linha/8+2, coluna/8, "%s", lblAssento);
+    getstr(txtAssentoc);
+
+    mvprintw(linha/8+4, coluna/8, "%s", lblBagagem);
+    getstr(txtBagagemc);
+
+    string txtAssento = txtAssentoc;
+    string txtBagagem = txtBagagemc;
+    string txtCodCarona = txtCodCaronac;
+
+    int i = 6;
+    try {
+        reserva->setAssento(txtAssento);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Assento Invalido!");
+        i++;
+    }
+    try {
+        reserva->setBagagem(txtBagagem);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Numero de Bagagem Invalido!");
+        i++;
+    }
+    try {
+        carona->setValor(txtCodCarona);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Codigo de carona Invalido!");
+        i++;
+    }
+
+    (i > 6) ? sucesso = false : sucesso = true;
+
+    noecho();
+    getch();
+    echo();
+    clear();
+    endwin();
+
+    return sucesso;
 }
