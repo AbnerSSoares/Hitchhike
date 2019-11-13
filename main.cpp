@@ -16,13 +16,15 @@ int main() {
     TelaUsuario tu;
     TelaMensagem tm;
     TelaAutenticacao ta;
+    TelaInicializacao ti;
+    TelaCarona tc;
 
     Email email;
     Senha senha;
     Usuario user;
     Conta conta;
+    Carona carona;
 
-    TelaInicializacao ti;
     switch(ti.incializacao()) {
         case 1:
             tu.cadastrar(&user, &conta) ? tm.show("Cadastramento realizado com sucesso!") : tm.show("Falha no cadastro do usuario!");
@@ -30,7 +32,13 @@ int main() {
         case 2:
             if (ta.autenticar(&email, &senha)) {
                 tm.show("Autenticacao realizada com sucesso!");
-                ti.usuario();
+                switch (ti.usuario()) {
+                    case 1:
+                        tc.cadastrar(&carona) ? tm.show("Cadastramento realizado com sucesso!") : tm.show("Falha no cadastro de carona!");
+                        break;
+                    default:
+                        break;
+                }
             } else {
                 tm.show("Falha na autenticacao do usuario!");
             }
