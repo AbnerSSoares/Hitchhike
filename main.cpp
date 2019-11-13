@@ -13,21 +13,29 @@ int main() {
     /* Testes t;
     t.executar();   // Executa testes de dominio e entidade */
 
+    TelaUsuario tu;
+    TelaMensagem tm;
+    TelaAutenticacao ta;
+
     Email email;
     Senha senha;
     Usuario user;
     Conta conta;
 
     TelaInicializacao ti;
-    cout << "Opcao escolhida: " << to_string(ti.incializacao());
-
-    TelaMensagem tm;
-
-    TelaUsuario tu;
-    //tu.cadastrar(&user, &conta) ? tm.show("Cadastro realizado com sucesso!") : tm.show("Falha no cadastro do usuario!");
-
-    TelaAutenticacao ta;
-    //ta.autenticar(&email, &senha) ? tm.show("Autenticacao realizada com sucesso!") : tm.show("Falha na autenticacao do usuario!");
+    switch(ti.incializacao()) {
+        case 1:
+            tu.cadastrar(&user, &conta) ? tm.show("Cadastro realizado com sucesso!") : tm.show("Falha no cadastro do usuario!");
+            break;
+        case 2:
+            ta.autenticar(&email, &senha) ? tm.show("Autenticacao realizada com sucesso!") : tm.show("Falha na autenticacao do usuario!");
+            break;
+        case 3:
+            // Listar caronas
+            break;
+        default:
+            break;
+    }
 
     /*cout << "Usuario:\n";
     cout << user.getNome().getValor() << "\n";
