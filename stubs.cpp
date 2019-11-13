@@ -1,4 +1,4 @@
-#include "stubs.h"
+#include "stubs.hpp"
 
 
 // Definições de método da classe stub do controlador da lógica de negócio de autenticação.

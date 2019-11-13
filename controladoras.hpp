@@ -21,11 +21,7 @@ public:
 
     // MÈtodo destrutor
 
-<<<<<<< HEAD
-    ~IAAutenticacao(){}
-=======
     ~CntrAUntenticacao(){}
->>>>>>> Corre√ß√£o de interfaces e controladoras
 
 };
 
@@ -40,13 +36,10 @@ public:
 
     void setLinkUsu(ISUsuario *);
 
-<<<<<<< HEAD
-=======
-    // MÈtodo destrutor virtual.
+    // MÈtodo destrutor
 
     ~CntrAUsuario(){}
 
->>>>>>> Corre√ß√£o de interfaces e controladoras
 private:
 
     //MÈtodos de usu·rios
@@ -54,14 +47,6 @@ private:
     bool aprCadastrar() throw(runtime_error);
     bool aprExcluir() throw(runtime_error);
 
-<<<<<<< HEAD
-
-    // MÈtodo destrutor virtual.
-
-    ~IAUsuario(){}
-
-=======
->>>>>>> Corre√ß√£o de interfaces e controladoras
 };
 
 class CntrACarona : public IACarona{
@@ -75,12 +60,9 @@ public:
 
     void setLinkCar(ISCarona *);
 
-<<<<<<< HEAD
-=======
     // MÈtodo destrutor virtual.
 
     ~CntrACarona(){}
->>>>>>> Corre√ß√£o de interfaces e controladoras
 private:
 
     //MÈtodos de carona
@@ -91,13 +73,6 @@ private:
     bool aprCancelar() throw(runtime_error);
     bool aprExcluir() throw(runtime_error);
 
-<<<<<<< HEAD
-    // MÈtodo destrutor virtual.
-
-    ~IACarona(){}
-=======
-
->>>>>>> Corre√ß√£o de interfaces e controladoras
 };
 
 #endif // CONTROLADORAS_HPP

@@ -169,3 +169,70 @@
 
 1573666872 source:c:\users\abner\documents\dev\hitchhike\controladoras.cpp
 
+1573677656 source:c:\users\abner\documents\dev 2\hitchhike\dominios\dominios.cpp
+	<sstream>
+	<stdexcept>
+	<string>
+	<vector>
+	<algorithm>
+	"../dominios/dominios.hpp"
+
+1573677656 c:\users\abner\documents\dev 2\hitchhike\dominios\dominios.hpp
+	<string>
+	<vector>
+
+1573677656 source:c:\users\abner\documents\dev 2\hitchhike\entidades\entidades.cpp
+	"../entidades/entidades.hpp"
+
+1573677656 c:\users\abner\documents\dev 2\hitchhike\entidades\entidades.hpp
+	<string>
+	"../dominios/dominios.hpp"
+
+1573677656 source:c:\users\abner\documents\dev 2\hitchhike\main.cpp
+	<iostream>
+	"entidades/entidades.hpp"
+	"dominios/dominios.hpp"
+	"testes.hpp"
+	"telas.hpp"
+	"tu_dominios/tu_dominios.hpp"
+	"tu_entidades/tu_entidades.hpp"
+
+1573677656 c:\users\abner\documents\dev 2\hitchhike\testes.hpp
+	<iostream>
+	"entidades/entidades.hpp"
+	"tu_dominios/tu_dominios.hpp"
+	"tu_entidades/tu_entidades.hpp"
+
+1573677656 c:\users\abner\documents\dev 2\hitchhike\tu_dominios\tu_dominios.hpp
+	<stdexcept>
+	<string>
+	"../dominios/dominios.hpp"
+
+1573677656 c:\users\abner\documents\dev 2\hitchhike\tu_entidades\tu_entidades.hpp
+	<string>
+	"../entidades/entidades.hpp"
+
+1573677656 c:\users\abner\documents\dev 2\hitchhike\telas.hpp
+	"dominios/dominios.hpp"
+	"entidades/entidades.hpp"
+	"curses.h"
+
+1573677656 source:c:\users\abner\documents\dev 2\hitchhike\telas.cpp
+	"telas.hpp"
+	<string.h>
+	<iostream>
+	"curses.h"
+
+1573677656 source:c:\users\abner\documents\dev 2\hitchhike\testes.cpp
+	"testes.hpp"
+
+1573677656 source:c:\users\abner\documents\dev 2\hitchhike\tu_dominios\tu_dominios.cpp
+	"tu_dominios.hpp"
+	<stdexcept>
+
+1573677656 source:c:\users\abner\documents\dev 2\hitchhike\tu_entidades\tu_entidades.cpp
+	<stdexcept>
+	"tu_entidades.hpp"
+
+1573677656 source:c:\users\abner\documents\dev 2\hitchhike\controladoras.cpp
+
