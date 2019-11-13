@@ -128,10 +128,10 @@
 	<stdexcept>
 	"tu_entidades.hpp"
 
-1573663825 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.cpp
+1573666224 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.cpp
 	"stubs.h"
 
-1573665951 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.h
+1573666224 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.h
 	"interfaces.hpp"
 	<stdexcept>
 	<iostream>
@@ -150,7 +150,7 @@
 	"tu_dominios/tu_dominios.hpp"
 	"tu_entidades/tu_entidades.hpp"
 
-1573664593 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.hpp
+1573668444 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.hpp
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 	"curses.h"
@@ -161,7 +161,7 @@
 	<stdio.h>
 	<wchar.h>
 
-1573666011 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.cpp
+1573668457 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.cpp
 	"telas.hpp"
 	<string.h>
 	<iostream>

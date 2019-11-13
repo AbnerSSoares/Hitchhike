@@ -414,7 +414,7 @@ bool TelaCarona::pesquisar(Carona *carona) {
     char *lblData           = "Data partida: ";
     char txtCidadeOrigemc[11], txtEstadoOrigemc[3], txtCidadeDestinoc[11], txtEstadoDestinoc[3], txtDatac[11];
     int linha, coluna;
-    bool sucesso = true;
+    bool sucesso = false;
 
     initscr();
     getmaxyx(stdscr, linha, coluna);
@@ -477,6 +477,66 @@ bool TelaCarona::pesquisar(Carona *carona) {
     }
 
     (i > 10) ? sucesso = false : sucesso = true;
+
+    noecho();
+    getch();
+    echo();
+    clear();
+    endwin();
+
+    return sucesso;
+}
+
+bool TelaCarona::reservar(Reserva *reserva, Codigo_de_carona *carona) {
+    char *titulo        = "Reservar Carona";
+    char *lblCodCarona  = "Codigo da Carona: ";
+    char *lblAssento    = "Preferencia de Assento: ";
+    char *lblBagagem    = "Numero de volumes de bagagem: ";
+    char txtCodCaronac[5], txtAssentoc[2], txtBagagemc[3];
+    int linha, coluna;
+    bool sucesso = false;
+
+    initscr();
+    getmaxyx(stdscr, linha, coluna);
+
+    // Titulo
+    mvprintw(2, (coluna - strlen(titulo))/2, "%s", titulo);
+
+    // Campos de pesquisa de carona
+    mvprintw(linha/8, coluna/8, "%s", lblCodCarona);
+    getstr(txtCodCaronac);
+
+    mvprintw(linha/8+2, coluna/8, "%s", lblAssento);
+    getstr(txtAssentoc);
+
+    mvprintw(linha/8+4, coluna/8, "%s", lblBagagem);
+    getstr(txtBagagemc);
+
+    string txtAssento = txtAssentoc;
+    string txtBagagem = txtBagagemc;
+    string txtCodCarona = txtCodCaronac;
+
+    int i = 6;
+    try {
+        reserva->setAssento(txtAssento);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Assento Invalido!");
+        i++;
+    }
+    try {
+        reserva->setBagagem(txtBagagem);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Numero de Bagagem Invalido!");
+        i++;
+    }
+    try {
+        carona->setValor(txtCodCarona);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Codigo de carona Invalido!");
+        i++;
+    }
+
+    (i > 6) ? sucesso = false : sucesso = true;
 
     noecho();
     getch();

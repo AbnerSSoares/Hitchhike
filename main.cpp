@@ -21,9 +21,11 @@ int main() {
 
     Email email;
     Senha senha;
+    Codigo_de_carona codCarona;
     Usuario user;
     Conta conta;
     Carona carona;
+    Reserva reserva;
 
     switch(ti.incializacao()) {
         case 1:
@@ -35,8 +37,12 @@ int main() {
                 switch (ti.usuario()) {
                     case 1:
                         tc.pesquisar(&carona) ? tm.show("Dados da pesquisa corretos!") : tm.show("Falha na pesquisa de caronas!");
+                        break;
                     case 2:
                         tc.cadastrar(&carona) ? tm.show("Cadastramento realizado com sucesso!") : tm.show("Falha no cadastro de carona!");
+                        break;
+                    case 5:
+                        tc.reservar(&reserva, &codCarona) ? tm.show("Reserva realizada com sucesso!") : tm.show("Falha na reserva de carona!");
                         break;
                     default:
                         break;
