@@ -275,3 +275,132 @@ bool TelaUsuario::cadastrar(Usuario *user, Conta *conta) {
 
     return sucess;
 }
+
+bool TelaCarona::cadastrar(Carona *carona) {
+    char *titulo            = "Cadastrar Carona";
+    char *lblcodCarona      = "Codigo de carona: ";
+    char *lblCidOrigem      = "Cidade Origem: ";
+    char *lblEstadoOrigem   = "Estado Origem: ";
+    char *lblCidDestino     = "Cidade Destino: ";
+    char *lblEstadoDestino  = "Estado Destino: ";
+    char *lblData           = "Data Partida: ";
+    char *lblDuracao        = "Duracao Trajeto: ";
+    char *lblVagas          = "Qtd de Vagas: ";
+    char *lblPreco          = "Preco: ";
+    char *mensErro          = "Dados invalidos!";
+    char txtVagasc[2], txtCodCaronac[5], txtCidOrigemc[11], txtEstadoOrigemc[3], txtCidadeDestinoc[11];
+    char txtEstadoDestinoc[3], txtDatac[11], txtDuracaoc[4], txtPrecoc[9];
+    int linha, coluna;
+    bool sucess = true;
+
+    initscr();
+    getmaxyx(stdscr, linha, coluna);
+
+    // Titulo
+    mvprintw(2, (coluna - strlen(titulo))/2, "%s", titulo);
+
+    // Campos de cadastro de carona
+    mvprintw(linha/8, coluna/8, "%s", lblcodCarona);
+    getstr(txtCodCaronac);
+
+    mvprintw(linha/8+2, coluna/8, "%s", lblCidOrigem);
+    getstr(txtCidOrigemc);
+
+    mvprintw(linha/8+4, coluna/8, "%s", lblEstadoOrigem);
+    getstr(txtEstadoOrigemc);
+
+    mvprintw(linha/8+6, coluna/8, "%s", lblCidDestino);
+    getstr(txtCidadeDestinoc);
+
+    mvprintw(linha/8+8, coluna/8, "%s", lblEstadoDestino);
+    getstr(txtEstadoDestinoc);
+
+    mvprintw(linha/8+10, coluna/8, "%s", lblData);
+    getstr(txtDatac);
+
+    mvprintw(linha/8+12, coluna/8, "%s", lblDuracao);
+    getstr(txtDuracaoc);
+
+    mvprintw(linha/8+14, coluna/8, "%s", lblVagas);
+    getstr(txtVagasc);
+
+    mvprintw(linha/8+16, coluna/8, "%s", lblPreco);
+    getstr(txtPrecoc);
+
+    //Atribuição de valores
+    string txtVagas = txtVagasc;
+    string txtPreco = txtPrecoc;
+    string txtCodCarona = txtCodCaronac;
+    string txtEstadoOrigem = txtEstadoOrigemc;
+    string txtCidadeDestino = txtCidadeDestinoc;
+    string txtCidOrigem = txtCidOrigemc;
+    string txtEstadoDestino = txtEstadoDestinoc;
+    string txtData = txtDatac;
+    string txtDuracao = txtDuracaoc;
+
+    int i = 18;
+    try {
+        carona->setVagas(txtVagas);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Qtd de Vagas invalido!");
+        i++;
+    }
+    try {
+        carona->setCodigo_de_carona(txtCodCarona);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Codigo de carona invalido!");
+        i++;
+    }
+    try {
+        carona->setEstado_origem(txtEstadoOrigem);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Estado Origem invalido!");
+        i++;
+    }
+    try {
+        carona->setCidade_destino(txtCidadeDestino);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Cidade Destino invalido!");
+        i++;
+    }
+    try {
+        carona->setCidade_origem(txtCidOrigem);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Cidade origem invalida!");
+        i++;
+    }
+    try {
+        carona->setEstado_destino(txtEstadoDestino);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Estado destino invalido!");
+        i++;
+    }
+    try {
+        carona->setData(txtData);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Data invalida!");
+        i++;
+    }
+    try {
+        carona->setDuracao(txtDuracao);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Duracao invalida!");
+        i++;
+    }
+    try {
+        carona->setPreco(txtPreco);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Preco invalido!");
+        i++;
+    }
+
+    (i > 18) ? sucess = false : sucess = true;
+
+    noecho();
+    getch();
+    echo();
+    clear();
+    endwin();
+
+    return sucess;
+}
