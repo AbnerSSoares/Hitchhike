@@ -53,6 +53,12 @@ public:
     // MÈtodo por meio do qual È estabelecida ligaÁ„o (link) com a controladora na camada de serviÁo.
 
     virtual void setLinkUsu(ISUsuario *) = 0;
+<<<<<<< HEAD
+=======
+    // MÈtodo destrutor virtual.
+
+    virtual ~IAUsuario(){}
+>>>>>>> Corre√ß√£o de interfaces e controladoras
 
 private:
 
@@ -60,11 +66,14 @@ private:
 
     virtual bool aprCadastrar() throw(runtime_error) = 0;
     virtual bool aprExcluir() throw(runtime_error) = 0;
+<<<<<<< HEAD
 
 
     // MÈtodo destrutor virtual.
 
     virtual ~IAUsuario(){}
+=======
+>>>>>>> Corre√ß√£o de interfaces e controladoras
 };
 
 class ISUsuario{
@@ -92,6 +101,13 @@ public:
 
     virtual void setLinkCar(ISCarona *) = 0;
 
+<<<<<<< HEAD
+=======
+    // MÈtodo destrutor virtual.
+
+    virtual ~IACarona(){}
+
+>>>>>>> Corre√ß√£o de interfaces e controladoras
 private:
 
     //MÈtodos de carona
@@ -102,12 +118,15 @@ private:
     virtual bool aprCancelar() throw(runtime_error) = 0;
     virtual bool aprExcluir() throw(runtime_error) = 0;
 
+<<<<<<< HEAD
 
 
     // MÈtodo destrutor virtual.
 
     virtual ~IACarona(){}
 
+=======
+>>>>>>> Corre√ß√£o de interfaces e controladoras
 };
 
 class ISCarona{
