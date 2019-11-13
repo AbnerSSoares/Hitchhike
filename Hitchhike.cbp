@@ -15,8 +15,8 @@
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="./pdcurses.lib" />
-					<Add directory="." />
+					<Add library="C:/Users/Abner/Documents/Dev/Hitchhike/pdcurses.lib" />
+					<Add directory="C:/Users/Abner/Documents/Dev/Hitchhike" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -29,8 +29,8 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library=".\pdcurses.lib" />
-					<Add directory="." />
+					<Add library="C:/Users/Abner/Documents/Dev/Hitchhike/pdcurses.lib" />
+					<Add directory="C:/Users/Abner/Documents/Dev/Hitchhike" />
 				</Linker>
 			</Target>
 		</Build>
@@ -38,15 +38,18 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Linker>
-			<Add library="./pdcurses.lib" />
-			<Add directory="." />
+			<Add library="C:/Users/Abner/Documents/Dev/Hitchhike/pdcurses.lib" />
+			<Add directory="C:/Users/Abner/Documents/Dev/Hitchhike" />
 		</Linker>
-		<Unit filename="Interfaces/Interfaces.h" />
 		<Unit filename="dominios/dominios.cpp" />
 		<Unit filename="dominios/dominios.hpp" />
 		<Unit filename="entidades/entidades.cpp" />
 		<Unit filename="entidades/entidades.hpp" />
+		<Unit filename="interfaces.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="stubs.cpp" />
+		<Unit filename="stubs.h" />
+		<Unit filename="stubs/stubs.h" />
 		<Unit filename="telas.cpp" />
 		<Unit filename="telas.hpp" />
 		<Unit filename="testes.cpp" />
