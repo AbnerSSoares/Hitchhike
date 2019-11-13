@@ -25,10 +25,15 @@ int main() {
     TelaInicializacao ti;
     switch(ti.incializacao()) {
         case 1:
-            tu.cadastrar(&user, &conta) ? tm.show("Cadastro realizado com sucesso!") : tm.show("Falha no cadastro do usuario!");
+            tu.cadastrar(&user, &conta) ? tm.show("Cadastramento realizado com sucesso!") : tm.show("Falha no cadastro do usuario!");
             break;
         case 2:
-            ta.autenticar(&email, &senha) ? tm.show("Autenticacao realizada com sucesso!") : tm.show("Falha na autenticacao do usuario!");
+            if (ta.autenticar(&email, &senha)) {
+                tm.show("Autenticacao realizada com sucesso!");
+                ti.usuario();
+            } else {
+                tm.show("Falha na autenticacao do usuario!");
+            }
             break;
         case 3:
             // Listar caronas

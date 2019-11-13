@@ -5,11 +5,24 @@
 
 using namespace std;
 
+int TelaInicializacao::usuario() {
+    int option = -1;
+    char* choices[] = {"Cadastrar Carona", "Listar reservas de carona", "Descadastrar Carona", "Reservar Carona", "Cancelar Reserva de carona", "Descadastrar do sistema"};
+    int n_choices = sizeof(choices) / sizeof(char *);
+    option = this->montarTela(choices, n_choices);
+    return option;
+}
+
 int TelaInicializacao::incializacao() {
+    int option = -1;
     char* choices[] = {"Cadastrar Usuario", "Autenticar Usuario", "Pesquisar caronas", "Exit"};
     int n_choices = sizeof(choices) / sizeof(char *);
-    int acao = -1;
+    option = this->montarTela(choices, n_choices);
+    return option;
+}
 
+int TelaInicializacao::montarTela(char* choices[], int n_choices) {
+    int acao = -1;
     int c, choice = 0;
     int HEIGHT = 10, WIDTH = 30;
 	WINDOW *menu_win;
