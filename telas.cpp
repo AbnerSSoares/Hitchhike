@@ -5,15 +5,132 @@
 
 using namespace std;
 
-void TelaAutenticacao::autenticar(Email *email, Senha *senha) {
+int TelaInicializacao::usuario() {
+    int option = -1;
+    char* choices[] = {"Cadastrar Carona", "Listar reservas de carona", "Descadastrar Carona", "Reservar Carona", "Cancelar Reserva de carona", "Descadastrar do sistema"};
+    int n_choices = sizeof(choices) / sizeof(char *);
+    option = this->montarTela(choices, n_choices);
+    return option;
+}
+
+int TelaInicializacao::incializacao() {
+    int option = -1;
+    char* choices[] = {"Cadastrar Usuario", "Autenticar Usuario", "Pesquisar caronas", "Exit"};
+    int n_choices = sizeof(choices) / sizeof(char *);
+    option = this->montarTela(choices, n_choices);
+    return option;
+}
+
+int TelaInicializacao::montarTela(char* choices[], int n_choices) {
+    int acao = -1;
+    int c, choice = 0;
+    int HEIGHT = 10, WIDTH = 30;
+	WINDOW *menu_win;
+	MEVENT event;
+
+	/* Initialize curses */
+	initscr();
+	clear();
+	noecho();
+	cbreak();	//Line buffering disabled. pass on everything
+
+	/* Try to put the window in the middle of screen */
+	startx = (80 - WIDTH) / 2;
+	starty = (24 - HEIGHT) / 2;
+
+	attron(A_REVERSE);
+	mvprintw(23, 1, "Click on Exit to quit (Works best in a virtual console)");
+	refresh();
+	attroff(A_REVERSE);
+
+	/* Print the menu for the first time */
+	menu_win = newwin(HEIGHT, WIDTH, starty, startx);
+	this->print_menu(menu_win, 1, choices, n_choices);
+	/* Get all the mouse events */
+	mousemask(ALL_MOUSE_EVENTS, NULL);
+	keypad(menu_win, TRUE);
+
+	while(acao == -1) {
+        c = wgetch(menu_win);
+		switch(c){
+		    case KEY_MOUSE:
+			if(nc_getmouse(&event) == OK) {	/* When the user clicks left mouse button */
+				if(event.bstate & BUTTON1_PRESSED) {
+				    this->report_choice(event.x + 1, event.y + 1, &choice, choices, n_choices);
+					acao = choice;
+					mvprintw(22, 1, "Choice made is : %d String Chosen is \"%10s\"", choice, choices[choice - 1]);
+					goto end;
+					refresh();
+				}
+			}
+			this->print_menu(menu_win, choice, choices, n_choices);
+			break;
+		}
+	}
+end:
+	endwin();
+	return acao;
+}
+
+void TelaInicializacao::print_menu(WINDOW* menu_win, int highlight, char *choices[], int n_choices) {
+    int x, y, i;
+
+	x = 2;
+	y = 2;
+	box(menu_win, 0, 0);
+	for(i = 0; i < n_choices; ++i)
+	{	if(highlight == i + 1)
+		{	wattron(menu_win, A_REVERSE);
+			mvwprintw(menu_win, y, x, "%s", choices[i]);
+			wattroff(menu_win, A_REVERSE);
+		}
+		else
+			mvwprintw(menu_win, y, x, "%s", choices[i]);
+		++y;
+	}
+	wrefresh(menu_win);
+}
+
+void TelaInicializacao::report_choice(int mouse_x, int mouse_y, int *p_choice, char *choices[], int n_choices) {
+    int i,j, choice;
+
+	i = startx + 2;
+	j = starty + 3;
+
+	for(choice = 0; choice < n_choices; ++choice)
+		if(mouse_y == j + choice && mouse_x >= i && mouse_x <= i + strlen(choices[choice]))
+		{	if(choice == n_choices - 1)
+				*p_choice = -1;
+			else
+				*p_choice = choice + 1;
+			break;
+		}
+}
+
+void TelaMensagem::show(char *mensagem) {
+    int linha, coluna;
+    initscr();
+    getmaxyx(stdscr, linha, coluna);
+    mvprintw(linha/2, (coluna - strlen(mensagem))/2, "%s", mensagem);
+    noecho();
+    getch();
+    echo();
+    clear();
+    endwin();
+}
+
+bool TelaAutenticacao::autenticar(Email *email, Senha *senha) {
+    char *titulo   = "Autenticacao de Usuario";
     char *lblEmail = "Digite seu email: ";
     char *lblSenha = "Digite sua senha: ";
     char *mensErro = "Dados invalidos!";
     char txtEmailc[20], txtSenhac[15];
     int linha, coluna;
+    bool sucess = true;
 
     initscr();
     getmaxyx(stdscr, linha, coluna);
+    mvprintw(linha/8, (coluna - strlen(lblEmail))/2, "%s", titulo);
     mvprintw(linha/2, (coluna - strlen(lblEmail))/2, "%s", lblEmail);
     getstr(txtEmailc);
     mvprintw(linha/2 + 2, (coluna - strlen(lblSenha))/2, "%s", lblSenha);
@@ -24,19 +141,23 @@ void TelaAutenticacao::autenticar(Email *email, Senha *senha) {
 
     try {
         email->setValor(txtEmails);
+    } catch (...) {
+        mvprintw(linha/2 + 4, (coluna - 15)/2, "Email invalido!");
+        sucess = false;
+    }
+    try {
         senha->setValor(txtSenhas);
     } catch (...) {
-        mvprintw(linha/2 + 4, (coluna - strlen(mensErro))/2, "%s", mensErro);
-        noecho();
-        getch();
-        echo();
+        mvprintw(linha/2 + 4, (coluna - 15)/2, "Senha invalida!");
+        sucess = false;
     }
-
     clear();
     endwin();
+    return sucess;
 }
 
-void TelaUsuario::cadastrar(Usuario *user, Conta *conta) {
+bool TelaUsuario::cadastrar(Usuario *user, Conta *conta) {
+    char *titulo        = "Cadastro de usuario";
     char *lblNome       = "Nome: ";
     char *lblEmail      = "Email: ";
     char *lblTelefone   = "Telefone: ";
@@ -46,37 +167,41 @@ void TelaUsuario::cadastrar(Usuario *user, Conta *conta) {
     char *lblNumAgencia = "Numero da agencia: ";
     char *lblNumConta   = "Numero da conta: ";
     char *mensErro      = "Dados invalidos!";
-    char txtNomec[30], txtEmailc[20], txtTelefonec[17], txtSenhac[15], txtCpfc[20];
+    char txtNomec[21], txtEmailc[42], txtTelefonec[17], txtSenhac[6], txtCpfc[16];
     char txtCodBancoc[4], txtNumAgenciac[7], txtNumContac[9];
     int linha, coluna;
+    bool sucess = true;
 
     initscr();
     getmaxyx(stdscr, linha, coluna);
 
+    // Titulo
+    mvprintw(2, (coluna - strlen(titulo))/2, "%s", titulo);
+
     // Campos de cadastro de usuario
-    mvprintw(linha/4, (coluna - strlen(lblNome))/2, "%s", lblNome);
+    mvprintw(linha/8, coluna/8, "%s", lblNome);
     getstr(txtNomec);
 
-    mvprintw(linha/4+2, (coluna - strlen(lblCpf))/2, "%s", lblCpf);
+    mvprintw(linha/8+2, coluna/8, "%s", lblCpf);
     getstr(txtCpfc);
 
-    mvprintw(linha/4+4, (coluna - strlen(lblTelefone))/2, "%s", lblTelefone);
+    mvprintw(linha/8+4, coluna/8, "%s", lblTelefone);
     getstr(txtTelefonec);
 
-    mvprintw(linha/4+6, (coluna - strlen(lblEmail))/2, "%s", lblEmail);
+    mvprintw(linha/8+6, coluna/8, "%s", lblEmail);
     getstr(txtEmailc);
 
-    mvprintw(linha/4+8, (coluna - strlen(lblSenha))/2, "%s", lblSenha);
+    mvprintw(linha/8+8, coluna/8, "%s", lblSenha);
     getstr(txtSenhac);
 
     //Campos cadastro conta
-    mvprintw(linha/4+10, (coluna - strlen(lblCodBanco))/2, "%s", lblCodBanco);
+    mvprintw(linha/8+10, coluna/8, "%s", lblCodBanco);
     getstr(txtCodBancoc);
 
-    mvprintw(linha/4+12, (coluna - strlen(lblNumAgencia))/2, "%s", lblNumAgencia);
+    mvprintw(linha/8+12, coluna/8, "%s", lblNumAgencia);
     getstr(txtNumAgenciac);
 
-    mvprintw(linha/4+14, (coluna - strlen(lblNumConta))/2, "%s", lblNumConta);
+    mvprintw(linha/8+14, coluna/8, "%s", lblNumConta);
     getstr(txtNumContac);
 
     //Atribuição de valores
@@ -90,51 +215,63 @@ void TelaUsuario::cadastrar(Usuario *user, Conta *conta) {
     string txtNumAgencia = txtNumAgenciac;
     string txtNumConta = txtNumContac;
 
+    int i = 16;
     try {
         user->setNome(txtNome);
-        user->setEmail(txtEmail);
-        user->setSenha(txtSenha);
-        user->setCpf(txtCpf);
-        user->setTelefone(txtTelefone);
-
-        conta->setCodigo_de_banco(txtCodBanco);
-        conta->setNumero_de_agencia(txtNumAgencia);
-        conta->setNumero_de_conta(txtNumConta);
-    } catch (char * e) {
-        mvprintw(linha/4 + 10, (coluna - strlen(e))/2, "%s", e);
-        noecho();
-        getch();
-        echo();
-    }
-
-    clear();
-    endwin();
-}
-
-void TelaUsuario::pesquisar(Email *email) {
-    char * lblEmail = "Email: ";
-    char * mensErro = "Email invalido!";
-    char txtEmailc[20];
-    int linha, coluna;
-
-    initscr();
-    getmaxyx(stdscr, linha, coluna);
-
-    // Campos de cadastro de usuario
-    mvprintw(linha/2, (coluna - strlen(lblEmail))/2, "%s", lblEmail);
-    getstr(txtEmailc);
-
-    string txtEmail = txtEmailc;
-
-    try {
-        email->setValor(txtEmail);
     } catch (...) {
-        mvprintw(linha/2 + 10, (coluna - strlen(mensErro))/2, "%s", mensErro);
-        noecho();
-        getch();
-        echo();
+        mvprintw(linha/8 + i, (coluna)/8, "Nome invalido!");
+        i++;
+    }
+    try {
+        user->setEmail(txtEmail);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Email invalido!");
+        i++;
+    }
+    try {
+        user->setSenha(txtSenha);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Senha invalida!");
+        i++;
+    }
+    try {
+        user->setCpf(txtCpf);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "CPF invalido!");
+        i++;
+    }
+    try {
+        user->setTelefone(txtTelefone);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Telefone invalido!");
+        i++;
+    }
+    try {
+        conta->setCodigo_de_banco(txtCodBanco);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Codigo de Banco invalido!");
+        i++;
+    }
+    try {
+        conta->setNumero_de_agencia(txtNumAgencia);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Numero de Agencia invalido!");
+        i++;
+    }
+    try {
+        conta->setNumero_de_conta(txtNumConta);
+    } catch (...) {
+        mvprintw(linha/8 + i, (coluna)/8, "Numero de Conta invalido!");
+        i++;
     }
 
+    (i > 16) ? sucess = false : sucess = true;
+
+    noecho();
+    getch();
+    echo();
     clear();
     endwin();
+
+    return sucess;
 }

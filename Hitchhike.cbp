@@ -46,9 +46,9 @@
 		<Unit filename="entidades/entidades.cpp" />
 		<Unit filename="entidades/entidades.hpp" />
 		<Unit filename="interfaces.h" />
-		<Unit filename="interfaces/interfaces.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="stubs/stubs.cpp" />
+		<Unit filename="stubs.cpp" />
+		<Unit filename="stubs.h" />
 		<Unit filename="stubs/stubs.h" />
 		<Unit filename="telas.cpp" />
 		<Unit filename="telas.hpp" />

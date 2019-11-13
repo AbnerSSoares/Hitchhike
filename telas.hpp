@@ -3,23 +3,36 @@
 
 #include "dominios/dominios.hpp"
 #include "entidades/entidades.hpp"
+#include "curses.h"
+
+class TelaMensagem {
+public:
+    void show(char*);
+};
 
 class TelaInicializacao {
 public:
-    void incializacao();
+    int incializacao();
+    int usuario();
+
+private:
+    int startx = 0;
+    int starty = 0;
+
+    int montarTela(char* choices[], int n_choices);   /*Monta tela de menu com evento de click*/
+    void print_menu(WINDOW*, int, char *choices[], int n_choices);  /* Mostra menu com as opcoes */
+    void report_choice(int mouse_x, int mouse_y, int *p_choice, char *choices[], int n_choices); /*Retorna opcao escolhida*/
 };
 
 class TelaAutenticacao {
 public:
-    void autenticar(Email *, Senha *);
+    bool autenticar(Email *, Senha *);
 };
 
 class TelaUsuario {
 public:
-    void cadastrar(Usuario *, Conta*);
-    void pesquisar(Email *);
-    void editar(Usuario);
-    void excluir(Email);
+    bool cadastrar(Usuario*, Conta*);
+    bool excluir(Email);
 };
 
 class TelaCarona {
