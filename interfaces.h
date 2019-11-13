@@ -1,21 +1,13 @@
 #ifndef INTERFACES_H_INCLUDED
 #define INTERFACES_H_INCLUDED
 
-<<<<<<< HEAD:interfaces.h
 #include "dominios/dominios.hpp"
 #include "entidades/entidades.hpp"
-||||||| merged common ancestors:Interfaces/Interfaces.h
-#include "dominios.h"
-#include "entidades.h"
-=======
-#include "../dominios/dominios.hpp"
-#include "../entidades/entidades.hpp"
->>>>>>> aeb4ed1bc71f031aa91d447e75039710793795a6:Interfaces/Interfaces.h
 #include <stdexcept>
 
 using namespace std;
 
-// Declaraï¿½ï¿½es adiantadas.
+// Declarações adiantadas.
 
 class ISAutenticacao;
 class ISUsuario;
@@ -24,11 +16,11 @@ class ISCarona;
 class IAAutenticacao {
 public:
 
-    // Mï¿½todo por meio do qual ï¿½ solicitado o serviï¿½o.
+    // Método por meio do qual é solicitado o serviço.
 
     virtual bool runAprAut() throw(runtime_error) = 0;
 
-    // Mï¿½todo por meio do qual ï¿½ estabelecida ligaï¿½ï¿½o (link) com a controladora na camada de serviï¿½o.
+    // Método por meio do qual é estabelecida ligação (link) com a controladora na camada de serviço.
 
     virtual void setLinkAut(ISAutenticacao *) = 0;
 
@@ -37,16 +29,16 @@ public:
     virtual ~IAAutenticacao(){}
 };
 
-// Declaraï¿½ï¿½o de interface para serviï¿½o de autenticaï¿½ï¿½o na camada de serviï¿½o.
+// Declaração de interface para serviço de autenticação na camada de serviço.
 
 class ISAutenticacao {
 public:
 
-    // Mï¿½todo por meio do qual ï¿½ solicitado o serviï¿½o.
+    // Método por meio do qual é solicitado o serviço.
 
     virtual bool autenticar(const Email&, const Senha&) throw(runtime_error)= 0;
 
-    // Mï¿½todo destrutor virtual.
+    // Método destrutor virtual.
 
     virtual ~ISAutenticacao(){}
 };
@@ -54,24 +46,23 @@ public:
 class IAUsuario {
 public:
 
-    // Mï¿½todo por meio do qual ï¿½ solicitado o serviï¿½o.
+    // Método por meio do qual é solicitado o serviço.
 
     virtual bool runAprUsu() throw(runtime_error) = 0;
 
-    // Mï¿½todo por meio do qual ï¿½ estabelecida ligaï¿½ï¿½o (link) com a controladora na camada de serviï¿½o.
+    // Método por meio do qual é estabelecida ligação (link) com a controladora na camada de serviço.
 
     virtual void setLinkUsu(ISUsuario *) = 0;
 
 private:
 
-    //Mï¿½todos de usuï¿½rios
-    //Verificar os retornos - Pode ser necessï¿½rio retornar bool para o mï¿½dulo de inicializaï¿½ï¿½o
+    //Métodos de usuários
 
     virtual bool aprCadastrar() throw(runtime_error) = 0;
     virtual bool aprExcluir() throw(runtime_error) = 0;
 
 
-    // Mï¿½todo destrutor virtual.
+    // Método destrutor virtual.
 
     virtual ~IAUsuario(){}
 };
@@ -79,13 +70,13 @@ private:
 class ISUsuario{
 public:
 
-    // Mï¿½todos por meio do quais sï¿½o solicitados o serviï¿½os.
+    // Métodos por meio do quais são solicitados o serviços.
 
-    virtual bool cadastrar(Usuario&) throw(runtime_error)= 0;       //Cadastra um usuï¿½rio
-    virtual void pesquisar(Usuario&) throw(runtime_error)= 0;       //Pesquisa um usuï¿½rio
-    virtual bool excluir(Usuario&) throw(runtime_error)= 0;         //Exclui um usuï¿½rio
+    virtual bool cadastrar(Usuario&) throw(runtime_error)= 0;       //Cadastra um usuário
+    virtual void pesquisar(Usuario&) throw(runtime_error)= 0;       //Pesquisa um usuário
+    virtual bool excluir(Usuario&) throw(runtime_error)= 0;         //Exclui um usuário
 
-    // Mï¿½todo destrutor virtual.
+    // Método destrutor virtual.
 
     virtual ~ISUsuario(){}
 };
@@ -93,18 +84,17 @@ public:
 class IACarona{
 public:
 
-    // Mï¿½todo por meio do qual ï¿½ solicitado o serviï¿½o.
+    // Método por meio do qual é solicitado o serviço.
 
     virtual bool runAprCar() throw(runtime_error) = 0;
 
-    // Mï¿½todo por meio do qual ï¿½ estabelecida ligaï¿½ï¿½o (link) com a controladora na camada de serviï¿½o.
+    // Método por meio do qual é estabelecida ligação (link) com a controladora na camada de serviço.
 
     virtual void setLinkCar(ISCarona *) = 0;
 
 private:
 
-    //Mï¿½todos de carona
-    //Verificar os retornos - Pode ser necessï¿½rio retornar bool para o mï¿½dulo de inicializaï¿½ï¿½o
+    //Métodos de carona
 
     virtual bool aprCadastrar() throw(runtime_error) = 0;
     virtual void aprPesquisar() throw(runtime_error) = 0;
@@ -123,7 +113,7 @@ private:
 class ISCarona{
 public:
 
-    // Mï¿½todos por meio do quais sï¿½o solicitados o serviï¿½os.
+    // Métodos por meio do quais são solicitados o serviços.
 
     virtual bool cadastrar(Carona, Usuario) throw(runtime_error) = 0;       //Cadastra uma carona
     virtual Carona pesquisar(Carona&) throw(runtime_error) = 0;             //Pesquisa caronas
@@ -131,7 +121,7 @@ public:
     virtual bool cancelar(Carona, Usuario) throw(runtime_error) = 0;        //Cancela a reserva de carona
     virtual bool excluir(Codigo_de_carona) throw(runtime_error) = 0;        //Exclui uma carona
 
-    //Mï¿½todo destrutor virtual
+    //Método destrutor virtual
 
     virtual ~ISCarona(){}
 };
