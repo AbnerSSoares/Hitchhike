@@ -6,18 +6,18 @@
 
 class TelaInicializacao {
 public:
-    void incializacao();
+    int incializacao();
 };
 
 class TelaAutenticacao {
 public:
-    void autenticar(Email *, Senha *);
+    bool autenticar(Email *, Senha *);
 };
 
 class TelaUsuario {
 public:
-    void cadastrar(Usuario*, Conta*);
-    void excluir(Email);
+    bool cadastrar(Usuario*, Conta*);
+    bool excluir(Email);
 };
 
 class TelaCarona {
@@ -26,6 +26,11 @@ public:
     void pesquisar(Carona *);
     void reservar(Carona, Usuario);
     void cancelarReserva(Carona, Usuario);
+};
+
+class TelaMensagem {
+public:
+    void show(char*);
 };
 
 #endif // TELAS_HPP

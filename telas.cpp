@@ -5,13 +5,76 @@
 
 using namespace std;
 
-void TelaAutenticacao::autenticar(Email *email, Senha *senha) {
-    char *titulo   = "Cadastro de Usuario";
+int TelaInicializacao::incializacao() {
+    WINDOW *menu_win;
+    MEVENT event;
+    char *opcoes[] = {  "Cadastrar Usuario",
+                        "Autenticar Usuario",
+                        "Listar Caronas"};
+    int n_opcoes = sizeof(opcoes)/sizeof(char *);
+    int linha, coluna, x = 2, y = 2, c, escolha = -1;
+
+    initscr();
+    clear();
+    noecho();
+    getmaxyx(stdscr, linha, coluna);
+
+    // Mostra caixa de menu
+    menu_win = newwin(10, 40, linha/6, coluna/2);
+    box(menu_win, 0, 0);
+    for (int i = 0; i < n_opcoes; ++i) {
+        mvwprintw(menu_win, y, x, "%s", opcoes[i]);
+        y += 2;
+    }
+    wrefresh(menu_win);
+
+    // Mouse events
+    mousemask(ALL_MOUSE_EVENTS, NULL);
+
+    while(1) {
+        c = wgetch(menu_win);
+        switch(c) {
+        case KEY_MOUSE:
+            if (nc_getmouse(&event) == OK) {
+                // Quando o usuario clicar com o btn esquerdo do mouse
+                if (event.bstate & BUTTON1_PRESSED) {
+                    int i = linha/6;
+                    int j = coluna/2;
+
+                    for (int choice = 0; choice < n_opcoes; ++choice) {
+                        if (event.y == j + choice && event.x >= i && event.x <= i + strlen(opcoes[choice])) {
+                            return choice + 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    endwin();
+    return escolha;
+}
+
+void TelaMensagem::show(char *mensagem) {
+    int linha, coluna;
+    initscr();
+    getmaxyx(stdscr, linha, coluna);
+    mvprintw(linha/2, (coluna - strlen(mensagem))/2, "%s", mensagem);
+    noecho();
+    getch();
+    echo();
+    clear();
+    endwin();
+}
+
+bool TelaAutenticacao::autenticar(Email *email, Senha *senha) {
+    char *titulo   = "Autenticacao de Usuario";
     char *lblEmail = "Digite seu email: ";
     char *lblSenha = "Digite sua senha: ";
     char *mensErro = "Dados invalidos!";
     char txtEmailc[20], txtSenhac[15];
     int linha, coluna;
+    bool sucess = true;
 
     initscr();
     getmaxyx(stdscr, linha, coluna);
@@ -26,19 +89,22 @@ void TelaAutenticacao::autenticar(Email *email, Senha *senha) {
 
     try {
         email->setValor(txtEmails);
+    } catch (...) {
+        mvprintw(linha/2 + 4, (coluna - 15)/2, "Email invalido!");
+        sucess = false;
+    }
+    try {
         senha->setValor(txtSenhas);
     } catch (...) {
-        mvprintw(linha/2 + 4, (coluna - strlen(mensErro))/2, "%s", mensErro);
-        noecho();
-        getch();
-        echo();
+        mvprintw(linha/2 + 4, (coluna - 15)/2, "Senha invalida!");
+        sucess = false;
     }
-
     clear();
     endwin();
+    return sucess;
 }
 
-void TelaUsuario::cadastrar(Usuario *user, Conta *conta) {
+bool TelaUsuario::cadastrar(Usuario *user, Conta *conta) {
     char *titulo        = "Cadastro de usuario";
     char *lblNome       = "Nome: ";
     char *lblEmail      = "Email: ";
@@ -52,6 +118,7 @@ void TelaUsuario::cadastrar(Usuario *user, Conta *conta) {
     char txtNomec[21], txtEmailc[42], txtTelefonec[17], txtSenhac[6], txtCpfc[16];
     char txtCodBancoc[4], txtNumAgenciac[7], txtNumContac[9];
     int linha, coluna;
+    bool sucess = true;
 
     initscr();
     getmaxyx(stdscr, linha, coluna);
@@ -146,9 +213,13 @@ void TelaUsuario::cadastrar(Usuario *user, Conta *conta) {
         i++;
     }
 
+    (i > 16) ? sucess = false : sucess = true;
+
     noecho();
     getch();
     echo();
     clear();
     endwin();
+
+    return sucess;
 }

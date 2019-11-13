@@ -10,21 +10,26 @@
 using namespace std;
 
 int main() {
-    Testes t;
-    t.executar();   // Executa testes de dominio e entidade
+    /* Testes t;
+    t.executar();   // Executa testes de dominio e entidade */
 
     Email email;
     Senha senha;
     Usuario user;
     Conta conta;
 
+    TelaInicializacao ti;
+    cout << "" + ti.incializacao();
+
+    TelaMensagem tm;
+
     TelaUsuario tu;
-    tu.cadastrar(&user, &conta);
+    //tu.cadastrar(&user, &conta) ? tm.show("Cadastro realizado com sucesso!") : tm.show("Falha no cadastro do usuario!");
 
     TelaAutenticacao ta;
-    ta.autenticar(&email, &senha);
+    //ta.autenticar(&email, &senha) ? tm.show("Autenticacao realizada com sucesso!") : tm.show("Falha na autenticacao do usuario!");
 
-    cout << "Usuario:\n";
+    /*cout << "Usuario:\n";
     cout << user.getNome().getValor() << "\n";
     cout << user.getCpf().getValor() << "\n";
     cout << user.getEmail().getValor() << "\n";
@@ -32,5 +37,5 @@ int main() {
     cout << user.getTelefone().getValor() << "\n\n";
 
     cout << "email-auth: " << email.getValor() << "\n";
-    cout << "senha-auth: " << senha.getValor() << "\n\n";
+    cout << "senha-auth: " << senha.getValor() << "\n\n";*/
 }
