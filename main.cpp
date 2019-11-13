@@ -34,6 +34,8 @@ int main() {
                 tm.show("Autenticacao realizada com sucesso!");
                 switch (ti.usuario()) {
                     case 1:
+                        tc.pesquisar(&carona) ? tm.show("Dados da pesquisa corretos!") : tm.show("Falha na pesquisa de caronas!");
+                    case 2:
                         tc.cadastrar(&carona) ? tm.show("Cadastramento realizado com sucesso!") : tm.show("Falha no cadastro de carona!");
                         break;
                     default:
@@ -44,7 +46,7 @@ int main() {
             }
             break;
         case 3:
-            // Listar caronas
+            tc.pesquisar(&carona) ? tm.show("Dados da pesquisa corretos!") : tm.show("Falha na pesquisa de caronas!");
             break;
         default:
             break;

@@ -1,7 +1,7 @@
 #ifndef STUBS_H_INCLUDED
 #define STUBS_H_INCLUDED
 
-#include "interfaces.h"
+#include "interfaces.hpp"
 #include <stdexcept>
 #include <iostream>
 
