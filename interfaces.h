@@ -1,8 +1,8 @@
 #ifndef INTERFACES_H_INCLUDED
 #define INTERFACES_H_INCLUDED
 
-#include "dominios.h"
-#include "entidades.h"
+#include "dominios/dominios.hpp"
+#include "entidades/entidades.hpp"
 #include <stdexcept>
 
 using namespace std;
@@ -59,8 +59,8 @@ private:
     //Métodos de usuários
     //Verificar os retornos - Pode ser necessário retornar bool para o módulo de inicialização
 
-    virtual void aprCadastrar() throw(runtime_error) = 0;
-    virtual void aprExcluir() throw(runtime_error) = 0;
+    virtual bool aprCadastrar() throw(runtime_error) = 0;
+    virtual bool aprExcluir() throw(runtime_error) = 0;
 
 
     // Método destrutor virtual.
@@ -99,16 +99,16 @@ private:
     //Métodos de carona
     //Verificar os retornos - Pode ser necessário retornar bool para o módulo de inicialização
 
-    virtual void aprCadastrar() throw(runtime_error) = 0;
+    virtual bool aprCadastrar() throw(runtime_error) = 0;
     virtual void aprPesquisar() throw(runtime_error) = 0;
-    virtual void aprReservar() throw(runtime_error) = 0;
-    virtual void aprCancelar() throw(runtime_error) = 0;
-    virtual void aprExcluir() throw(runtime_error) = 0;
+    virtual bool aprReservar() throw(runtime_error) = 0;
+    virtual bool aprCancelar() throw(runtime_error) = 0;
+    virtual bool aprExcluir() throw(runtime_error) = 0;
 
 
     // Método destrutor virtual.
 
-    virtual ~IAUsuario(){}
+    virtual ~IACarona(){}
 
 
 };
@@ -119,7 +119,7 @@ public:
     // Métodos por meio do quais são solicitados o serviços.
 
     virtual bool cadastrar(Carona, Usuario) throw(runtime_error) = 0;       //Cadastra uma carona
-    virtual void pesquisar(Carona&) throw(runtime_error) = 0;               //Pesquisa caronas
+    virtual Carona pesquisar(Carona&) throw(runtime_error) = 0;             //Pesquisa caronas
     virtual bool reservar(Carona, Usuario) throw(runtime_error) = 0;        //Realiza uma reserva de carona
     virtual bool cancelar(Carona, Usuario) throw(runtime_error) = 0;        //Cancela a reserva de carona
     virtual bool excluir(Codigo_de_carona) throw(runtime_error) = 0;        //Exclui uma carona

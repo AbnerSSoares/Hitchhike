@@ -79,7 +79,7 @@
 	<string>
 	<vector>
 
-1573584153 source:c:\users\abner\documents\dev\hitchhike\main.cpp
+1573648600 source:c:\users\abner\documents\dev\hitchhike\main.cpp
 	<iostream>
 	"entidades/entidades.hpp"
 	"dominios/dominios.hpp"
@@ -320,4 +320,17 @@
 	<stddef.h>
 	<stdio.h>
 	<wchar.h>
+
+1573654503 source:c:\users\abner\documents\dev\hitchhike\stubs.cpp
+	"stubs.h"
+
+1573651037 c:\users\abner\documents\dev\hitchhike\stubs.h
+	"interfaces.h"
+	<stdexcept>
+	<iostream>
+
+1573650598 c:\users\abner\documents\dev\hitchhike\interfaces.h
+	"dominios/dominios.hpp"
+	"entidades/entidades.hpp"
+	<stdexcept>
 
