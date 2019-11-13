@@ -13,26 +13,24 @@ int main() {
     Testes t;
     t.executar();   // Executa testes de dominio e entidade
 
-    Email email, email2;
+    Email email;
     Senha senha;
     Usuario user;
     Conta conta;
 
     TelaUsuario tu;
     tu.cadastrar(&user, &conta);
-    tu.pesquisar(&email);
 
     TelaAutenticacao ta;
-    ta.autenticar(&email2, &senha);
+    ta.autenticar(&email, &senha);
 
     cout << "Usuario:\n";
     cout << user.getNome().getValor() << "\n";
     cout << user.getCpf().getValor() << "\n";
     cout << user.getEmail().getValor() << "\n";
     cout << user.getSenha().getValor() << "\n";
-    cout << user.getCpf().getValor() << "\n\n";
+    cout << user.getTelefone().getValor() << "\n\n";
 
-    cout << "email-pesquisa: " << email.getValor() << "\n\n";
-    cout << "email-auth: " << email2.getValor() << "\n";
+    cout << "email-auth: " << email.getValor() << "\n";
     cout << "senha-auth: " << senha.getValor() << "\n\n";
 }

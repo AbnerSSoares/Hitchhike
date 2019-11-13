@@ -16,9 +16,7 @@ public:
 
 class TelaUsuario {
 public:
-    void cadastrar(Usuario *, Conta*);
-    void pesquisar(Email *);
-    void editar(Usuario);
+    void cadastrar(Usuario*, Conta*);
     void excluir(Email);
 };
 

@@ -18,7 +18,7 @@
 	<string>
 	"dominios.hpp"
 
-1573583283 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
+1573603127 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
 	<iostream>
 	"entidades/entidades.hpp"
 	"dominios/dominios.hpp"
@@ -157,13 +157,13 @@
 	<algorithm>
 	"../dominios/dominios.hpp"
 
-1573583390 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.cpp
+1573586458 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.cpp
 	"telas.hpp"
 	<string.h>
 	<iostream>
 	"curses.h"
 
-1573582868 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.hpp
+1573602942 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.hpp
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 
