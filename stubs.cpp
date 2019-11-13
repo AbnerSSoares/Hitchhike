@@ -74,11 +74,11 @@ bool StubSCarona::cadastrar(Carona &carona, Usuario &usuario)throw(runtime_error
     cout << "Nome = " << carona.getCidadeOrigem().getValor() << endl ;
 
     if(carona.getCidadeOrigem().getValor() == TRIGGER_FALHA_PES){
-        return o que?
+        return NULL;
     }else if (carona.getCidadeOrigem().getValor() == TRIGGER_ERRO_SISTEMA_PES){
         throw runtime_error("Erro de sistema");
     }
-    return o que?
+    return carona;
 }*/
 bool StubSCarona::reservar(Carona &carona, Usuario &usuario)throw(runtime_error){
     //Apresentar dados recebidos

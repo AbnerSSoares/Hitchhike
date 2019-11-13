@@ -18,7 +18,7 @@
 	<string>
 	"../dominios/dominios.hpp"
 
-1573657043 source:c:\users\abner\documents\dev\hitchhike\main.cpp
+1573664363 source:c:\users\abner\documents\dev\hitchhike\main.cpp
 	<iostream>
 	"entidades/entidades.hpp"
 	"dominios/dominios.hpp"
@@ -42,7 +42,7 @@
 	<string>
 	"../entidades/entidades.hpp"
 
-1573657044 c:\users\abner\documents\dev\hitchhike\telas.hpp
+1573664363 c:\users\abner\documents\dev\hitchhike\telas.hpp
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 	"curses.h"
@@ -64,21 +64,21 @@
 	<stdexcept>
 	"tu_entidades.hpp"
 
-1573657044 source:c:\users\abner\documents\dev\hitchhike\telas.cpp
+1573664363 source:c:\users\abner\documents\dev\hitchhike\telas.cpp
 	"telas.hpp"
 	<string.h>
 	<iostream>
 	"curses.h"
 
-1573656903 source:c:\users\abner\documents\dev\hitchhike\stubs.cpp
+1573666833 source:c:\users\abner\documents\dev\hitchhike\stubs.cpp
 	"stubs.h"
 
-1573656706 c:\users\abner\documents\dev\hitchhike\stubs.h
+1573661948 c:\users\abner\documents\dev\hitchhike\stubs.h
 	"interfaces.h"
 	<stdexcept>
 	<iostream>
 
-1573658270 c:\users\abner\documents\dev\hitchhike\interfaces.h
+1573667253 c:\users\abner\documents\dev\hitchhike\interfaces.h
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 	<stdexcept>
