@@ -41,6 +41,8 @@
 			<Add library="./pdcurses.lib" />
 			<Add directory="." />
 		</Linker>
+		<Unit filename="controladoras.cpp" />
+		<Unit filename="controladoras.h" />
 		<Unit filename="dominios/dominios.cpp" />
 		<Unit filename="dominios/dominios.hpp" />
 		<Unit filename="entidades/entidades.cpp" />

@@ -1,9 +1,9 @@
-#ifndef CONTROLADORAS_H_INCLUDED
-#define CONTROLADORAS_H_INCLUDED
+#ifndef CONTROLADORAS_HPP
+#define CONTROLADORAS_HPP
 
 //CONTROLADORAS DE APRESENTAÇÃO
 
-#include "interfaces.h"
+#include "interfaces.hpp"
 #include <stdexcept>
 #include <iostream>
 
@@ -76,4 +76,4 @@ private:
     ~IACarona(){}
 };
 
-#endif // CONTROLADORAS_H_INCLUDED
+#endif // CONTROLADORAS_HPP

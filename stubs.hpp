@@ -1,5 +1,5 @@
-#ifndef STUBS_H_INCLUDED
-#define STUBS_H_INCLUDED
+#ifndef STUBS_HPP
+#define STUBS_HPP
 
 #include "interfaces.hpp"
 #include <stdexcept>
@@ -77,4 +77,4 @@ public:
     bool excluir(Codigo_de_carona&) throw(runtime_error);
 
 };
-#endif // STUBS_H_INCLUDED
+#endif // STUBS_HPP
