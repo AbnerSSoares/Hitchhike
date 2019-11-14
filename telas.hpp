@@ -41,6 +41,7 @@ public:
     bool pesquisar(Carona *);
     bool excluirCarona(Codigo_de_carona *);
     bool reservar(Reserva *, Codigo_de_carona *);
+    void mostrarReserva(Conta, Reserva);
     bool cancelarReserva(Codigo_de_carona *);
 };
 

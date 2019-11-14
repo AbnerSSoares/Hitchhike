@@ -14,7 +14,7 @@ private:
 
 public:
     // Metodo por meio do qual é solicitado o servico.
-    bool autenticar() throw(runtime_error);
+    bool aprAutenticar() throw(runtime_error);
 
     // Metodo por meio do qual é estabelecida ligacao (link) com a controladora na camada de servico.
     void setLinkAut(ISAutenticacao *ref) {

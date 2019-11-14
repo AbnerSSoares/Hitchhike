@@ -39,7 +39,7 @@ int main() {
                 cntrAUsuario.aprCadastrar();
                 break;
             case 2:
-                if (cntrAAutenticacao.autenticar()) {
+                if (cntrAAutenticacao.aprAutenticar()) {
                     while (true) {
                         switch(ti.usuario()) {
                             case 1:     // Pesquisar Carona
@@ -54,6 +54,7 @@ int main() {
                                 cntrACarona.aprExcluir();
                                 break;
                             case 5:     // Reservar Carona
+                                cntrACarona.aprReservar();
                                 break;
                             case 6:     // Cancelar Reserva
                                 break;
@@ -73,9 +74,6 @@ int main() {
                 //     switch (ti.usuario()) {
                 //         case 1:
                 //             tc.pesquisar(&carona) ? tm.show("Dados da pesquisa corretos!") : tm.show("Falha na pesquisa de caronas!");
-                //             break;
-                //         case 4:
-                //             tc.descadastrarCarona(&codCarona) ? tm.show("Descadastramento realizado com sucesso!") : tm.show("Falhaao remover carona!");
                 //             break;
                 //         case 5:
                 //             tc.reservar(&reserva, &codCarona) ? tm.show("Reserva realizada com sucesso!") : tm.show("Falha na reserva de carona!");

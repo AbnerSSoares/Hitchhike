@@ -90,7 +90,7 @@ Carona StubSCarona::pesquisar(Carona &carona)throw(runtime_error) {
     /*cout << endl << "StubSCarona::pesquisar" << endl ;
     cout << "Nome = " << carona.getCidadeOrigem().getValor() << endl ;
 
-    if(carona.getCidadeOrigem().getValor() == TRIGGER_FALHA_PES) {
+    if (carona.getCidadeOrigem().getValor() == TRIGGER_FALHA_PES) {
         return NULL;
     } else if (carona.getCidadeOrigem().getValor() == TRIGGER_ERRO_SISTEMA_PES) {
         throw runtime_error("Erro de sistema!");
@@ -98,17 +98,19 @@ Carona StubSCarona::pesquisar(Carona &carona)throw(runtime_error) {
     return carona;*/
 }
 
-bool StubSCarona::reservar(Carona &carona, Usuario &usuario)throw(runtime_error) {
+bool StubSCarona::reservar(Reserva &reserva, Codigo_de_carona &codCarona, Usuario &usuario, Conta *conta_motorista) throw(runtime_error) {
     //Apresentar dados recebidos
 
-    cout << endl << "StubSCarona::reservar" << endl ;
-    cout << "Nome = " << carona.getCodigo_de_carona().getValor() << endl ;
-
-    if(carona.getCodigo_de_carona().getValor() == TRIGGER_FALHA_RES) {
+    if (codCarona.getValor() == TRIGGER_FALHA_RES) {
         return false;
-    } else if (carona.getCodigo_de_carona().getValor() == TRIGGER_ERRO_SISTEMA_RES) {
+    } else if (codCarona.getValor() == TRIGGER_ERRO_SISTEMA_RES) {
         throw runtime_error("Erro de sistema!");
     }
+
+    // Simula conta do motorista
+    conta_motorista->setCodigo_de_banco("123");
+    conta_motorista->setNumero_de_agencia("7992-1");
+    conta_motorista->setNumero_de_conta("799273-8");
 
     return true;
 }

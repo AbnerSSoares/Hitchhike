@@ -599,6 +599,23 @@ bool TelaCarona::reservar(Reserva *reserva, Codigo_de_carona *carona) {
     return sucesso;
 }
 
+void TelaCarona::mostrarReserva(Conta conta, Reserva reserva) {
+    char *titulo    = "Reserva realizada com sucesso!";
+    int linha, coluna;
+
+    initscr();
+    getmaxyx(stdscr, linha, coluna);
+    mvprintw(linha/2-3, coluna/6, "Codigo de reserva: %s", reserva.getCodigo_de_reserva());
+    mvprintw(linha/2-1, coluna/6, "Codigo de banco: %s", conta.getCodigo_de_banco());
+    mvprintw(linha/2+1, coluna/6, "Numero de agencia: %s", conta.getNumero_de_agencia());
+    mvprintw(linha/2+3, coluna/6, "Numero de conta: %s", conta.getNumero_de_conta());
+    noecho();
+    getch();
+    echo();
+    clear();
+    endwin();
+}
+
 bool TelaCarona::cancelarReserva(Codigo_de_carona *codCarona) {
     char *titulo        = "Cancelar Reserva Carona";
     char *lblCodCarona  = "Codigo da Carona: ";

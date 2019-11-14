@@ -34,7 +34,7 @@ bool CntrAUsuario::aprExcluir() throw(runtime_error) {
 
 }
 
-bool CntrAAutenticacao::autenticar() throw(runtime_error) {
+bool CntrAAutenticacao::aprAutenticar() throw(runtime_error) {
     Email email;
     Senha senha;
     TelaMensagem tm;
@@ -67,7 +67,7 @@ bool CntrACarona::aprCadastrar() throw (runtime_error) {
     TelaMensagem tm;
     bool sucesso;
 
-    // Apresentar tela de cadastrto
+    // Apresentar tela de cadastro
     while (true) {
         TelaCarona tc;
         if (tc.cadastrar(&carona))
@@ -76,7 +76,7 @@ bool CntrACarona::aprCadastrar() throw (runtime_error) {
             tm.show("Preencha os dados corretamente!");
     }
 
-    // Solicitar cadastrto
+    // Solicitar cadastro
     try {
         sucesso = sCarona->cadastrar(carona, user);
     } catch (runtime_error e) {
@@ -93,7 +93,7 @@ bool CntrACarona::aprExcluir() throw (runtime_error) {
     TelaMensagem tm;
     bool sucesso;
 
-    // Apresentar tela de cadastrto
+    // Apresentar tela de exclusao
     while (true) {
         TelaCarona tc;
         if (tc.excluirCarona(&codCarona))
@@ -102,7 +102,7 @@ bool CntrACarona::aprExcluir() throw (runtime_error) {
             tm.show("Preencha os dados corretamente!");
     }
 
-    // Solicitar cadastrto
+    // Solicitar exclusao
     try {
         sucesso = sCarona->excluir(codCarona);
     } catch (runtime_error e) {
@@ -114,14 +114,41 @@ bool CntrACarona::aprExcluir() throw (runtime_error) {
     return sucesso;
 }
 
+bool CntrACarona::aprReservar() throw (runtime_error) {
+    Reserva reserva;
+    Codigo_de_carona codCarona;
+    Conta conta_motorista;
+    Usuario user;      // temp
+    TelaMensagem tm;
+    bool sucesso;
+
+    // Apresentar tela de reserva
+    while (true) {
+        TelaCarona tc;
+        if (tc.reservar(&reserva, &codCarona))
+            break;
+        else
+            tm.show("Preencha os dados corretamente!");
+    }
+
+    // Solicitar reserva
+    try {
+        sucesso = sCarona->reservar(reserva, codCarona, user, &conta_motorista);
+    } catch (runtime_error e) {
+        tm.show(e.what());
+        return false;
+    }
+
+    TelaCarona tc;
+    sucesso ? tc.mostrarReserva(conta_motorista, reserva) : tm.show("Falha na exclusao da carona!");
+
+    return sucesso;
+}
+
 bool CntrACarona::aprCancelar() throw (runtime_error) {
 
 }
 
 void CntrACarona::aprPesquisar() throw (runtime_error) {
-
-}
-
-bool CntrACarona::aprReservar() throw (runtime_error) {
 
 }

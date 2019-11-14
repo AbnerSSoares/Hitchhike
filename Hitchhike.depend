@@ -128,7 +128,7 @@
 	<stdexcept>
 	"tu_entidades.hpp"
 
-1573699476 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.cpp
+1573702925 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.cpp
 	"stubs.hpp"
 
 1573666224 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.h
@@ -136,12 +136,12 @@
 	<stdexcept>
 	<iostream>
 
-1573698976 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\interfaces.hpp
+1573702596 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\interfaces.hpp
 	<stdexcept>
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 
-1573700039 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
+1573700662 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
 	<iostream>
 	"controladoras.hpp"
 	"stubs.hpp"
@@ -152,7 +152,7 @@
 	"tu_dominios/tu_dominios.hpp"
 	"tu_entidades/tu_entidades.hpp"
 
-1573700192 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.hpp
+1573702148 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.hpp
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 	"curses.h"
@@ -163,7 +163,7 @@
 	<stdio.h>
 	<wchar.h>
 
-1573696810 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.cpp
+1573702988 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.cpp
 	"telas.hpp"
 	<string.h>
 	<iostream>
@@ -238,18 +238,18 @@
 
 1573677656 source:c:\users\abner\documents\dev 2\hitchhike\controladoras.cpp
 
-1573699845 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.cpp
+1573702546 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.cpp
 	"controladoras.hpp"
 	"telas.hpp"
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 
-1573699924 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.hpp
+1573702580 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.hpp
 	"interfaces.hpp"
 	<stdexcept>
 	<iostream>
 
-1573698462 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.hpp
+1573700616 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.hpp
 	<stdexcept>
 	"interfaces.hpp"
 
