@@ -9,7 +9,7 @@ using namespace std;
 
 // Declara��o de classe stub da interface ISAutenticacao.
 
-class StubSAutenticacao : public ISAutenticacao{
+class StubSAutenticacao : public ISAutenticacao {
 public:
 
     // Defini��es de valores a serem usados como gatilhos para notifica��es de erros.
@@ -22,7 +22,7 @@ public:
     bool autenticar(const Email&, const Senha&, Usuario *) throw(runtime_error);
 };
 
-class StubSUsuario : public ISUsuario{
+class StubSUsuario : public ISUsuario {
 public:
 
     // Defini��es de valores a serem usados como gatilhos para notifica��es de erros.
@@ -42,7 +42,7 @@ public:
     bool excluir(Usuario&) throw(runtime_error);
 };
 
-class StubSCarona : public ISCarona{
+class StubSCarona : public ISCarona {
 public:
 
     // Definicoes de valores a serem usados como gatilhos para notificacoes de erros.

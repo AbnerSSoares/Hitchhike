@@ -3,7 +3,7 @@
 #include "dominios/dominios.hpp"
 #include "entidades/entidades.hpp"
 
-void CntrAInicializacao::aprInicial() throw(runtime_error) {
+void CntrAInicializacao::aprInicial() {
     TelaInicializacao ti;
     Usuario *current_user = new Usuario();
 
@@ -27,7 +27,7 @@ void CntrAInicializacao::aprInicial() throw(runtime_error) {
     }
 }
 
-void CntrAInicializacao::aprUsuario(Usuario *current_user) throw(runtime_error) {
+void CntrAInicializacao::aprUsuario(Usuario *current_user) {
     TelaInicializacao ti;
 
     while (true) {
@@ -64,7 +64,7 @@ void CntrAInicializacao::aprUsuario(Usuario *current_user) throw(runtime_error) 
         return;
 }
 
-bool CntrAUsuario::aprCadastrar() throw(runtime_error) {
+bool CntrAUsuario::aprCadastrar() {
     Usuario usuario;
     Conta conta;
     TelaMensagem tm;
@@ -91,7 +91,7 @@ bool CntrAUsuario::aprCadastrar() throw(runtime_error) {
     return sucesso;
 }
 
-bool CntrAUsuario::aprExcluir(Usuario *current_user) throw(runtime_error) {
+bool CntrAUsuario::aprExcluir(Usuario *current_user) {
     TelaMensagem tm;
     bool sucesso;
 
@@ -107,7 +107,7 @@ bool CntrAUsuario::aprExcluir(Usuario *current_user) throw(runtime_error) {
     return sucesso;
 }
 
-bool CntrAAutenticacao::aprAutenticar(Usuario *current_user) throw(runtime_error) {
+bool CntrAAutenticacao::aprAutenticar(Usuario *current_user) {
     Email email;
     Senha senha;
     TelaMensagem tm;
@@ -135,7 +135,7 @@ bool CntrAAutenticacao::aprAutenticar(Usuario *current_user) throw(runtime_error
     return sucesso;
 }
 
-bool CntrACarona::aprCadastrar(Usuario *current_user) throw (runtime_error) {
+bool CntrACarona::aprCadastrar(Usuario *current_user) {
     Carona carona;
     TelaMensagem tm;
     bool sucesso;
@@ -161,7 +161,7 @@ bool CntrACarona::aprCadastrar(Usuario *current_user) throw (runtime_error) {
     return sucesso;
 }
 
-bool CntrACarona::aprExcluir(Usuario *current_user) throw (runtime_error) {
+bool CntrACarona::aprExcluir(Usuario *current_user) {
     Codigo_de_carona codCarona;
     TelaMensagem tm;
     bool sucesso;
@@ -187,7 +187,7 @@ bool CntrACarona::aprExcluir(Usuario *current_user) throw (runtime_error) {
     return sucesso;
 }
 
-bool CntrACarona::aprReservar(Usuario *current_user) throw (runtime_error) {
+bool CntrACarona::aprReservar(Usuario *current_user) {
     Reserva reserva;
     Codigo_de_carona codCarona;
     Conta conta_motorista;
@@ -217,7 +217,7 @@ bool CntrACarona::aprReservar(Usuario *current_user) throw (runtime_error) {
     return sucesso;
 }
 
-void CntrACarona::aprListarReservas(Usuario *current_user) throw(runtime_error) {
+void CntrACarona::aprListarReservas(Usuario *current_user) {
     Codigo_de_carona codCarona;
     vector<Reserva> reservas;
     vector<Usuario> passageiros;
@@ -247,7 +247,7 @@ void CntrACarona::aprListarReservas(Usuario *current_user) throw(runtime_error) 
     return;
 }
 
-bool CntrACarona::aprCancelar(Usuario *current_user) throw (runtime_error) {
+bool CntrACarona::aprCancelar(Usuario *current_user) {
     Codigo_de_reserva codReserva;
     TelaMensagem tm;
     bool sucesso;
@@ -274,7 +274,7 @@ bool CntrACarona::aprCancelar(Usuario *current_user) throw (runtime_error) {
     return sucesso;
 }
 
-void CntrACarona::aprPesquisar() throw (runtime_error) {
+void CntrACarona::aprPesquisar() {
     Carona carona;
     vector<Carona> caronas;
     vector<Usuario> motoristas;

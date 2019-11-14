@@ -136,7 +136,7 @@
 	<stdexcept>
 	<iostream>
 
-1573761754 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\interfaces.hpp
+1573771886 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\interfaces.hpp
 	<stdexcept>
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
@@ -244,12 +244,12 @@
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 
-1573762386 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.hpp
+1573771030 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.hpp
 	"interfaces.hpp"
 	<stdexcept>
 	<iostream>
 
-1573759366 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.hpp
+1573771907 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.hpp
 	<stdexcept>
 	"interfaces.hpp"
 

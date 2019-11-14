@@ -16,7 +16,7 @@ class ISCarona;
 class IAAutenticacao {
 public:
     // Metodo por meio do qual e solicitado o servioo.
-    virtual bool aprAutenticar(Usuario *) throw(runtime_error) = 0;
+    virtual bool aprAutenticar(Usuario *) = 0;
 
     // Metodo por meio do qual e estabelecida ligacao (link) com a controladora na camada de servioo.
     virtual void setLinkAut(ISAutenticacao *) = 0;
@@ -39,8 +39,8 @@ public:
 class IAUsuario {
 public:
     //Metodos de usuarios
-    virtual bool aprCadastrar() throw(runtime_error) = 0;
-    virtual bool aprExcluir(Usuario *) throw(runtime_error) = 0;
+    virtual bool aprCadastrar() = 0;
+    virtual bool aprExcluir(Usuario *) = 0;
 
     // Metodo por meio do qual e estabelecida ligacao (link) com a controladora na camada de servioo.
     virtual void setLinkUsu(ISUsuario *) = 0;
@@ -63,12 +63,12 @@ public:
 class IACarona{
 public:
     //Metodos de carona
-    virtual bool aprCadastrar(Usuario *) throw(runtime_error) = 0;
-    virtual void aprPesquisar() throw(runtime_error) = 0;
-    virtual bool aprReservar(Usuario *) throw(runtime_error) = 0;
-    virtual void aprListarReservas(Usuario *) throw(runtime_error) = 0;
-    virtual bool aprCancelar(Usuario *) throw(runtime_error) = 0;
-    virtual bool aprExcluir(Usuario *) throw(runtime_error) = 0;
+    virtual bool aprCadastrar(Usuario *) = 0;
+    virtual void aprPesquisar() = 0;
+    virtual bool aprReservar(Usuario *) = 0;
+    virtual void aprListarReservas(Usuario *) = 0;
+    virtual bool aprCancelar(Usuario *) = 0;
+    virtual bool aprExcluir(Usuario *) = 0;
 
     // Metodo por meio do qual e estabelecida ligacao (link) com a controladora na camada de servioo.
     virtual void setLinkCar(ISCarona *) = 0;
