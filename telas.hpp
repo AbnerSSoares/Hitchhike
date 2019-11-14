@@ -39,7 +39,7 @@ class TelaCarona {
 public:
     bool cadastrar(Carona*);
     bool pesquisar(Carona *);
-    bool descadastrarCarona(Codigo_de_carona *);
+    bool excluirCarona(Codigo_de_carona *);
     bool reservar(Reserva *, Codigo_de_carona *);
     bool cancelarReserva(Codigo_de_carona *);
 };

@@ -1,6 +1,6 @@
 #include "stubs.hpp"
 
-// Defini��es de m�todo da classe stub do controlador da l�gica de neg�cio de autentica��o.
+// Definicoes de metodo da classe stub do controlador da logica de negocio de autenticacao.
 
 bool StubSAutenticacao::autenticar(const Email &email, const Senha &senha) throw(runtime_error) {
 
@@ -11,7 +11,7 @@ bool StubSAutenticacao::autenticar(const Email &email, const Senha &senha) throw
     cout << "Email = " << email.getValor() << endl ;
     cout << "Senha     = " << senha.getValor()     << endl ;
 
-    // Diferentes comportamentos dependendo do valor da matr�cula.
+    // Diferentes comportamentos dependendo do valor do email.
 
     if(email.getValor() == TRIGGER_FALHA) {
         return false;
@@ -64,7 +64,7 @@ bool StubSUsuario::excluir(Usuario &usuario) throw(runtime_error) {
     if(usuario.getEmail().getValor() == TRIGGER_FALHA_EXC) {
         return false;
     } else if (usuario.getEmail().getValor() == TRIGGER_ERRO_SISTEMA_EXC) {
-        throw runtime_error("Erro de sistema");
+        throw runtime_error("Erro de sistema!");
     }
 
     return true;
@@ -137,7 +137,7 @@ bool StubSCarona::excluir(Codigo_de_carona &codigo) throw(runtime_error) {
     if(codigo.getValor() == TRIGGER_FALHA_DEL) {
         return false;
     } else if (codigo.getValor() == TRIGGER_ERRO_SISTEMA_DEL) {
-        throw runtime_error("Erro de sistema");
+        throw runtime_error("Erro de sistema!");
     }
 
     return true;

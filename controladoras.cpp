@@ -67,7 +67,7 @@ bool CntrACarona::aprCadastrar() throw (runtime_error) {
     TelaMensagem tm;
     bool sucesso;
 
-    // Apresentar tela de autenticacao
+    // Apresentar tela de cadastrto
     while (true) {
         TelaCarona tc;
         if (tc.cadastrar(&carona))
@@ -76,7 +76,7 @@ bool CntrACarona::aprCadastrar() throw (runtime_error) {
             tm.show("Preencha os dados corretamente!");
     }
 
-    // Solicitar autenticacao
+    // Solicitar cadastrto
     try {
         sucesso = sCarona->cadastrar(carona, user);
     } catch (runtime_error e) {
@@ -88,11 +88,33 @@ bool CntrACarona::aprCadastrar() throw (runtime_error) {
     return sucesso;
 }
 
-bool CntrACarona::aprCancelar() throw (runtime_error) {
+bool CntrACarona::aprExcluir() throw (runtime_error) {
+    Codigo_de_carona codCarona;
+    TelaMensagem tm;
+    bool sucesso;
 
+    // Apresentar tela de cadastrto
+    while (true) {
+        TelaCarona tc;
+        if (tc.excluirCarona(&codCarona))
+            break;
+        else
+            tm.show("Preencha os dados corretamente!");
+    }
+
+    // Solicitar cadastrto
+    try {
+        sucesso = sCarona->excluir(codCarona);
+    } catch (runtime_error e) {
+        tm.show(e.what());
+        return false;
+    }
+    sucesso ? tm.show("Carona excluida com sucesso!") : tm.show("Falha na exclusao da carona!");
+
+    return sucesso;
 }
 
-bool CntrACarona::aprExcluir() throw (runtime_error) {
+bool CntrACarona::aprCancelar() throw (runtime_error) {
 
 }
 

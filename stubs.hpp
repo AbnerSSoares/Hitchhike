@@ -46,27 +46,27 @@ class StubSCarona : public ISCarona{
 public:
 
     // Definicoes de valores a serem usados como gatilhos para notificacoes de erros.
-    //Gatilho para cadastramento sera o codigo de carona
+    // Gatilho para cadastramento sera o codigo de carona
 
     const string TRIGGER_FALHA_CAD        = "9999";
     const string TRIGGER_ERRO_SISTEMA_CAD = "0000";
 
-    //Gatilho para Pesquisa ser� Cidade de partida
+    // Gatilho para Pesquisa ser� Cidade de partida
 
     const string TRIGGER_FALHA_PES        = "Formosa";
     const string TRIGGER_ERRO_SISTEMA_PES = "Sobradinho";
 
-    //Gatilho para Reserva de carona ser� c�digo de carona
+    // Gatilho para Reserva de carona ser� c�digo de carona
 
     const string TRIGGER_FALHA_RES          = "1111";
     const string TRIGGER_ERRO_SISTEMA_RES   = "2222";
 
-    //Gatilho para cancelar reserva de carona ser� c�digo da reserva
+    // Gatilho para cancelar reserva de carona ser� c�digo da reserva
 
     const string TRIGGER_FALHA_CAN          = "00000";
     const string TRIGGER_ERRO_SISTEMA_CAN   = "99999";
 
-    //Gatilho para excluir carona ser� c�digo da carona
+    // Gatilho para excluir carona ser� c�digo da carona
 
     const string TRIGGER_FALHA_DEL          = "5555";
     const string TRIGGER_ERRO_SISTEMA_DEL   = "4444";

@@ -10,7 +10,7 @@ int TelaInicializacao::usuario() {
     char* choices[] = {"Pesquisar Caronas",
                         "Cadastrar Carona",
                         "Listar reservas de carona",
-                        "Descadastrar Carona",
+                        "Excluir Carona",
                         "Reservar Carona",
                         "Cancelar Reserva de carona",
                         "Descadastrar do sistema",
@@ -501,8 +501,8 @@ bool TelaCarona::pesquisar(Carona *carona) {
     return sucesso;
 }
 
-bool TelaCarona::descadastrarCarona(Codigo_de_carona *codCarona) {
-    char *titulo        = "Descadastrar Carona";
+bool TelaCarona::excluirCarona(Codigo_de_carona *codCarona) {
+    char *titulo        = "Excluir Carona";
     char *lblCodCarona  = "Codigo da Carona: ";
     char txtCodCaronac[5];
     int linha, coluna;
