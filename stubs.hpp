@@ -7,17 +7,17 @@
 
 using namespace std;
 
-// Declaração de classe stub da interface ISAutenticacao.
+// Declaraï¿½ï¿½o de classe stub da interface ISAutenticacao.
 
 class StubSAutenticacao : public ISAutenticacao{
 public:
 
-    // Definições de valores a serem usados como gatilhos para notificações de erros.
+    // Definiï¿½ï¿½es de valores a serem usados como gatilhos para notificaï¿½ï¿½es de erros.
 
     const string TRIGGER_FALHA        = "falha@erro.com";
     const string TRIGGER_ERRO_SISTEMA = "sistema@erro.com";
 
-    // Declaração de método previsto na interface.
+    // Declaraï¿½ï¿½o de mï¿½todo previsto na interface.
 
     bool autenticar(const Email&, const Senha&) throw(runtime_error);
 };
@@ -25,47 +25,48 @@ public:
 class StubSUsuario : public ISUsuario{
 public:
 
-    // Definições de valores a serem usados como gatilhos para notificações de erros.
-    //O gatilho em usuário será o nome
+    // Definiï¿½ï¿½es de valores a serem usados como gatilhos para notificaï¿½ï¿½es de erros.
+    //O gatilho em usuï¿½rio serï¿½ o nome
 
     const string TRIGGER_FALHA_CAD           = "Falha";
     const string TRIGGER_ERRO_SISTEMA_CAD    = "Erro";
 
-     //O gatilho em usuário será o e-mail
+     //O gatilho em usuï¿½rio serï¿½ o e-mail
     const string TRIGGER_FALHA_EXC           = "falha@erro.com";
     const string TRIGGER_ERRO_SISTEMA_EXC    = "sistema@erro.com";
 
-    //Declarações de métodos previstos na interface
+    //Declaraï¿½ï¿½es de mï¿½todos previstos na interface
 
     bool cadastrar(Usuario&, Conta&) throw(runtime_error);
+    void pesquisar(Usuario&) throw(runtime_error);
     bool excluir(Usuario&) throw(runtime_error);
 };
 
 class StubSCarona : public ISCarona{
 public:
 
-    // Definições de valores a serem usados como gatilhos para notificações de erros.
-    //Gatilho para cadastramento será o código de carona
+    // Definiï¿½ï¿½es de valores a serem usados como gatilhos para notificaï¿½ï¿½es de erros.
+    //Gatilho para cadastramento serï¿½ o cï¿½digo de carona
 
     const string TRIGGER_FALHA_CAD        = "9999";
     const string TRIGGER_ERRO_SISTEMA_CAD = "0000";
 
-    //Gatilho para Pesquisa será Cidade de partida
+    //Gatilho para Pesquisa serï¿½ Cidade de partida
 
     const string TRIGGER_FALHA_PES        = "Formosa";
     const string TRIGGER_ERRO_SISTEMA_PES = "Sobradinho";
 
-    //Gatilho para Reserva de carona será código de carona
+    //Gatilho para Reserva de carona serï¿½ cï¿½digo de carona
 
     const string TRIGGER_FALHA_RES          = "1111";
     const string TRIGGER_ERRO_SISTEMA_RES   = "2222";
 
-    //Gatilho para cancelar reserva de carona será código da reserva
+    //Gatilho para cancelar reserva de carona serï¿½ cï¿½digo da reserva
 
     const string TRIGGER_FALHA_CAN          = "00000";
     const string TRIGGER_ERRO_SISTEMA_CAN   = "99999";
 
-    //Gatilho para excluir carona será código da carona
+    //Gatilho para excluir carona serï¿½ cï¿½digo da carona
 
     const string TRIGGER_FALHA_DEL          = "5555";
     const string TRIGGER_ERRO_SISTEMA_DEL   = "4444";

@@ -1,78 +1,67 @@
 #ifndef CONTROLADORAS_HPP
 #define CONTROLADORAS_HPP
 
-//CONTROLADORAS DE APRESENTAÇÃO
+// CONTROLADORAS DE APRESENTACAO
 
-#include "interfaces.hpp"
 #include <stdexcept>
-#include <iostream>
+#include "interfaces.hpp"
 
 using namespace std;
 
-class CntrAUntenticacao : public IAAutenticacao{
+class CntrAAutenticacao : public IAAutenticacao{
+private:
+    ISAutenticacao *sAutenticacao;
+
 public:
-    // Método por meio do qual é solicitado o serviço.
+    // Mï¿½todo por meio do qual ï¿½ solicitado o serviï¿½o.
+    bool autenticar() throw(runtime_error);
 
-    bool runAprAut() throw(runtime_error);
+    // Mï¿½todo por meio do qual ï¿½ estabelecida ligaï¿½ï¿½o (link) com a controladora na camada de serviï¿½o.
+    void setLinkAut(ISAutenticacao *ref) {
+        this->sAutenticacao = ref;
+    }
 
-    // Método por meio do qual é estabelecida ligação (link) com a controladora na camada de serviço.
-
-    void setLinkAut(ISAutenticacao *);
-
-    // Método destrutor
-
-    ~CntrAUntenticacao(){}
-
+    // Mï¿½todo destrutor
+    ~CntrAAutenticacao(){}
 };
 
 class CntrAUsuario : public IAUsuario{
-public:
-
-    // Método por meio do qual é solicitado o serviço.
-
-    bool runAprUsu() throw(runtime_error);
-
-    // Método por meio do qual é estabelecida ligação (link) com a controladora na camada de serviço.
-
-    void setLinkUsu(ISUsuario *);
-
-    // Método destrutor
-
-    ~CntrAUsuario(){}
-
 private:
+    ISUsuario *sUsuario;
 
-    //Métodos de usuários
-
+public:
+    //Mï¿½todos de usuï¿½rios
     bool aprCadastrar() throw(runtime_error);
     bool aprExcluir() throw(runtime_error);
 
+    // Mï¿½todo por meio do qual ï¿½ estabelecida ligaï¿½ï¿½o (link) com a controladora na camada de serviï¿½o.
+    void setLinkUsu(ISUsuario *ref) {
+        this->sUsuario = ref;
+    }
+
+    // Mï¿½todo destrutor
+    ~CntrAUsuario(){}
 };
 
 class CntrACarona : public IACarona{
-public:
-
-    // Método por meio do qual é solicitado o serviço.
-
-    bool runAprCar() throw(runtime_error);
-
-    // Método por meio do qual é estabelecida ligação (link) com a controladora na camada de serviço.
-
-    void setLinkCar(ISCarona *);
-
-    // Método destrutor virtual.
-
-    ~CntrACarona(){}
 private:
+    ISCarona *sCarona;
 
-    //Métodos de carona
-
+public:
+    //Mï¿½todos de carona
     bool aprCadastrar() throw(runtime_error);
     void aprPesquisar() throw(runtime_error);
     bool aprReservar() throw(runtime_error);
     bool aprCancelar() throw(runtime_error);
     bool aprExcluir() throw(runtime_error);
 
+    // Mï¿½todo por meio do qual ï¿½ estabelecida ligaï¿½ï¿½o (link) com a controladora na camada de serviï¿½o.
+    void setLinkCar(ISCarona *ref) {
+        this->sCarona = ref;
+    }
+
+    // Mï¿½todo destrutor virtual.
+    ~CntrACarona(){}
 };
 
 #endif // CONTROLADORAS_HPP
