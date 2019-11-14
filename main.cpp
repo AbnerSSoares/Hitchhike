@@ -17,6 +17,7 @@ int main() {
     CntrAAutenticacao cntrAAutenticacao;
     CntrACarona cntrACarona;
     CntrAUsuario cntrAUsuario;
+    CntrAInicializacao cntrAInicializacao;
 
     // Serviço
     StubSAutenticacao sAutenticacao;
@@ -27,58 +28,15 @@ int main() {
     cntrAAutenticacao.setLinkAut(&sAutenticacao);
     cntrACarona.setLinkCar(&sCarona);
     cntrAUsuario.setLinkUsu(&sUsuario);
+    cntrAInicializacao.setLinkAut(&cntrAAutenticacao);
+    cntrAInicializacao.setLinkCar(&cntrACarona);
+    cntrAInicializacao.setLinkUsu(&cntrAUsuario);
 
     /* Tela inicialização */
-    TelaInicializacao ti;
-
-    while (true) {
-        switch(ti.incializacao()) {
-            case -1:
-                return 0;
-            case 1:
-                cntrAUsuario.aprCadastrar();
-                break;
-            case 2:
-                if (cntrAAutenticacao.aprAutenticar()) {
-                    while (true) {
-                        switch(ti.usuario()) {
-                            case 1:     // Pesquisar Carona
-                                cntrACarona.aprPesquisar();
-                                break;
-                            case 2:     // Cadastrar Carona
-                                cntrACarona.aprCadastrar();
-                                break;
-                            case 3:     // Listar Reservas
-                                break;
-                            case 4:     // Excluir Carona
-                                cntrACarona.aprExcluir();
-                                break;
-                            case 5:     // Reservar Carona
-                                cntrACarona.aprReservar();
-                                break;
-                            case 6:     // Cancelar Reserva
-                                cntrACarona.aprCancelar();
-                                break;
-                            case 7:     // Descadastrar do sistema
-                                break;
-                            case -1:    // Sair
-                                goto end_loop;
-                            default:
-                                break;
-                        }
-                    }
-                    end_loop:
-                        break;
-                }
-                break;
-            case 3:
-                cntrACarona.aprPesquisar();
-                break;
-            default:
-                break;
-        }
-    }
+    cntrAInicializacao.aprInicial();
 
     /* Testes t;
     t.executar();   // Executa testes de dominio e entidade */
+
+    return 0;
 }

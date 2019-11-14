@@ -128,7 +128,7 @@
 	<stdexcept>
 	"tu_entidades.hpp"
 
-1573742261 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.cpp
+1573749001 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.cpp
 	"stubs.hpp"
 
 1573666224 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.h
@@ -136,12 +136,12 @@
 	<stdexcept>
 	<iostream>
 
-1573740882 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\interfaces.hpp
+1573748404 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\interfaces.hpp
 	<stdexcept>
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 
-1573742404 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
+1573750387 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
 	<iostream>
 	"controladoras.hpp"
 	"stubs.hpp"
@@ -249,7 +249,7 @@
 	<stdexcept>
 	<iostream>
 
-1573700616 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.hpp
+1573750349 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.hpp
 	<stdexcept>
 	"interfaces.hpp"
 

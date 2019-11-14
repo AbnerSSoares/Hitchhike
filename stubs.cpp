@@ -55,13 +55,12 @@ void StubSUsuario::pesquisar(Usuario &usuario) throw(runtime_error) {
 }
 
 bool StubSUsuario::excluir(Usuario &usuario) throw(runtime_error) {
-
    // Apresentar dados recebidos.
 
     cout << endl << "StubSUsuario::excluir" << endl ;
     cout << "Nome = " << usuario.getNome().getValor() << endl ;
 
-    if(usuario.getEmail().getValor() == TRIGGER_FALHA_EXC) {
+    if (usuario.getEmail().getValor() == TRIGGER_FALHA_EXC) {
         return false;
     } else if (usuario.getEmail().getValor() == TRIGGER_ERRO_SISTEMA_EXC) {
         throw runtime_error("Erro de sistema!");

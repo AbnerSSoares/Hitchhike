@@ -8,7 +8,24 @@
 
 using namespace std;
 
-class CntrAAutenticacao : public IAAutenticacao{
+class CntrAInicializacao {
+private:
+    IAAutenticacao *aAutenticacao;
+    IACarona *aCarona;
+    IAUsuario *aUsuario;
+
+public:
+    // Metodo por meio do qual e chamada as telas iniciais
+    void aprInicial() throw(runtime_error);
+    void aprUsuario() throw(runtime_error);
+
+    // Metodos por meio dos quais e estabelecida ligacao (link) com as controladoras de apresentacao
+    void setLinkAut(IAAutenticacao *ref)    { this->aAutenticacao = ref; }
+    void setLinkCar(IACarona *ref)          { this->aCarona = ref; }
+    void setLinkUsu(IAUsuario *ref)         { this->aUsuario = ref; }
+};
+
+class CntrAAutenticacao : public IAAutenticacao {
 private:
     ISAutenticacao *sAutenticacao;
 
@@ -17,15 +34,13 @@ public:
     bool aprAutenticar() throw(runtime_error);
 
     // Metodo por meio do qual é estabelecida ligacao (link) com a controladora na camada de servico.
-    void setLinkAut(ISAutenticacao *ref) {
-        this->sAutenticacao = ref;
-    }
+    void setLinkAut(ISAutenticacao *ref) { this->sAutenticacao = ref; }
 
     // Metodo destrutor
     ~CntrAAutenticacao(){}
 };
 
-class CntrAUsuario : public IAUsuario{
+class CntrAUsuario : public IAUsuario {
 private:
     ISUsuario *sUsuario;
 
@@ -35,9 +50,7 @@ public:
     bool aprExcluir() throw(runtime_error);
 
     // Metodo por meio do qual é estabelecida ligacao (link) com a controladora na camada de servico.
-    void setLinkUsu(ISUsuario *ref) {
-        this->sUsuario = ref;
-    }
+    void setLinkUsu(ISUsuario *ref) { this->sUsuario = ref; }
 
     // Metodo destrutor
     ~CntrAUsuario(){}
@@ -56,9 +69,7 @@ public:
     bool aprExcluir() throw(runtime_error);
 
     // Metodo por meio do qual é estabelecida ligacao (link) com a controladora na camada de servico.
-    void setLinkCar(ISCarona *ref) {
-        this->sCarona = ref;
-    }
+    void setLinkCar(ISCarona *ref) { this->sCarona = ref; }
 
     // Metodo destrutor virtual.
     ~CntrACarona(){}

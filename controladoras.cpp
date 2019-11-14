@@ -3,6 +3,65 @@
 #include "dominios/dominios.hpp"
 #include "entidades/entidades.hpp"
 
+void CntrAInicializacao::aprInicial() throw(runtime_error) {
+    TelaInicializacao ti;
+
+    while (true) {
+        switch(ti.incializacao()) {
+            case -1:
+                return;
+            case 1:
+                this->aUsuario->aprCadastrar();
+                break;
+            case 2:
+                if (this->aAutenticacao->aprAutenticar())
+                    this->aprUsuario();
+                break;
+            case 3:
+                this->aCarona->aprPesquisar();
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+void CntrAInicializacao::aprUsuario() throw(runtime_error) {
+    TelaInicializacao ti;
+
+    while (true) {
+        switch(ti.usuario()) {
+            case 1:     // Pesquisar Carona
+                this->aCarona->aprPesquisar();
+                break;
+            case 2:     // Cadastrar Carona
+                this->aCarona->aprCadastrar();
+                break;
+            case 3:     // Listar Reservas
+                break;
+            case 4:     // Excluir Carona
+                this->aCarona->aprExcluir();
+                break;
+            case 5:     // Reservar Carona
+                this->aCarona->aprReservar();
+                break;
+            case 6:     // Cancelar Reserva
+                this->aCarona->aprCancelar();
+                break;
+            case 7:     // Descadastrar do sistema
+                if (this->aUsuario->aprExcluir())
+                    goto end_loop;
+                break;
+            case -1:    // Sair
+                goto end_loop;
+            default:
+                break;
+        }
+    }
+    end_loop:
+        return;
+}
+
 bool CntrAUsuario::aprCadastrar() throw(runtime_error) {
     Usuario usuario;
     Conta conta;
@@ -31,7 +90,19 @@ bool CntrAUsuario::aprCadastrar() throw(runtime_error) {
 }
 
 bool CntrAUsuario::aprExcluir() throw(runtime_error) {
+    Usuario user;  // temp
+    TelaMensagem tm;
+    bool sucesso;
 
+    // Solicitar exclusao
+    try {
+        sucesso = sUsuario->excluir(user);
+    } catch (runtime_error e) {
+        tm.show(e.what());
+    }
+    sucesso ? tm.show("Conta excluida com sucesso!") : tm.show("Falha no descadastramento!");
+
+    return sucesso;
 }
 
 bool CntrAAutenticacao::aprAutenticar() throw(runtime_error) {
@@ -168,7 +239,7 @@ bool CntrACarona::aprCancelar() throw (runtime_error) {
         return false;
     }
 
-    sucesso ? tm.show("Cancelamento realizado com sucesso!") : tm.show("Falha no cancelamento da reserva!");
+    sucesso ? tm.show("Reserva cancelada com sucesso!") : tm.show("Falha no cancelamento da reserva!");
 
     return sucesso;
 }

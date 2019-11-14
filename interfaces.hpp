@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// Declara��es adiantadas.
+// Declaracoes adiantadas.
 
 class ISAutenticacao;
 class ISUsuario;
@@ -15,54 +15,54 @@ class ISCarona;
 
 class IAAutenticacao {
 public:
-    // M�todo por meio do qual � solicitado o servi�o.
+    // Metodo por meio do qual e solicitado o servioo.
     virtual bool aprAutenticar() throw(runtime_error) = 0;
 
-    // M�todo por meio do qual � estabelecida liga��o (link) com a controladora na camada de servi�o.
+    // Metodo por meio do qual e estabelecida ligacao (link) com a controladora na camada de servioo.
     virtual void setLinkAut(ISAutenticacao *) = 0;
 
-    // M�todo destrutor virtual.
+    // Metodo destrutor virtual.
     virtual ~IAAutenticacao(){}
 };
 
-// Declara��o de interface para servi�o de autentica��o na camada de servi�o.
+// Declaracao de interface para servioo de autenticacao na camada de servioo.
 
 class ISAutenticacao {
 public:
-    // M�todo por meio do qual � solicitado o servi�o.
+    // Metodo por meio do qual e solicitado o servioo.
     virtual bool autenticar(const Email&, const Senha&) throw(runtime_error) = 0;
 
-    // M�todo destrutor virtual.
+    // Metodo destrutor virtual.
     virtual ~ISAutenticacao(){}
 };
 
 class IAUsuario {
 public:
-    //M�todos de usu�rios
+    //Metodos de usuarios
     virtual bool aprCadastrar() throw(runtime_error) = 0;
     virtual bool aprExcluir() throw(runtime_error) = 0;
 
-    // M�todo por meio do qual � estabelecida liga��o (link) com a controladora na camada de servi�o.
+    // Metodo por meio do qual e estabelecida ligacao (link) com a controladora na camada de servioo.
     virtual void setLinkUsu(ISUsuario *) = 0;
 
-    // M�todo destrutor virtual.
+    // Metodo destrutor virtual.
     virtual ~IAUsuario(){}
 };
 
 class ISUsuario{
 public:
-    // M�todos por meio do quais s�o solicitados o servi�os.
-    virtual bool cadastrar(Usuario&, Conta&) throw(runtime_error)= 0;   // Cadastra um usu�rio
-    virtual void pesquisar(Usuario&) throw(runtime_error)= 0;           // Pesquisa um usu�rio
-    virtual bool excluir(Usuario&) throw(runtime_error)= 0;             // Exclui um usu�rio
+    // Metodos por meio do quais sao solicitados o servioos.
+    virtual bool cadastrar(Usuario&, Conta&) throw(runtime_error)= 0;   // Cadastra um usuario
+    virtual void pesquisar(Usuario&) throw(runtime_error)= 0;           // Pesquisa um usuario
+    virtual bool excluir(Usuario&) throw(runtime_error)= 0;             // Exclui um usuario
 
-    // M�todo destrutor virtual.
+    // Metodo destrutor virtual.
     virtual ~ISUsuario(){}
 };
 
 class IACarona{
 public:
-    //M�todos de carona
+    //Metodos de carona
     // virtual bool aprCadastrar(Usuario) throw(runtime_error) = 0;
     virtual bool aprCadastrar() throw(runtime_error) = 0;
     virtual void aprPesquisar() throw(runtime_error) = 0;
@@ -70,16 +70,16 @@ public:
     virtual bool aprCancelar() throw(runtime_error) = 0;
     virtual bool aprExcluir() throw(runtime_error) = 0;
 
-    // M�todo por meio do qual � estabelecida liga��o (link) com a controladora na camada de servi�o.
+    // Metodo por meio do qual e estabelecida ligacao (link) com a controladora na camada de servioo.
     virtual void setLinkCar(ISCarona *) = 0;
 
-    // M�todo destrutor virtual.
+    // Metodo destrutor virtual.
     virtual ~IACarona(){}
 };
 
 class ISCarona{
 public:
-    // M�todos por meio do quais s�o solicitados o servi�os.
+    // Metodos por meio do quais sao solicitados o servioos.
     virtual bool cadastrar(Carona&, Usuario&) throw(runtime_error) = 0;         //Cadastra uma carona
     virtual bool pesquisar(Carona&, vector<Carona>*, vector<Usuario>*) throw(runtime_error) = 0;    //Pesquisa caronas
     virtual bool reservar(Reserva*, Codigo_de_carona&, Usuario&, Conta*) throw(runtime_error) = 0;  //Realiza uma reserva de carona
@@ -87,7 +87,7 @@ public:
     virtual bool cancelar(Codigo_de_reserva&) throw(runtime_error) = 0;          //Cancela a reserva de carona
     virtual bool excluir(Codigo_de_carona&) throw(runtime_error) = 0;           //Exclui uma carona
 
-    //M�todo destrutor virtual
+    //Metodo destrutor virtual
     virtual ~ISCarona(){}
 };
 
