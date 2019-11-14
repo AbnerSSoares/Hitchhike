@@ -42,9 +42,10 @@ public:
     bool cadastrar(Carona*);
     bool pesquisar(Carona *);
     void mostrarCaronas(vector<Carona>, vector<Usuario>);
-    bool excluirCarona(Codigo_de_carona *);
+    bool pesquisarCarona(Codigo_de_carona *);
     bool reservar(Reserva *, Codigo_de_carona *);
     void mostrarReserva(Conta, Reserva);
+    void mostrarReservas(vector<Reserva>, vector<Usuario>);
     bool cancelarReserva(Codigo_de_reserva *);
 };
 

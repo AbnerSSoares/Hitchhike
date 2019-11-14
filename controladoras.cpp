@@ -39,6 +39,7 @@ void CntrAInicializacao::aprUsuario(Usuario *current_user) throw(runtime_error) 
                 this->aCarona->aprCadastrar(current_user);
                 break;
             case 3:     // Listar Reservas
+                this->aCarona->aprListarReservas(current_user);
                 break;
             case 4:     // Excluir Carona
                 this->aCarona->aprExcluir(current_user);
@@ -168,7 +169,7 @@ bool CntrACarona::aprExcluir(Usuario *current_user) throw (runtime_error) {
     // Apresentar tela de exclusao
     while (true) {
         TelaCarona tc;
-        if (tc.excluirCarona(&codCarona))
+        if (tc.pesquisarCarona(&codCarona))
             break;
         else
             tm.show("Preencha os dados corretamente!");
@@ -214,6 +215,36 @@ bool CntrACarona::aprReservar(Usuario *current_user) throw (runtime_error) {
     sucesso ? tc.mostrarReserva(conta_motorista, reserva) : tm.show("Falha na exclusao da carona!");
 
     return sucesso;
+}
+
+void CntrACarona::aprListarReservas(Usuario *current_user) throw(runtime_error) {
+    Codigo_de_carona codCarona;
+    vector<Reserva> reservas;
+    vector<Usuario> passageiros;
+    TelaMensagem tm;
+    bool sucesso;
+
+    // Apresentar tela de pesquisa de carona
+    while (true) {
+        TelaCarona tc;
+        if (tc.pesquisarCarona(&codCarona))
+            break;
+        else
+            tm.show("Preencha os dados corretamente!");
+    }
+
+    // Solicitar listagem de reserva
+    try {
+        sucesso = sCarona->pesquisarReservas(codCarona, &reservas, &passageiros);
+    } catch (runtime_error e) {
+        tm.show(e.what());
+        return;
+    }
+
+    TelaCarona tc;
+    sucesso ? tc.mostrarReservas(reservas, passageiros) : tm.show("Nenhuma reserva encontrada!");
+
+    return;
 }
 
 bool CntrACarona::aprCancelar(Usuario *current_user) throw (runtime_error) {

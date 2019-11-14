@@ -74,6 +74,7 @@ public:
     bool cadastrar(Carona&, Usuario&) throw(runtime_error);
     bool pesquisar(Carona&, vector<Carona>*, vector<Usuario>*) throw(runtime_error);
     bool reservar(Reserva*, Codigo_de_carona&, Usuario&, Conta*) throw(runtime_error);
+    bool pesquisarReservas(Codigo_de_carona&, vector<Reserva> *, vector<Usuario> *) throw(runtime_error);
     bool cancelar(Codigo_de_reserva&, Usuario&) throw(runtime_error);
     bool excluir(Codigo_de_carona&, Usuario&) throw(runtime_error);
 

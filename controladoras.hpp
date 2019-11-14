@@ -65,6 +65,7 @@ public:
     bool aprCadastrar(Usuario *) throw(runtime_error);
     void aprPesquisar() throw(runtime_error);
     bool aprReservar(Usuario *) throw(runtime_error);
+    void aprListarReservas(Usuario *) throw(runtime_error);
     bool aprCancelar(Usuario *) throw(runtime_error);
     bool aprExcluir(Usuario *) throw(runtime_error);
 

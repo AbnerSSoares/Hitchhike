@@ -527,7 +527,7 @@ void TelaCarona::mostrarCaronas(vector<Carona> caronas, vector<Usuario> motorist
     endwin();
 }
 
-bool TelaCarona::excluirCarona(Codigo_de_carona *codCarona) {
+bool TelaCarona::pesquisarCarona(Codigo_de_carona *codCarona) {
     char *titulo        = "Excluir Carona";
     char *lblCodCarona  = "Codigo da Carona: ";
     char txtCodCaronac[5];
@@ -635,6 +635,29 @@ void TelaCarona::mostrarReserva(Conta conta, Reserva reserva) {
     mvprintw(linha/2-1, coluna/6, "Codigo de banco: %s", conta.getCodigo_de_banco().getValor().c_str());
     mvprintw(linha/2+1, coluna/6, "Numero de agencia: %s", conta.getNumero_de_agencia().getValor().c_str());
     mvprintw(linha/2+3, coluna/6, "Numero de conta: %s", conta.getNumero_de_conta().getValor().c_str());
+    noecho();
+    getch();
+    echo();
+    clear();
+    endwin();
+}
+
+void TelaCarona::mostrarReservas(vector<Reserva> reservas, vector<Usuario> passageiros) {
+    char *titulo    = "Reservas encontradas";
+    int linha, coluna;
+
+    initscr();
+    int iLinha = 0;
+    getmaxyx(stdscr, linha, coluna);
+    for (int i = 0; i < reservas.size(); i++) {
+        mvprintw(linha/8+iLinha, coluna/6, "Codigo da reserva: %s", reservas.at(i).getCodigo_de_reserva().getValor().c_str());
+        mvprintw(linha/8+iLinha+1, coluna/6, "Nome do passageiro: %s", passageiros.at(i).getNome().getValor().c_str());
+        mvprintw(linha/8+iLinha+2, coluna/6, "Email do passageiro: %s", passageiros.at(i).getEmail().getValor().c_str());
+        mvprintw(linha/8+iLinha+3, coluna/6, "Preferencia de assento: %s", reservas.at(i).getAssento().getValor().c_str());
+        mvprintw(linha/8+iLinha+4, coluna/6, "Volumes de bagagem: %s", reservas.at(i).getBagagem().getValor().c_str());
+
+        iLinha += 6;
+    }
     noecho();
     getch();
     echo();

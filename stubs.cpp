@@ -162,6 +162,48 @@ bool StubSCarona::reservar(Reserva *reserva, Codigo_de_carona &codCarona, Usuari
     return true;
 }
 
+bool StubSCarona::pesquisarReservas(Codigo_de_carona &codCarona, vector<Reserva> *reservas, vector<Usuario> *passageiros) throw(runtime_error) {
+    //Apresentar dados recebidos
+
+    if (codCarona.getValor() == TRIGGER_FALHA_RES) {
+        return false;
+    } else if (codCarona.getValor() == TRIGGER_ERRO_SISTEMA_RES) {
+        throw runtime_error("Erro de sistema!");
+    }
+
+    // Simula motoristas de caronas
+    Usuario p1;
+    p1.setCpf("591.581.540-51");
+    p1.setEmail("seynon@uvt.com");
+    p1.setNome("Seynon");
+    p1.setSenha("S3nh4");
+    p1.setTelefone("55-61-111111111");
+    passageiros->push_back(p1);
+
+    Usuario p2;
+    p2.setCpf("608.596.560-55");
+    p2.setEmail("hermenegildo@uvt.com");
+    p2.setNome("Hermenegildo");
+    p2.setSenha("P3ixe");
+    p2.setTelefone("55-61-555555555");
+    passageiros->push_back(p2);
+
+    // Simula reservas
+    Reserva r1;
+    r1.setAssento("T");
+    r1.setBagagem("1");
+    r1.setCodigo_de_reserva("12345");
+    reservas->push_back(r1);
+
+    Reserva r2;
+    r2.setAssento("D");
+    r2.setBagagem("3");
+    r2.setCodigo_de_reserva("54321");
+    reservas->push_back(r2);
+
+    return true;
+}
+
 bool StubSCarona::cancelar(Codigo_de_reserva &codReserva, Usuario &current_user) throw(runtime_error) {
     //Apresentar dados recebidos
 
