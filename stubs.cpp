@@ -118,15 +118,15 @@ bool StubSCarona::reservar(Reserva *reserva, Codigo_de_carona &codCarona, Usuari
     return true;
 }
 
-bool StubSCarona::cancelar(Carona &carona, Usuario &usuario)throw(runtime_error) {
+bool StubSCarona::cancelar(Codigo_de_reserva &codReserva)throw(runtime_error) {
     //Apresentar dados recebidos
 
     cout << endl << "StubSCarona::cancelar" << endl ;
-    cout << "Nome = " << carona.getCodigo_de_carona().getValor() << endl ;
+    cout << "Nome = " << codReserva.getValor() << endl ;
 
-    if(carona.getCodigo_de_carona().getValor() == TRIGGER_FALHA_CAN) {
+    if(codReserva.getValor() == TRIGGER_FALHA_CAN) {
         return false;
-    } else if (carona.getCodigo_de_carona().getValor() == TRIGGER_ERRO_SISTEMA_CAN) {
+    } else if (codReserva.getValor() == TRIGGER_ERRO_SISTEMA_CAN) {
         throw runtime_error("Erro de sistema!");
     }
 

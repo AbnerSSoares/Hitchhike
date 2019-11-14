@@ -616,10 +616,10 @@ void TelaCarona::mostrarReserva(Conta conta, Reserva reserva) {
     endwin();
 }
 
-bool TelaCarona::cancelarReserva(Codigo_de_carona *codCarona) {
+bool TelaCarona::cancelarReserva(Codigo_de_reserva *codReserva) {
     char *titulo        = "Cancelar Reserva Carona";
-    char *lblCodCarona  = "Codigo da Carona: ";
-    char txtCodCaronac[5];
+    char *lblcodReserva = "Codigo da Reserva: ";
+    char txtcodReservac[5];
     int linha, coluna;
     bool sucesso = false;
 
@@ -629,17 +629,17 @@ bool TelaCarona::cancelarReserva(Codigo_de_carona *codCarona) {
     // Titulo
     mvprintw(2, (coluna - strlen(titulo))/2, "%s", titulo);
 
-    // Campos de pesquisa de carona
-    mvprintw(linha/8, coluna/8, "%s", lblCodCarona);
-    getstr(txtCodCaronac);
+    // Campos de pesquisa de Reserva
+    mvprintw(linha/8, coluna/8, "%s", lblcodReserva);
+    getstr(txtcodReservac);
 
-    string txtCodCarona = txtCodCaronac;
+    string txtcodReserva = txtcodReservac;
 
     int i = 2;
     try {
-        codCarona->setValor(txtCodCarona);
+        codReserva->setValor(txtcodReserva);
     } catch (...) {
-        mvprintw(linha/8 + i, (coluna)/8, "Codigo de carona Invalido!");
+        mvprintw(linha/8 + i, (coluna)/8, "Codigo de Reserva Invalido!");
         i++;
     }
 

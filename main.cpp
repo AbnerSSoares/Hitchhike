@@ -57,6 +57,7 @@ int main() {
                                 cntrACarona.aprReservar();
                                 break;
                             case 6:     // Cancelar Reserva
+                                cntrACarona.aprCancelar();
                                 break;
                             case 7:     // Descadastrar do sistema
                                 break;
@@ -74,9 +75,6 @@ int main() {
                 //     switch (ti.usuario()) {
                 //         case 1:
                 //             tc.pesquisar(&carona) ? tm.show("Dados da pesquisa corretos!") : tm.show("Falha na pesquisa de caronas!");
-                //             break;
-                //         case 5:
-                //             tc.reservar(&reserva, &codCarona) ? tm.show("Reserva realizada com sucesso!") : tm.show("Falha na reserva de carona!");
                 //             break;
                 //         case 6:
                 //             tc.cancelarReserva(&codCarona) ? tm.show("Reserva cancelada com sucesso!") : tm.show("Falha no cancelamento da reserva!");

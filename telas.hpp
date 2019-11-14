@@ -42,7 +42,7 @@ public:
     bool excluirCarona(Codigo_de_carona *);
     bool reservar(Reserva *, Codigo_de_carona *);
     void mostrarReserva(Conta, Reserva);
-    bool cancelarReserva(Codigo_de_carona *);
+    bool cancelarReserva(Codigo_de_reserva *);
 };
 
 #endif // TELAS_HPP

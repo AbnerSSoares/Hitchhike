@@ -74,7 +74,7 @@ public:
     bool cadastrar(Carona&, Usuario&) throw(runtime_error);
     Carona pesquisar(Carona&) throw(runtime_error);
     bool reservar(Reserva*, Codigo_de_carona&, Usuario&, Conta*) throw(runtime_error);
-    bool cancelar(Carona&, Usuario&) throw(runtime_error);
+    bool cancelar(Codigo_de_reserva&) throw(runtime_error);
     bool excluir(Codigo_de_carona&) throw(runtime_error);
 
 };

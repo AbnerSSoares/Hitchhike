@@ -128,7 +128,7 @@
 	<stdexcept>
 	"tu_entidades.hpp"
 
-1573737749 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.cpp
+1573738864 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.cpp
 	"stubs.hpp"
 
 1573666224 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.h
@@ -136,12 +136,12 @@
 	<stdexcept>
 	<iostream>
 
-1573737804 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\interfaces.hpp
+1573738560 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\interfaces.hpp
 	<stdexcept>
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 
-1573703066 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
+1573738085 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
 	<iostream>
 	"controladoras.hpp"
 	"stubs.hpp"
@@ -152,7 +152,7 @@
 	"tu_dominios/tu_dominios.hpp"
 	"tu_entidades/tu_entidades.hpp"
 
-1573702148 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.hpp
+1573738768 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.hpp
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 	"curses.h"
@@ -163,7 +163,7 @@
 	<stdio.h>
 	<wchar.h>
 
-1573737487 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.cpp
+1573738431 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.cpp
 	"telas.hpp"
 	<string.h>
 	<iostream>
@@ -238,13 +238,13 @@
 
 1573677656 source:c:\users\abner\documents\dev 2\hitchhike\controladoras.cpp
 
-1573737283 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.cpp
+1573738833 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.cpp
 	"controladoras.hpp"
 	"telas.hpp"
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 
-1573737822 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.hpp
+1573738578 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.hpp
 	"interfaces.hpp"
 	<stdexcept>
 	<iostream>
