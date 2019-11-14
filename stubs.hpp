@@ -38,7 +38,6 @@ public:
     //Declara��es de m�todos previstos na interface
 
     bool cadastrar(Usuario&, Conta&) throw(runtime_error);
-    void pesquisar(Usuario&) throw(runtime_error);
     bool excluir(Usuario&) throw(runtime_error);
 };
 

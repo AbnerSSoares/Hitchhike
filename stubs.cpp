@@ -47,22 +47,6 @@ bool StubSUsuario::cadastrar(Usuario &usuario, Conta &conta) throw(runtime_error
     return true;
 }
 
-void StubSUsuario::pesquisar(Usuario &usuario) throw(runtime_error) {
-
-   // Apresentar dados recebidos.
-
-    /*cout << endl << "StubSUsuario::cadastrar" << endl ;
-    cout << "Nome = " << usuario.getNome().getValor() << endl ;
-
-    if(usuario.getNome().getValor() == TRIGGER_FALHA_CAD) {
-        return false;
-    } else if (usuario.getNome().getValor() == TRIGGER_ERRO_SISTEMA_CAD) {
-        throw runtime_error("Erro de sistema");
-    }*/
-
-    return;
-}
-
 bool StubSUsuario::excluir(Usuario &usuario) throw(runtime_error) {
    // Apresentar dados recebidos.
 

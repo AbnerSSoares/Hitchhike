@@ -52,9 +52,8 @@ public:
 class ISUsuario{
 public:
     // Metodos por meio do quais sao solicitados o servioos.
-    virtual bool cadastrar(Usuario&, Conta&) throw(runtime_error)= 0;   // Cadastra um usuario
-    virtual void pesquisar(Usuario&) throw(runtime_error)= 0;           // Pesquisa um usuario
-    virtual bool excluir(Usuario&) throw(runtime_error)= 0;             // Exclui um usuario
+    virtual bool cadastrar(Usuario&, Conta&) throw(runtime_error) = 0;   // Cadastra um usuario
+    virtual bool excluir(Usuario&) throw(runtime_error) = 0;             // Exclui um usuario
 
     // Metodo destrutor virtual.
     virtual ~ISUsuario(){}
