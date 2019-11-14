@@ -43,9 +43,9 @@ int main() {
                     while (true) {
                         switch(ti.usuario()) {
                             case 1:     // Pesquisar Carona
+                                cntrACarona.aprPesquisar();
                                 break;
                             case 2:     // Cadastrar Carona
-                                // cntrACarona.aprCadastrar(usuario);
                                 cntrACarona.aprCadastrar();
                                 break;
                             case 3:     // Listar Reservas
@@ -70,22 +70,10 @@ int main() {
                     end_loop:
                         break;
                 }
-                // if (ta.autenticar(&email, &senha)) {
-                //     tm.show("Autenticacao realizada com sucesso!");
-                //     switch (ti.usuario()) {
-                //         case 1:
-                //             tc.pesquisar(&carona) ? tm.show("Dados da pesquisa corretos!") : tm.show("Falha na pesquisa de caronas!");
-                //             break;
-                //         case 6:
-                //             tc.cancelarReserva(&codCarona) ? tm.show("Reserva cancelada com sucesso!") : tm.show("Falha no cancelamento da reserva!");
-                //         default:
-                //             break;
-                //     }
-                // }
                 break;
-            /*case 3:
-                tc.pesquisar(&carona) ? tm.show("Dados da pesquisa corretos!") : tm.show("Falha na pesquisa de caronas!");
-                break;*/
+            case 3:
+                cntrACarona.aprPesquisar();
+                break;
             default:
                 break;
         }

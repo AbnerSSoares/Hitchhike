@@ -42,15 +42,15 @@
 			<Add directory="." />
 		</Linker>
 		<Unit filename="controladoras.cpp" />
-		<Unit filename="controladoras.h" />
+		<Unit filename="controladoras.hpp" />
 		<Unit filename="dominios/dominios.cpp" />
 		<Unit filename="dominios/dominios.hpp" />
 		<Unit filename="entidades/entidades.cpp" />
 		<Unit filename="entidades/entidades.hpp" />
-		<Unit filename="interfaces.h" />
+		<Unit filename="interfaces.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="stubs.cpp" />
-		<Unit filename="stubs.h" />
+		<Unit filename="stubs.hpp" />
 		<Unit filename="stubs/stubs.h" />
 		<Unit filename="telas.cpp" />
 		<Unit filename="telas.hpp" />

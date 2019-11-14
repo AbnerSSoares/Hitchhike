@@ -501,6 +501,32 @@ bool TelaCarona::pesquisar(Carona *carona) {
     return sucesso;
 }
 
+void TelaCarona::mostrarCaronas(vector<Carona> caronas, vector<Usuario> motoristas) {
+    char *titulo    = "Caronas encontradas";
+    int linha, coluna;
+
+    initscr();
+    int iLinha = 0;
+    getmaxyx(stdscr, linha, coluna);
+    for (int i = 0; i < caronas.size(); i++) {
+        mvprintw(linha/8+iLinha, coluna/6, "Codigo da carona: %s", caronas.at(i).getCodigo_de_carona().getValor().c_str());
+        mvprintw(linha/8+iLinha+1, coluna/6, "Nome do motorista: %s", motoristas.at(i).getNome().getValor().c_str());
+        mvprintw(linha/8+iLinha+2, coluna/6, "Telefone do motorista: %s", motoristas.at(i).getTelefone().getValor().c_str());
+        mvprintw(linha/8+iLinha+3, coluna/6, "Email do motorista: %s", motoristas.at(i).getEmail().getValor().c_str());
+        mvprintw(linha/8+iLinha+4, coluna/6, "Data de partida: %s", caronas.at(i).getData().getValor().c_str());
+        mvprintw(linha/8+iLinha+5, coluna/6, "Duracao do trajeto: %s", caronas.at(i).getDuracao().getValor().c_str());
+        mvprintw(linha/8+iLinha+6, coluna/6, "Numero de vagas: %s", caronas.at(i).getVagas().getValor().c_str());
+        mvprintw(linha/8+iLinha+7, coluna/6, "Preco: %s", caronas.at(i).getPreco().getValor().c_str());
+
+        iLinha += 9;
+    }
+    noecho();
+    getch();
+    echo();
+    clear();
+    endwin();
+}
+
 bool TelaCarona::excluirCarona(Codigo_de_carona *codCarona) {
     char *titulo        = "Excluir Carona";
     char *lblCodCarona  = "Codigo da Carona: ";

@@ -84,18 +84,57 @@ bool StubSCarona::cadastrar(Carona &carona, Usuario &usuario) throw(runtime_erro
     return true;
 }
 
-Carona StubSCarona::pesquisar(Carona &carona)throw(runtime_error) {
+bool StubSCarona::pesquisar(Carona &carona, vector<Carona> *caronas, vector<Usuario> *motoristas) throw(runtime_error) {
     //Apresentar dados recebidos
 
-    /*cout << endl << "StubSCarona::pesquisar" << endl ;
-    cout << "Nome = " << carona.getCidadeOrigem().getValor() << endl ;
-
     if (carona.getCidadeOrigem().getValor() == TRIGGER_FALHA_PES) {
-        return NULL;
+        return false;
     } else if (carona.getCidadeOrigem().getValor() == TRIGGER_ERRO_SISTEMA_PES) {
         throw runtime_error("Erro de sistema!");
     }
-    return carona;*/
+
+    // Simula motoristas de caronas
+    Usuario m1;
+    m1.setCpf("591.581.540-51");
+    m1.setEmail("juris@uvt.com");
+    m1.setNome("Jurandismar");
+    m1.setSenha("S3nh4");
+    m1.setTelefone("55-61-999999999");
+    motoristas->push_back(m1);
+
+    Usuario m2;
+    m2.setCpf("608.596.560-55");
+    m2.setEmail("hermenegildo@uvt.com");
+    m2.setNome("Hermenegildo");
+    m2.setSenha("P3ixe");
+    m2.setTelefone("55-61-555555555");
+    motoristas->push_back(m2);
+
+    // Simula caronas
+    Carona c1;
+    c1.setCodigo_de_carona("0123");
+    c1.setCidade_origem(carona.getCidadeOrigem().getValor());
+    c1.setCidade_destino(carona.getCidadedestino().getValor());
+    c1.setEstado_origem(carona.getEstado_origem().getValor());
+    c1.setEstado_destino(carona.getEstado_destino().getValor());
+    c1.setData(carona.getData().getValor());
+    c1.setVagas("3");
+    c1.setDuracao("22");
+    c1.setPreco("550,00");
+    caronas->push_back(c1);
+
+    Carona c2;
+    c2.setCodigo_de_carona("4735");
+    c2.setCidade_origem(carona.getCidadeOrigem().getValor());
+    c2.setCidade_destino(carona.getCidadedestino().getValor());
+    c2.setEstado_origem(carona.getEstado_origem().getValor());
+    c2.setEstado_destino(carona.getEstado_destino().getValor());
+    c2.setData(carona.getData().getValor());
+    c2.setVagas("4");
+    c2.setDuracao("48");
+    c2.setPreco("360,99");
+    caronas->push_back(c2);
+    return true;
 }
 
 bool StubSCarona::reservar(Reserva *reserva, Codigo_de_carona &codCarona, Usuario &usuario, Conta *conta_motorista) throw(runtime_error) {

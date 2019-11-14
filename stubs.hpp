@@ -72,7 +72,7 @@ public:
     const string TRIGGER_ERRO_SISTEMA_DEL   = "4444";
 
     bool cadastrar(Carona&, Usuario&) throw(runtime_error);
-    Carona pesquisar(Carona&) throw(runtime_error);
+    bool pesquisar(Carona&, vector<Carona>*, vector<Usuario>*) throw(runtime_error);
     bool reservar(Reserva*, Codigo_de_carona&, Usuario&, Conta*) throw(runtime_error);
     bool cancelar(Codigo_de_reserva&) throw(runtime_error);
     bool excluir(Codigo_de_carona&) throw(runtime_error);

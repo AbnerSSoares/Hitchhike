@@ -168,12 +168,37 @@ bool CntrACarona::aprCancelar() throw (runtime_error) {
         return false;
     }
 
-    TelaCarona tc;
     sucesso ? tm.show("Cancelamento realizado com sucesso!") : tm.show("Falha no cancelamento da reserva!");
 
     return sucesso;
 }
 
 void CntrACarona::aprPesquisar() throw (runtime_error) {
+    Carona carona;
+    vector<Carona> caronas;
+    vector<Usuario> motoristas;
+    TelaMensagem tm;
+    bool sucesso;
 
+    // Apresentar tela de cancelamento de reserva
+    while (true) {
+        TelaCarona tc;
+        if (tc.pesquisar(&carona))
+            break;
+        else
+            tm.show("Preencha os dados corretamente!");
+    }
+
+    // Solicitar cancelamento reserva
+    try {
+        sucesso = sCarona->pesquisar(carona, &caronas, &motoristas);
+    } catch (runtime_error e) {
+        tm.show(e.what());
+        return;
+    }
+
+    TelaCarona tc;
+    sucesso ? tc.mostrarCaronas(caronas, motoristas) : tm.show("Nenhuma carona encontrada!");
+
+    return;
 }

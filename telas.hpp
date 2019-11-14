@@ -5,6 +5,8 @@
 #include "entidades/entidades.hpp"
 #include "curses.h"
 
+using namespace std;
+
 class TelaMensagem {
 public:
     void show(const char*);
@@ -39,6 +41,7 @@ class TelaCarona {
 public:
     bool cadastrar(Carona*);
     bool pesquisar(Carona *);
+    void mostrarCaronas(vector<Carona>, vector<Usuario>);
     bool excluirCarona(Codigo_de_carona *);
     bool reservar(Reserva *, Codigo_de_carona *);
     void mostrarReserva(Conta, Reserva);
