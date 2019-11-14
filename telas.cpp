@@ -26,7 +26,7 @@ int TelaInicializacao::incializacao() {
     char* choices[] = {"Cadastrar Usuario",
                         "Autenticar Usuario",
                         "Pesquisar caronas",
-                        "Exit"};
+                        "Sair"};
 
     int n_choices = sizeof(choices) / sizeof(char *);
     option = this->montarTela(choices, n_choices);
@@ -53,7 +53,7 @@ int TelaInicializacao::montarTela(char* choices[], int n_choices) {
 	starty = (linha - HEIGHT) / 2;
 
 	attron(A_REVERSE);
-	mvprintw(23, 1, "Click on Exit to quit (Works best in a virtual console)");
+	mvprintw(23, 1, "Clique em Sair para sair.");
 	refresh();
 	attroff(A_REVERSE);
 

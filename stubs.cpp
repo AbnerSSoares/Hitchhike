@@ -69,7 +69,7 @@ bool StubSUsuario::excluir(Usuario &usuario) throw(runtime_error) {
 
     return true;
 }
-bool StubSCarona::cadastrar(Carona &carona, Usuario &usuario)throw(runtime_error) {
+bool StubSCarona::cadastrar(Carona &carona, Usuario &usuario) throw(runtime_error) {
     //Apresentar dados recebidos
 
     cout << endl << "StubSCarona::cadastrar" << endl ;
@@ -78,7 +78,7 @@ bool StubSCarona::cadastrar(Carona &carona, Usuario &usuario)throw(runtime_error
     if(carona.getCodigo_de_carona().getValor() == TRIGGER_FALHA_CAD) {
         return false;
     } else if (carona.getCodigo_de_carona().getValor() == TRIGGER_ERRO_SISTEMA_CAD) {
-        throw runtime_error("Erro de sistema");
+        throw runtime_error("Erro de sistema!");
     }
 
     return true;
@@ -93,9 +93,9 @@ Carona StubSCarona::pesquisar(Carona &carona)throw(runtime_error) {
     if(carona.getCidadeOrigem().getValor() == TRIGGER_FALHA_PES) {
         return NULL;
     } else if (carona.getCidadeOrigem().getValor() == TRIGGER_ERRO_SISTEMA_PES) {
-        throw runtime_error("Erro de sistema");
-    }*/
-    return carona;
+        throw runtime_error("Erro de sistema!");
+    }
+    return carona;*/
 }
 
 bool StubSCarona::reservar(Carona &carona, Usuario &usuario)throw(runtime_error) {
@@ -107,7 +107,7 @@ bool StubSCarona::reservar(Carona &carona, Usuario &usuario)throw(runtime_error)
     if(carona.getCodigo_de_carona().getValor() == TRIGGER_FALHA_RES) {
         return false;
     } else if (carona.getCodigo_de_carona().getValor() == TRIGGER_ERRO_SISTEMA_RES) {
-        throw runtime_error("Erro de sistema");
+        throw runtime_error("Erro de sistema!");
     }
 
     return true;
@@ -122,7 +122,7 @@ bool StubSCarona::cancelar(Carona &carona, Usuario &usuario)throw(runtime_error)
     if(carona.getCodigo_de_carona().getValor() == TRIGGER_FALHA_CAN) {
         return false;
     } else if (carona.getCodigo_de_carona().getValor() == TRIGGER_ERRO_SISTEMA_CAN) {
-        throw runtime_error("Erro de sistema");
+        throw runtime_error("Erro de sistema!");
     }
 
     return true;

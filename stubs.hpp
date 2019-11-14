@@ -45,8 +45,8 @@ public:
 class StubSCarona : public ISCarona{
 public:
 
-    // Defini��es de valores a serem usados como gatilhos para notifica��es de erros.
-    //Gatilho para cadastramento ser� o c�digo de carona
+    // Definicoes de valores a serem usados como gatilhos para notificacoes de erros.
+    //Gatilho para cadastramento sera o codigo de carona
 
     const string TRIGGER_FALHA_CAD        = "9999";
     const string TRIGGER_ERRO_SISTEMA_CAD = "0000";

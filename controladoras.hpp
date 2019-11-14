@@ -13,15 +13,15 @@ private:
     ISAutenticacao *sAutenticacao;
 
 public:
-    // M�todo por meio do qual � solicitado o servi�o.
+    // Metodo por meio do qual é solicitado o servico.
     bool autenticar() throw(runtime_error);
 
-    // M�todo por meio do qual � estabelecida liga��o (link) com a controladora na camada de servi�o.
+    // Metodo por meio do qual é estabelecida ligacao (link) com a controladora na camada de servico.
     void setLinkAut(ISAutenticacao *ref) {
         this->sAutenticacao = ref;
     }
 
-    // M�todo destrutor
+    // Metodo destrutor
     ~CntrAAutenticacao(){}
 };
 
@@ -30,16 +30,16 @@ private:
     ISUsuario *sUsuario;
 
 public:
-    //M�todos de usu�rios
+    //Metodos de usuarios
     bool aprCadastrar() throw(runtime_error);
     bool aprExcluir() throw(runtime_error);
 
-    // M�todo por meio do qual � estabelecida liga��o (link) com a controladora na camada de servi�o.
+    // Metodo por meio do qual é estabelecida ligacao (link) com a controladora na camada de servico.
     void setLinkUsu(ISUsuario *ref) {
         this->sUsuario = ref;
     }
 
-    // M�todo destrutor
+    // Metodo destrutor
     ~CntrAUsuario(){}
 };
 
@@ -48,19 +48,19 @@ private:
     ISCarona *sCarona;
 
 public:
-    //M�todos de carona
+    //Metodos de carona
     bool aprCadastrar() throw(runtime_error);
     void aprPesquisar() throw(runtime_error);
     bool aprReservar() throw(runtime_error);
     bool aprCancelar() throw(runtime_error);
     bool aprExcluir() throw(runtime_error);
 
-    // M�todo por meio do qual � estabelecida liga��o (link) com a controladora na camada de servi�o.
+    // Metodo por meio do qual é estabelecida ligacao (link) com a controladora na camada de servico.
     void setLinkCar(ISCarona *ref) {
         this->sCarona = ref;
     }
 
-    // M�todo destrutor virtual.
+    // Metodo destrutor virtual.
     ~CntrACarona(){}
 };
 

@@ -128,7 +128,7 @@
 	<stdexcept>
 	"tu_entidades.hpp"
 
-1573694472 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.cpp
+1573698930 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.cpp
 	"stubs.hpp"
 
 1573666224 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\stubs.h
@@ -136,12 +136,12 @@
 	<stdexcept>
 	<iostream>
 
-1573690714 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\interfaces.hpp
+1573698976 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\interfaces.hpp
 	<stdexcept>
 	"dominios/dominios.hpp"
 	"entidades/entidades.hpp"
 
-1573696140 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
+1573698456 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\main.cpp
 	<iostream>
 	"controladoras.hpp"
 	"stubs.hpp"
@@ -163,7 +163,7 @@
 	<stdio.h>
 	<wchar.h>
 
-1573695821 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.cpp
+1573696810 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\telas.cpp
 	"telas.hpp"
 	<string.h>
 	<iostream>
@@ -238,7 +238,7 @@
 
 1573677656 source:c:\users\abner\documents\dev 2\hitchhike\controladoras.cpp
 
-1573694231 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.cpp
+1573698712 source:c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.cpp
 	"controladoras.hpp"
 	"telas.hpp"
 	"dominios/dominios.hpp"
@@ -249,7 +249,7 @@
 	<stdexcept>
 	<iostream>
 
-1573691294 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.hpp
+1573698462 c:\users\kalle\documents\unb\4_semestre\tp1\trabalho\hitchhike\controladoras.hpp
 	<stdexcept>
 	"interfaces.hpp"
 

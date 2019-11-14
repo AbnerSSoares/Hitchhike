@@ -60,3 +60,46 @@ bool CntrAAutenticacao::autenticar() throw(runtime_error) {
 
     return sucesso;
 }
+
+bool CntrACarona::aprCadastrar() throw (runtime_error) {
+    Carona carona;
+    Usuario user;       // temp
+    TelaMensagem tm;
+    bool sucesso;
+
+    // Apresentar tela de autenticacao
+    while (true) {
+        TelaCarona tc;
+        if (tc.cadastrar(&carona))
+            break;
+        else
+            tm.show("Preencha os dados corretamente!");
+    }
+
+    // Solicitar autenticacao
+    try {
+        sucesso = sCarona->cadastrar(carona, user);
+    } catch (runtime_error e) {
+        tm.show(e.what());
+        return false;
+    }
+    sucesso ? tm.show("Cadastramento realizado com sucesso!") : tm.show("Falha no cadastramento da carona!");
+
+    return sucesso;
+}
+
+bool CntrACarona::aprCancelar() throw (runtime_error) {
+
+}
+
+bool CntrACarona::aprExcluir() throw (runtime_error) {
+
+}
+
+void CntrACarona::aprPesquisar() throw (runtime_error) {
+
+}
+
+bool CntrACarona::aprReservar() throw (runtime_error) {
+
+}

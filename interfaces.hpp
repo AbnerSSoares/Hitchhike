@@ -63,6 +63,7 @@ public:
 class IACarona{
 public:
     //M�todos de carona
+    // virtual bool aprCadastrar(Usuario) throw(runtime_error) = 0;
     virtual bool aprCadastrar() throw(runtime_error) = 0;
     virtual void aprPesquisar() throw(runtime_error) = 0;
     virtual bool aprReservar() throw(runtime_error) = 0;
@@ -79,11 +80,11 @@ public:
 class ISCarona{
 public:
     // M�todos por meio do quais s�o solicitados o servi�os.
-    virtual bool cadastrar(Carona&, Usuario&) throw(runtime_error) = 0;       //Cadastra uma carona
+    virtual bool cadastrar(Carona&, Usuario&) throw(runtime_error) = 0;     //Cadastra uma carona
     virtual Carona pesquisar(Carona&) throw(runtime_error) = 0;             //Pesquisa caronas
-    virtual bool reservar(Carona&, Usuario&) throw(runtime_error) = 0;        //Realiza uma reserva de carona
-    virtual bool cancelar(Carona&, Usuario&) throw(runtime_error) = 0;        //Cancela a reserva de carona
-    virtual bool excluir(Codigo_de_carona&) throw(runtime_error) = 0;        //Exclui uma carona
+    virtual bool reservar(Carona&, Usuario&) throw(runtime_error) = 0;      //Realiza uma reserva de carona
+    virtual bool cancelar(Carona&, Usuario&) throw(runtime_error) = 0;      //Cancela a reserva de carona
+    virtual bool excluir(Codigo_de_carona&) throw(runtime_error) = 0;       //Exclui uma carona
 
     //M�todo destrutor virtual
     virtual ~ISCarona(){}

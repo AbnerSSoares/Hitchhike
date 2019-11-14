@@ -15,17 +15,17 @@ int main() {
     /* Build */
     // Apresentação
     CntrAAutenticacao cntrAAutenticacao;
-    //CntrACarona cntrACarona;
+    CntrACarona cntrACarona;
     CntrAUsuario cntrAUsuario;
 
     // Serviço
     StubSAutenticacao sAutenticacao;
-    //StubSCarona sCarona;
+    StubSCarona sCarona;
     StubSUsuario sUsuario;
 
     // Links
     cntrAAutenticacao.setLinkAut(&sAutenticacao);
-    //cntrACarona.setLinkCar(&sCarona);
+    cntrACarona.setLinkCar(&sCarona);
     cntrAUsuario.setLinkUsu(&sUsuario);
 
     /* Tela inicialização */
@@ -45,8 +45,10 @@ int main() {
                             case 1:     // Pesquisar Carona
                                 break;
                             case 2:     // Cadastrar Carona
+                                // cntrACarona.aprCadastrar(usuario);
+                                cntrACarona.aprCadastrar();
                                 break;
-                            case 3:     //
+                            case 3:     // Listar Reservas
                                 break;
                             case 4:     // Excluir Carona
                                 break;
@@ -85,8 +87,6 @@ int main() {
                 //         default:
                 //             break;
                 //     }
-                // } else {
-                //     tm.show("Falha na autenticacao do usuario!");
                 // }
                 break;
             /*case 3:
