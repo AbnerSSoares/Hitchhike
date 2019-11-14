@@ -82,7 +82,7 @@ public:
     // M�todos por meio do quais s�o solicitados o servi�os.
     virtual bool cadastrar(Carona&, Usuario&) throw(runtime_error) = 0;         //Cadastra uma carona
     virtual Carona pesquisar(Carona&) throw(runtime_error) = 0;                 //Pesquisa caronas
-    virtual bool reservar(Reserva&, Codigo_de_carona&, Usuario&, Conta*) throw(runtime_error) = 0;  //Realiza uma reserva de carona
+    virtual bool reservar(Reserva*, Codigo_de_carona&, Usuario&, Conta*) throw(runtime_error) = 0;  //Realiza uma reserva de carona
     virtual bool cancelar(Carona&, Usuario&) throw(runtime_error) = 0;          //Cancela a reserva de carona
     virtual bool excluir(Codigo_de_carona&) throw(runtime_error) = 0;           //Exclui uma carona
 

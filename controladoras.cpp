@@ -56,7 +56,8 @@ bool CntrAAutenticacao::aprAutenticar() throw(runtime_error) {
         tm.show(e.what());
         return false;
     }
-    sucesso ? tm.show("Autenticacao realizada com sucesso!") : tm.show("Falha na autenticacao do usuario!");
+    if (!sucesso)
+        tm.show("Falha na autenticacao do usuario!");
 
     return sucesso;
 }
@@ -133,7 +134,7 @@ bool CntrACarona::aprReservar() throw (runtime_error) {
 
     // Solicitar reserva
     try {
-        sucesso = sCarona->reservar(reserva, codCarona, user, &conta_motorista);
+        sucesso = sCarona->reservar(&reserva, codCarona, user, &conta_motorista);
     } catch (runtime_error e) {
         tm.show(e.what());
         return false;

@@ -98,7 +98,7 @@ Carona StubSCarona::pesquisar(Carona &carona)throw(runtime_error) {
     return carona;*/
 }
 
-bool StubSCarona::reservar(Reserva &reserva, Codigo_de_carona &codCarona, Usuario &usuario, Conta *conta_motorista) throw(runtime_error) {
+bool StubSCarona::reservar(Reserva *reserva, Codigo_de_carona &codCarona, Usuario &usuario, Conta *conta_motorista) throw(runtime_error) {
     //Apresentar dados recebidos
 
     if (codCarona.getValor() == TRIGGER_FALHA_RES) {
@@ -106,6 +106,9 @@ bool StubSCarona::reservar(Reserva &reserva, Codigo_de_carona &codCarona, Usuari
     } else if (codCarona.getValor() == TRIGGER_ERRO_SISTEMA_RES) {
         throw runtime_error("Erro de sistema!");
     }
+
+    // Simula geração de codigo de carona
+    reserva->setCodigo_de_reserva("12345");
 
     // Simula conta do motorista
     conta_motorista->setCodigo_de_banco("123");

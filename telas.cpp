@@ -605,10 +605,10 @@ void TelaCarona::mostrarReserva(Conta conta, Reserva reserva) {
 
     initscr();
     getmaxyx(stdscr, linha, coluna);
-    mvprintw(linha/2-3, coluna/6, "Codigo de reserva: %s", reserva.getCodigo_de_reserva());
-    mvprintw(linha/2-1, coluna/6, "Codigo de banco: %s", conta.getCodigo_de_banco());
-    mvprintw(linha/2+1, coluna/6, "Numero de agencia: %s", conta.getNumero_de_agencia());
-    mvprintw(linha/2+3, coluna/6, "Numero de conta: %s", conta.getNumero_de_conta());
+    mvprintw(linha/2-3, coluna/6, "Codigo de reserva: %s", reserva.getCodigo_de_reserva().getValor().c_str());
+    mvprintw(linha/2-1, coluna/6, "Codigo de banco: %s", conta.getCodigo_de_banco().getValor().c_str());
+    mvprintw(linha/2+1, coluna/6, "Numero de agencia: %s", conta.getNumero_de_agencia().getValor().c_str());
+    mvprintw(linha/2+3, coluna/6, "Numero de conta: %s", conta.getNumero_de_conta().getValor().c_str());
     noecho();
     getch();
     echo();
