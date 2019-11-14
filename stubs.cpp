@@ -16,7 +16,7 @@ bool StubSAutenticacao::autenticar(const Email &email, const Senha &senha) throw
     if(email.getValor() == TRIGGER_FALHA) {
         return false;
     } else if (email.getValor() == TRIGGER_ERRO_SISTEMA) {
-        throw runtime_error("Erro de sistema");
+        throw runtime_error("Erro de sistema!");
     }
 
     return true;
@@ -32,7 +32,7 @@ bool StubSUsuario::cadastrar(Usuario &usuario, Conta &conta) throw(runtime_error
     if(usuario.getNome().getValor() == TRIGGER_FALHA_CAD) {
         return false;
     } else if (usuario.getNome().getValor() == TRIGGER_ERRO_SISTEMA_CAD) {
-        throw runtime_error("Erro de sistema");
+        throw runtime_error("Erro de sistema!");
     }
 
     return true;

@@ -7,7 +7,7 @@
 
 class TelaMensagem {
 public:
-    void show(char*);
+    void show(const char*);
 };
 
 class TelaInicializacao {

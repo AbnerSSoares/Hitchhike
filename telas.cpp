@@ -7,7 +7,15 @@ using namespace std;
 
 int TelaInicializacao::usuario() {
     int option = -1;
-    char* choices[] = {"Pesquisar Caronas", "Cadastrar Carona", "Listar reservas de carona", "Descadastrar Carona", "Reservar Carona", "Cancelar Reserva de carona", "Descadastrar do sistema"};
+    char* choices[] = {"Pesquisar Caronas",
+                        "Cadastrar Carona",
+                        "Listar reservas de carona",
+                        "Descadastrar Carona",
+                        "Reservar Carona",
+                        "Cancelar Reserva de carona",
+                        "Descadastrar do sistema",
+                        "Sair"};
+
     int n_choices = sizeof(choices) / sizeof(char *);
     option = this->montarTela(choices, n_choices);
     return option;
@@ -15,7 +23,11 @@ int TelaInicializacao::usuario() {
 
 int TelaInicializacao::incializacao() {
     int option = -1;
-    char* choices[] = {"Cadastrar Usuario", "Autenticar Usuario", "Pesquisar caronas", "Exit"};
+    char* choices[] = {"Cadastrar Usuario",
+                        "Autenticar Usuario",
+                        "Pesquisar caronas",
+                        "Exit"};
+
     int n_choices = sizeof(choices) / sizeof(char *);
     option = this->montarTela(choices, n_choices);
     return option;
@@ -24,19 +36,21 @@ int TelaInicializacao::incializacao() {
 int TelaInicializacao::montarTela(char* choices[], int n_choices) {
     int acao = -1;
     int c, choice = 0;
-    int HEIGHT = 10, WIDTH = 30;
+    int HEIGHT = 12, WIDTH = 30;
+    int linha, coluna;
 	WINDOW *menu_win;
 	MEVENT event;
 
 	/* Initialize curses */
 	initscr();
+	getmaxyx(stdscr, linha, coluna);
 	clear();
 	noecho();
 	cbreak();	//Line buffering disabled. pass on everything
 
 	/* Try to put the window in the middle of screen */
-	startx = (80 - WIDTH) / 2;
-	starty = (24 - HEIGHT) / 2;
+	startx = (coluna - WIDTH) / 2;
+	starty = (linha - HEIGHT) / 2;
 
 	attron(A_REVERSE);
 	mvprintw(23, 1, "Click on Exit to quit (Works best in a virtual console)");
@@ -107,7 +121,7 @@ void TelaInicializacao::report_choice(int mouse_x, int mouse_y, int *p_choice, c
 		}
 }
 
-void TelaMensagem::show(char *mensagem) {
+void TelaMensagem::show(const char *mensagem) {
     int linha, coluna;
     initscr();
     getmaxyx(stdscr, linha, coluna);
