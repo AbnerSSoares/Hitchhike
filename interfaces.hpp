@@ -16,7 +16,7 @@ class ISCarona;
 class IAAutenticacao {
 public:
     // Metodo por meio do qual e solicitado o servioo.
-    virtual bool aprAutenticar() throw(runtime_error) = 0;
+    virtual bool aprAutenticar(Usuario *) throw(runtime_error) = 0;
 
     // Metodo por meio do qual e estabelecida ligacao (link) com a controladora na camada de servioo.
     virtual void setLinkAut(ISAutenticacao *) = 0;
@@ -30,7 +30,7 @@ public:
 class ISAutenticacao {
 public:
     // Metodo por meio do qual e solicitado o servioo.
-    virtual bool autenticar(const Email&, const Senha&) throw(runtime_error) = 0;
+    virtual bool autenticar(const Email&, const Senha&, Usuario *) throw(runtime_error) = 0;
 
     // Metodo destrutor virtual.
     virtual ~ISAutenticacao(){}
@@ -40,7 +40,7 @@ class IAUsuario {
 public:
     //Metodos de usuarios
     virtual bool aprCadastrar() throw(runtime_error) = 0;
-    virtual bool aprExcluir() throw(runtime_error) = 0;
+    virtual bool aprExcluir(Usuario *) throw(runtime_error) = 0;
 
     // Metodo por meio do qual e estabelecida ligacao (link) com a controladora na camada de servioo.
     virtual void setLinkUsu(ISUsuario *) = 0;
@@ -63,12 +63,11 @@ public:
 class IACarona{
 public:
     //Metodos de carona
-    // virtual bool aprCadastrar(Usuario) throw(runtime_error) = 0;
-    virtual bool aprCadastrar() throw(runtime_error) = 0;
+    virtual bool aprCadastrar(Usuario *) throw(runtime_error) = 0;
     virtual void aprPesquisar() throw(runtime_error) = 0;
-    virtual bool aprReservar() throw(runtime_error) = 0;
-    virtual bool aprCancelar() throw(runtime_error) = 0;
-    virtual bool aprExcluir() throw(runtime_error) = 0;
+    virtual bool aprReservar(Usuario *) throw(runtime_error) = 0;
+    virtual bool aprCancelar(Usuario *) throw(runtime_error) = 0;
+    virtual bool aprExcluir(Usuario *) throw(runtime_error) = 0;
 
     // Metodo por meio do qual e estabelecida ligacao (link) com a controladora na camada de servioo.
     virtual void setLinkCar(ISCarona *) = 0;
@@ -83,9 +82,8 @@ public:
     virtual bool cadastrar(Carona&, Usuario&) throw(runtime_error) = 0;         //Cadastra uma carona
     virtual bool pesquisar(Carona&, vector<Carona>*, vector<Usuario>*) throw(runtime_error) = 0;    //Pesquisa caronas
     virtual bool reservar(Reserva*, Codigo_de_carona&, Usuario&, Conta*) throw(runtime_error) = 0;  //Realiza uma reserva de carona
-    // virtual bool cancelar(Carona&, Usuario&) throw(runtime_error) = 0;          //Cancela a reserva de carona
-    virtual bool cancelar(Codigo_de_reserva&) throw(runtime_error) = 0;          //Cancela a reserva de carona
-    virtual bool excluir(Codigo_de_carona&) throw(runtime_error) = 0;           //Exclui uma carona
+    virtual bool cancelar(Codigo_de_reserva&, Usuario&) throw(runtime_error) = 0;          //Cancela a reserva de carona
+    virtual bool excluir(Codigo_de_carona&, Usuario&) throw(runtime_error) = 0;           //Exclui uma carona
 
     //Metodo destrutor virtual
     virtual ~ISCarona(){}

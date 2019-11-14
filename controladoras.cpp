@@ -5,6 +5,7 @@
 
 void CntrAInicializacao::aprInicial() throw(runtime_error) {
     TelaInicializacao ti;
+    Usuario *current_user = new Usuario();
 
     while (true) {
         switch(ti.incializacao()) {
@@ -14,8 +15,8 @@ void CntrAInicializacao::aprInicial() throw(runtime_error) {
                 this->aUsuario->aprCadastrar();
                 break;
             case 2:
-                if (this->aAutenticacao->aprAutenticar())
-                    this->aprUsuario();
+                if (this->aAutenticacao->aprAutenticar(current_user))
+                    this->aprUsuario(current_user);
                 break;
             case 3:
                 this->aCarona->aprPesquisar();
@@ -26,7 +27,7 @@ void CntrAInicializacao::aprInicial() throw(runtime_error) {
     }
 }
 
-void CntrAInicializacao::aprUsuario() throw(runtime_error) {
+void CntrAInicializacao::aprUsuario(Usuario *current_user) throw(runtime_error) {
     TelaInicializacao ti;
 
     while (true) {
@@ -35,21 +36,21 @@ void CntrAInicializacao::aprUsuario() throw(runtime_error) {
                 this->aCarona->aprPesquisar();
                 break;
             case 2:     // Cadastrar Carona
-                this->aCarona->aprCadastrar();
+                this->aCarona->aprCadastrar(current_user);
                 break;
             case 3:     // Listar Reservas
                 break;
             case 4:     // Excluir Carona
-                this->aCarona->aprExcluir();
+                this->aCarona->aprExcluir(current_user);
                 break;
             case 5:     // Reservar Carona
-                this->aCarona->aprReservar();
+                this->aCarona->aprReservar(current_user);
                 break;
             case 6:     // Cancelar Reserva
-                this->aCarona->aprCancelar();
+                this->aCarona->aprCancelar(current_user);
                 break;
             case 7:     // Descadastrar do sistema
-                if (this->aUsuario->aprExcluir())
+                if (this->aUsuario->aprExcluir(current_user))
                     goto end_loop;
                 break;
             case -1:    // Sair
@@ -89,23 +90,23 @@ bool CntrAUsuario::aprCadastrar() throw(runtime_error) {
     return sucesso;
 }
 
-bool CntrAUsuario::aprExcluir() throw(runtime_error) {
-    Usuario user;  // temp
+bool CntrAUsuario::aprExcluir(Usuario *current_user) throw(runtime_error) {
     TelaMensagem tm;
     bool sucesso;
 
     // Solicitar exclusao
     try {
-        sucesso = sUsuario->excluir(user);
+        sucesso = sUsuario->excluir(*current_user);
     } catch (runtime_error e) {
         tm.show(e.what());
     }
+
     sucesso ? tm.show("Conta excluida com sucesso!") : tm.show("Falha no descadastramento!");
 
     return sucesso;
 }
 
-bool CntrAAutenticacao::aprAutenticar() throw(runtime_error) {
+bool CntrAAutenticacao::aprAutenticar(Usuario *current_user) throw(runtime_error) {
     Email email;
     Senha senha;
     TelaMensagem tm;
@@ -122,7 +123,7 @@ bool CntrAAutenticacao::aprAutenticar() throw(runtime_error) {
 
     // Solicitar autenticacao
     try {
-        sucesso = sAutenticacao->autenticar(email, senha);
+        sAutenticacao->autenticar(email, senha, current_user) ? sucesso = true : sucesso = false;
     } catch (runtime_error e) {
         tm.show(e.what());
         return false;
@@ -133,9 +134,8 @@ bool CntrAAutenticacao::aprAutenticar() throw(runtime_error) {
     return sucesso;
 }
 
-bool CntrACarona::aprCadastrar() throw (runtime_error) {
+bool CntrACarona::aprCadastrar(Usuario *current_user) throw (runtime_error) {
     Carona carona;
-    Usuario user;       // temp
     TelaMensagem tm;
     bool sucesso;
 
@@ -150,7 +150,7 @@ bool CntrACarona::aprCadastrar() throw (runtime_error) {
 
     // Solicitar cadastro
     try {
-        sucesso = sCarona->cadastrar(carona, user);
+        sucesso = sCarona->cadastrar(carona, *current_user);
     } catch (runtime_error e) {
         tm.show(e.what());
         return false;
@@ -160,7 +160,7 @@ bool CntrACarona::aprCadastrar() throw (runtime_error) {
     return sucesso;
 }
 
-bool CntrACarona::aprExcluir() throw (runtime_error) {
+bool CntrACarona::aprExcluir(Usuario *current_user) throw (runtime_error) {
     Codigo_de_carona codCarona;
     TelaMensagem tm;
     bool sucesso;
@@ -176,7 +176,7 @@ bool CntrACarona::aprExcluir() throw (runtime_error) {
 
     // Solicitar exclusao
     try {
-        sucesso = sCarona->excluir(codCarona);
+        sucesso = sCarona->excluir(codCarona, *current_user);
     } catch (runtime_error e) {
         tm.show(e.what());
         return false;
@@ -186,11 +186,10 @@ bool CntrACarona::aprExcluir() throw (runtime_error) {
     return sucesso;
 }
 
-bool CntrACarona::aprReservar() throw (runtime_error) {
+bool CntrACarona::aprReservar(Usuario *current_user) throw (runtime_error) {
     Reserva reserva;
     Codigo_de_carona codCarona;
     Conta conta_motorista;
-    Usuario user;      // temp
     TelaMensagem tm;
     bool sucesso;
 
@@ -205,7 +204,7 @@ bool CntrACarona::aprReservar() throw (runtime_error) {
 
     // Solicitar reserva
     try {
-        sucesso = sCarona->reservar(&reserva, codCarona, user, &conta_motorista);
+        sucesso = sCarona->reservar(&reserva, codCarona, *current_user, &conta_motorista);
     } catch (runtime_error e) {
         tm.show(e.what());
         return false;
@@ -217,7 +216,7 @@ bool CntrACarona::aprReservar() throw (runtime_error) {
     return sucesso;
 }
 
-bool CntrACarona::aprCancelar() throw (runtime_error) {
+bool CntrACarona::aprCancelar(Usuario *current_user) throw (runtime_error) {
     Codigo_de_reserva codReserva;
     TelaMensagem tm;
     bool sucesso;
@@ -233,7 +232,7 @@ bool CntrACarona::aprCancelar() throw (runtime_error) {
 
     // Solicitar cancelamento reserva
     try {
-        sucesso = sCarona->cancelar(codReserva);
+        sucesso = sCarona->cancelar(codReserva, *current_user);
     } catch (runtime_error e) {
         tm.show(e.what());
         return false;

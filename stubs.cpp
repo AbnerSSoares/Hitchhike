@@ -2,7 +2,7 @@
 
 // Definicoes de metodo da classe stub do controlador da logica de negocio de autenticacao.
 
-bool StubSAutenticacao::autenticar(const Email &email, const Senha &senha) throw(runtime_error) {
+bool StubSAutenticacao::autenticar(const Email &email, const Senha &senha, Usuario *current_user) throw(runtime_error) {
 
     // Apresentar dados recebidos.
 
@@ -13,11 +13,20 @@ bool StubSAutenticacao::autenticar(const Email &email, const Senha &senha) throw
 
     // Diferentes comportamentos dependendo do valor do email.
 
-    if(email.getValor() == TRIGGER_FALHA) {
+    if (email.getValor() == TRIGGER_FALHA) {
+        current_user = NULL;
         return false;
     } else if (email.getValor() == TRIGGER_ERRO_SISTEMA) {
+        current_user = NULL;
         throw runtime_error("Erro de sistema!");
     }
+
+    // Simula usuario encontrado na base de dados
+    current_user->setCpf("591.581.540-51");
+    current_user->setEmail(email.getValor());
+    current_user->setNome("Jurandismar");
+    current_user->setSenha(senha.getValor());
+    current_user->setTelefone("55-61-999999999");
 
     return true;
 }
@@ -56,9 +65,6 @@ void StubSUsuario::pesquisar(Usuario &usuario) throw(runtime_error) {
 
 bool StubSUsuario::excluir(Usuario &usuario) throw(runtime_error) {
    // Apresentar dados recebidos.
-
-    cout << endl << "StubSUsuario::excluir" << endl ;
-    cout << "Nome = " << usuario.getNome().getValor() << endl ;
 
     if (usuario.getEmail().getValor() == TRIGGER_FALHA_EXC) {
         return false;
@@ -156,7 +162,7 @@ bool StubSCarona::reservar(Reserva *reserva, Codigo_de_carona &codCarona, Usuari
     return true;
 }
 
-bool StubSCarona::cancelar(Codigo_de_reserva &codReserva)throw(runtime_error) {
+bool StubSCarona::cancelar(Codigo_de_reserva &codReserva, Usuario &current_user) throw(runtime_error) {
     //Apresentar dados recebidos
 
     cout << endl << "StubSCarona::cancelar" << endl ;
@@ -171,7 +177,7 @@ bool StubSCarona::cancelar(Codigo_de_reserva &codReserva)throw(runtime_error) {
     return true;
 }
 
-bool StubSCarona::excluir(Codigo_de_carona &codigo) throw(runtime_error) {
+bool StubSCarona::excluir(Codigo_de_carona &codigo, Usuario &current_user) throw(runtime_error) {
     //Apresentar dados recebidos
 
     cout << endl << "StubSCarona::excluir" << endl ;

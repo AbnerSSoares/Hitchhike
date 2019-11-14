@@ -14,12 +14,12 @@ public:
 
     // Defini��es de valores a serem usados como gatilhos para notifica��es de erros.
 
-    const string TRIGGER_FALHA        = "falha@erro.com";
-    const string TRIGGER_ERRO_SISTEMA = "sistema@erro.com";
+    const string TRIGGER_FALHA        = "falha@auth.com";
+    const string TRIGGER_ERRO_SISTEMA = "sistema@auth.com";
 
     // Declara��o de m�todo previsto na interface.
 
-    bool autenticar(const Email&, const Senha&) throw(runtime_error);
+    bool autenticar(const Email&, const Senha&, Usuario *) throw(runtime_error);
 };
 
 class StubSUsuario : public ISUsuario{
@@ -74,8 +74,8 @@ public:
     bool cadastrar(Carona&, Usuario&) throw(runtime_error);
     bool pesquisar(Carona&, vector<Carona>*, vector<Usuario>*) throw(runtime_error);
     bool reservar(Reserva*, Codigo_de_carona&, Usuario&, Conta*) throw(runtime_error);
-    bool cancelar(Codigo_de_reserva&) throw(runtime_error);
-    bool excluir(Codigo_de_carona&) throw(runtime_error);
+    bool cancelar(Codigo_de_reserva&, Usuario&) throw(runtime_error);
+    bool excluir(Codigo_de_carona&, Usuario&) throw(runtime_error);
 
 };
 #endif // STUBS_HPP
